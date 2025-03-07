@@ -1,4 +1,8 @@
 * Instalar Bibliotecas
-  - Estilos (Tailwind, Sass ou Styled Components)
+  - Estilos Material UI
+  - Testes com Cypress
+  - Axios
+
 * Preparar CI - CD
 * Verificar possibilidade de TDD
+* Montar README
