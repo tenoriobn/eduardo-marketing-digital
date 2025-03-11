@@ -1,4 +1,16 @@
+OK - Preparar CI - CD
+
 * Instalar Bibliotecas
-  - Estilos (Tailwind, Sass ou Styled Components)
-* Preparar CI - CD
+  OK - Styled Components
+  OK - Axios
+  OK - @svgr/webpack
+  OK - Cypress
+
+* Configurar Bibliotecas
+ - Theme Styled components
+ - Cypress
+ - Axios
+ - Provider Context
+
+
 * Verificar possibilidade de TDD
