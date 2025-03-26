@@ -28,9 +28,19 @@ jobs:
       - name: Run Installation
         run: npm install
 
-      # Runs a single command using the runners shell
       - name: Run Linter
         run: npm run lint
+
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Start Next.js server
+        run: |
+          nohup npm run start &
+          npx wait-on http://localhost:3000
+
+      - name: Run Test
+        run: npm run cy:run
 
       - name: Run Preview Deploy
         run: npm run deploy:preview

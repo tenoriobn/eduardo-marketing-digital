@@ -7,9 +7,9 @@ OK - Preparar CI - CD
   OK - Cypress
 
 * Configurar Bibliotecas
- - Theme Styled components
+  OK - Theme Styled components
  - Cypress
- - Axios
+ OK - Axios
  - Provider Context
 
 

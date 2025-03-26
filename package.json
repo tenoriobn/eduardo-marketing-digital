@@ -7,6 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "deploy:prod": "yarn deploy:staging --prod",
@@ -24,12 +26,14 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@svgr/webpack": "^8.1.0",
+    "@testing-library/cypress": "^10.0.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "cypress": "^14.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wait-on": "^8.0.3"
   }
 }
