@@ -33,6 +33,7 @@
     "cypress": "^14.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wait-on": "^8.0.3"
   }
 }

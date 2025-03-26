@@ -31,6 +31,14 @@ jobs:
       - name: Run Linter
         run: npm run lint
 
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Start Next.js server
+        run: |
+          nohup npm run start &
+          npx wait-on http://localhost:3000
+
       - name: Run Test
         run: npm run cy:run
 

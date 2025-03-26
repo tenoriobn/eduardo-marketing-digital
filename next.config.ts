@@ -1,8 +1,6 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  distDir: 'build',
-  output: 'export',
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
