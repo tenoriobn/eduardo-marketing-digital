@@ -1,17 +1,48 @@
-export async function getStaticProps() {
-  const year = new Date().getFullYear();
+import { pageHOC } from 'src/components/commons/wrappers/pageHOC';
+import { CMSSectionRender } from 'src/infra/cms/CMSSectionRender';
+import { cmsService } from 'src/infra/cms/cmsService';
 
-  const content = {
-    text: 'Hello, Next.js!',
-    year
-  };
+export async function getStaticProps() {
+  const { data: cmsContent } = await cmsService({
+    query: `
+      query MyQuery {
+        homePage {
+          pageContent {
+            section {
+              componentName:  __typename
+              ... on HeaderSectionRecord {
+                id
+                menuLinks {
+                  url
+                  label
+                  id
+                }
+                logo {
+                  url
+                  title
+                }
+                ctaButton {
+                  id
+                  label
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  });
 
   return {
-    props: { content },
+    props: { cmsContent },
   };
 }
 
-export default function Page({ content }: { content?: { text: string; year: number } }) {
-  if (!content) return <h1>Carregando...</h1>;
-  return <h1>{content.text} {content.year}</h1>;
+function Page() {
+  return (
+    <CMSSectionRender pageName="homePage" />
+  );
 }
+
+export default pageHOC(Page);
