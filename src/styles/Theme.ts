@@ -8,6 +8,9 @@ const Theme = {
     'darkGray': '#2D2D2D',
     'red': 'rgb(255 69 69 / 81%)',
   },
+  gradients: {
+    softLight: 'linear-gradient(80deg, rgba(255,255,255,0.14) 48%, rgba(153, 153, 153, 0.04) 100%)'
+  },
   borderRadius: {
     'rounded-3xl': '1.5rem',
     'rounded-4xl': '3rem',

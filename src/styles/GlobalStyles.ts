@@ -22,13 +22,20 @@ const GlobalStyles = createGlobalStyle`
   /* 4. Corrige a tipografia para herdar estilos */
   body {
     font-size: 16px;
-    font-family: var(--font-montserrat), sans-serif;
+    font-family: ${({ theme }) => theme.font.montserrat};
     line-height: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.red};
+    background-color: ${({ theme }) => theme.colors.darkGray};
+
+    margin: 0 auto;
+    max-width: 1200px;
+    min-height: 100vh;
+    padding: 0 1rem;
+    padding-top: 1.5rem!important;
 
     ::-webkit-scrollbar {
       width: 10px;
@@ -40,6 +47,14 @@ const GlobalStyles = createGlobalStyle`
     ::-webkit-scrollbar-thumb {
       background-color: ${({ theme }) => theme.colors.black};
       border-radius: .125rem;
+    }
+
+    @media (min-width: 768px) {
+      padding: 0 2rem;
+    }
+
+    @media (min-width: 1440px) {
+      padding: 0;
     }
   }
 

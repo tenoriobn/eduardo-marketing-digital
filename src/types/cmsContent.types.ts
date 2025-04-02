@@ -1,8 +1,8 @@
 import { CMSSectionData } from 'src/components/CMSSectionRender/cmsSectionRender.types';
-import { MenuLinkProps } from 'src/components/cmsSections/MenuLinks/menuLink.type';
+import { NavLinksProps } from 'src/components/cmsSections/NavLinks/navLinks.type';
 
 export interface CMSSection extends CMSSectionData {
-  menuLinks?: MenuLinkProps[];
+  menuLinks?: NavLinksProps[];
 }
 
 export interface CMSPageContent {

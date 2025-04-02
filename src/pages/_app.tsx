@@ -6,11 +6,11 @@ import { montserrat } from 'src/styles/Font';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={montserrat.className}>
-      <ThemeProvider theme={Theme}>
+    <>
+      <ThemeProvider theme={{...Theme, font: { montserrat: montserrat.style.fontFamily }}}>
         <GlobalStyles />
         <Component {...pageProps} />
       </ThemeProvider>
-    </main>
+    </>
   );
 }
