@@ -1,6 +1,7 @@
-import { pageHOC } from 'src/components/commons/wrappers/pageHOC';
-import { CMSSectionRender } from 'src/infra/cms/CMSSectionRender';
-import { cmsService } from 'src/infra/cms/cmsService';
+import { CMSSectionRender } from 'src/components/CMSSectionRender';
+import CMSProvider from 'src/providers/cms/CMSProvider';
+import { cmsService } from 'src/service/cmsService';
+import { CMSContent } from '../types/cmsContent.types';
 
 export async function getStaticProps() {
   const { data: cmsContent } = await cmsService({
@@ -17,15 +18,6 @@ export async function getStaticProps() {
                   label
                   id
                 }
-                logo {
-                  url
-                  title
-                }
-                ctaButton {
-                  id
-                  label
-                  url
-                }
               }
             }
           }
@@ -39,10 +31,11 @@ export async function getStaticProps() {
   };
 }
 
-function Page() {
+export default function HomePage({ cmsContent }: CMSContent) {
+
   return (
-    <CMSSectionRender pageName="homePage" />
+    <CMSProvider cmsContent={cmsContent}>
+      <CMSSectionRender pageName="homePage" />
+    </CMSProvider>
   );
 }
-
-export default pageHOC(Page);

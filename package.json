@@ -16,7 +16,6 @@
     "deploy:preview": "node ./scripts/pullRequestPreview"
   },
   "dependencies": {
-    "axios": "^1.8.2",
     "lodash": "^4.17.21",
     "next": "15.2.1",
     "node-fetch": "^3.3.2",
