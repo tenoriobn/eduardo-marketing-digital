@@ -1,17 +1,41 @@
-export async function getStaticProps() {
-  const year = new Date().getFullYear();
+import { CMSSectionRender } from 'src/components/CMSSectionRender';
+import CMSProvider from 'src/providers/cms/CMSProvider';
+import { cmsService } from 'src/service/cmsService';
+import { CMSContent } from '../types/cmsContent.types';
 
-  const content = {
-    text: 'Hello, Next.js!',
-    year
-  };
+export async function getStaticProps() {
+  const { data: cmsContent } = await cmsService({
+    query: `
+      query MyQuery {
+        homePage {
+          pageContent {
+            section {
+              componentName:  __typename
+              ... on HeaderSectionRecord {
+                id
+                menuLinks {
+                  url
+                  label
+                  id
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  });
 
   return {
-    props: { content },
+    props: { cmsContent },
   };
 }
 
-export default function Page({ content }: { content?: { text: string; year: number } }) {
-  if (!content) return <h1>Carregando...</h1>;
-  return <h1>{content.text} {content.year}</h1>;
+export default function HomePage({ cmsContent }: CMSContent) {
+
+  return (
+    <CMSProvider cmsContent={cmsContent}>
+      <CMSSectionRender pageName="homePage" />
+    </CMSProvider>
+  );
 }
