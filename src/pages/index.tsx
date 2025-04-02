@@ -13,10 +13,18 @@ export async function getStaticProps() {
               componentName:  __typename
               ... on HeaderSectionRecord {
                 id
+                logo {
+                  url
+                }
                 menuLinks {
                   url
                   label
                   id
+                }
+                ctaButton {
+                  id
+                  label
+                  url
                 }
               }
             }
