@@ -1,9 +1,11 @@
 const Theme = {
   colors: {
+    'black': '#000',
     'white': '#FFFFFF',
     'lightGray': '#EBEBEB',
     'softGray': '#D7D7D7',
     'silverGray': '#A4A4A4',
+    'silverGray-4': '#323232',
     'mediumGray': '#959595',
     'darkGray': '#2D2D2D',
     'red': 'rgb(255 69 69 / 81%)',
@@ -45,6 +47,6 @@ const Theme = {
     'margin-120': '7.5rem',
   },
   transitions: {}
-};
+} as const;
 
 export default Theme;

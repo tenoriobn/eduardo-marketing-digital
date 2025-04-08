@@ -30,7 +30,10 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-BR">
-        <Head />
+        <Head>
+          <link rel="shortcut icon" href="/icons/logo.svg" type="image/svg+xml" />
+          <meta name="theme-color" content="#2D2D2D" />
+        </Head>
         <body>
           <Main />
           <NextScript />

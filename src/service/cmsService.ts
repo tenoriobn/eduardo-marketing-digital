@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const TOKEN = process.env.DATO_TOKEN;
 
 const BASE_ENDPOINT = 'https://graphql.datocms.com/';

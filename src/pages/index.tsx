@@ -27,6 +27,20 @@ export async function getStaticProps() {
                   url
                 }
               }
+              ... on HeroSectionRecord {
+                id
+                cotent {
+                  ... on TitleHeroSectionRecord {
+                    id
+                    titlePart1 {
+                      value
+                    }
+                    titlePart2 {
+                      value
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -40,7 +54,6 @@ export async function getStaticProps() {
 }
 
 export default function HomePage({ cmsContent }: CMSContent) {
-
   return (
     <CMSProvider cmsContent={cmsContent}>
       <CMSSectionRender pageName="homePage" />
