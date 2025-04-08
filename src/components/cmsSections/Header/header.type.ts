@@ -1,14 +1,14 @@
-import { NavLink } from '../NavLinks/navLinks.type';
+import { NavLink } from './NavLinks/navLinks.type';
 
 export interface HeaderProps {
   menuLinks: NavLink[];
   logo: {
     url: string
   };
-  ctaButton: CTAButtonProps
+  ctaButton: CTAButtonComponent
 }
 
-export interface CTAButtonProps {
+export interface CTAButtonComponent {
   label: string;
   url: string
 }

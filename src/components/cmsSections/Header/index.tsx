@@ -1,39 +1,17 @@
 import Image from 'next/image';
-import NavLinks from '../NavLinks';
+import NavLinks from './NavLinks';
 import { HeaderProps } from './header.type';
-import Link from 'next/link';
 import { useState } from 'react';
 import styled from 'styled-components';
+import CTAButton from './CTAButton';
+import useWindowSize from 'src/utils/useWindowSize';
+import useResponsiveMenu from './useResponsiveMenu';
 
 const StyledHeader = styled.div`
   background: ${({ theme }) => theme.gradients.softLight};
   border-radius: 1000px;
   padding: .0625rem;
   position: relative;
-
-  .container-navbar {
-    position: absolute;
-    left: 0;
-    top: 70px;
-    background: ${({ theme }) => theme.gradients.softLight};
-    border-radius: 1.5rem;
-    padding: .0625rem;
-    width: 100%;
-
-  }
-  nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: .75rem 0;
-    background-color: ${({ theme }) => theme.colors.darkGray};
-    border-radius: 1.5rem;
-  }
-
-  .cta-button {
-    display: none;
-  }
 `;
 
 const StyledContainer = styled.div`
@@ -53,34 +31,56 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledLogo = styled(Image)`
-  width: 28px;
-  height: auto;
+const StyledContainerLogo = styled.div`
+  img {
+    width: 33px;
+    height: auto;
+  }
+
+  @media (min-width: 992px) {
+    width: 156.13px;
+  }
 `;
 
 export default function Header(props: HeaderProps) {
-  const [menuActive, setMenuActive] = useState(false);
+  const { menuActive, setMenuActive } = useResponsiveMenu();
+  const { isMobile } = useWindowSize();
 
   return (
     <StyledHeader>
       <StyledContainer>
-        <StyledLogo alt='Logo do Eduardo Marketing Digital' src={props.logo.url} width={50} height={50} />
+        <StyledContainerLogo>
+          <Image
+            alt='Logo do Eduardo Marketing Digital'
+            src={props.logo.url}
+            width={50}
+            height={50}
+          />
+        </StyledContainerLogo>
 
-        <Image
-          onClick={() => setMenuActive(!menuActive)}
-          alt='Icone do Menu Mobile'
-          src='/icons/menu.svg'
-          width={24}
-          height={16}
-        />
+        {isMobile &&
+          <Image
+            onClick={() => setMenuActive(!menuActive)}
+            alt='Icone do Menu Mobile'
+            src='/icons/menu.svg'
+            width={24}
+            height={16}
+          />
+        }
 
-        <div className='container-navbar'>
-          <NavLinks links={props.menuLinks} />
-        </div>
+        {menuActive &&
+          <NavLinks
+            links={props.menuLinks}
+            isMobile={isMobile}
+            ctaButton={{ url: props.ctaButton.url, label: props.ctaButton.label }}
+          />
+        }
 
-        <Link href={props.ctaButton.url} target='_blank' className='cta-button'>
-          {props.ctaButton.label}
-        </Link>
+        {!isMobile &&
+          <CTAButton href={props.ctaButton.url} target='_blank'>
+            {props.ctaButton.label}
+          </CTAButton>
+        }
       </StyledContainer>
     </StyledHeader>
   );
