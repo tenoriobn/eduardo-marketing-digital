@@ -15,15 +15,15 @@ function useResponsiveMenu() {
   const { isMobile } = useWindowSize();
 
   useEffect(() => {
-    if (!isMobile) {
+    if (isMobile !== undefined && !isMobile) {
       setMenuActive(true);
-    }else {
+    } else {
       setMenuActive(false);
     }
   }, [isMobile]);
 
 
-  return { menuActive, setMenuActive };
+  return { menuActive, setMenuActive, isMobile };
 }
 
 export default useResponsiveMenu;

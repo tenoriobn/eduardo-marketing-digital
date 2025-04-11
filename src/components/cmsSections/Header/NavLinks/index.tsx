@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import CTAButton from '../CTAButton';
 import { usePathname } from 'next/navigation';
 
-const StyledNavlinksContainer = styled.div`
+const StyledNavlinksContainer = styled.div<{$menuActive: Boolean}>`
   @media (max-width: 991px) {
+    display: ${({ $menuActive }) => $menuActive ? '' : 'none'};
     position: absolute;
     left: 0;
     top: 70px;
@@ -45,27 +46,34 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export default function NavLinks({ links, isMobile, ctaButton }: NavLinksProps) {
+const CTAButtonWrapperMobile = styled.div`
+  @media (min-width: 992px) {
+    display: none;
+  }
+`;
+
+export default function NavLinks({ links, ctaButton, menuActive, setMenuActive }: NavLinksProps) {
   const pathname = usePathname();
 
   return (
-    <StyledNavlinksContainer>
+    <StyledNavlinksContainer $menuActive={menuActive}>
       <StyledNav>
         {links.map((link) => (
           <StyledLink
             key={link.id}
             href={link.url}
+            onClick={() => setMenuActive(false)}
             className={`${pathname === link.url ? 'active' : ''}`}
           >
             {link.label}
           </StyledLink>
         ))}
 
-        {isMobile &&
-          <CTAButton href={ctaButton.url} target="_blank">
+        <CTAButtonWrapperMobile>
+          <CTAButton href={ctaButton.url} target="_blank" onClick={() => setMenuActive(false)}>
             {ctaButton.label}
           </CTAButton>
-        }
+        </CTAButtonWrapperMobile>
       </StyledNav>
     </StyledNavlinksContainer>
   );

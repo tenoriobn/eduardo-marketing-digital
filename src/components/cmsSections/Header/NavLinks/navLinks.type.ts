@@ -1,8 +1,10 @@
+import { Dispatch, SetStateAction } from 'react';
 import { CTAButtonProps } from '../CTAButton/ctaButton.types';
 
 export interface NavLinksProps {
   links: NavLink[]
-  isMobile: boolean;
+  menuActive: boolean;
+  setMenuActive: Dispatch<SetStateAction<boolean>>,
   ctaButton: {
     url: string;
     label: string;
