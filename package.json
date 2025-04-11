@@ -11,6 +11,7 @@
     "cy:run": "cypress run",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
     "deploy:prod": "yarn deploy:staging --prod",
     "deploy:staging": "npm run build && npx vercel --confirm --no-clipboard --token=$VERCEL_TOKEN",
     "deploy:preview": "node ./scripts/pullRequestPreview"

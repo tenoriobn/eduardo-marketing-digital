@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import NavLinks from './NavLinks';
 import { HeaderProps } from './header.type';
-import { useState } from 'react';
 import styled from 'styled-components';
+import MobileMenuIcon from 'public/icons/menu.svg';
 import CTAButton from './CTAButton';
-import useWindowSize from 'src/utils/useWindowSize';
+import NavLinks from './NavLinks';
 import useResponsiveMenu from './useResponsiveMenu';
+import { useState } from 'react';
 
 const StyledHeader = styled.div`
   background: ${({ theme }) => theme.gradients.softLight};
@@ -42,9 +42,22 @@ const StyledContainerLogo = styled.div`
   }
 `;
 
+const StyledMobileMenuIcon = styled(MobileMenuIcon)`
+  cursor: pointer;
+
+  @media (min-width: 992px) {
+    display: none;
+  }
+`;
+
+const CTAButtonWrapperDesktop = styled.div`
+  @media (max-width: 991px) {
+    display: none;
+  }
+`;
+
 export default function Header(props: HeaderProps) {
-  const { menuActive, setMenuActive } = useResponsiveMenu();
-  const { isMobile } = useWindowSize();
+  const { menuActive, setMenuActive, isMobile } = useResponsiveMenu();
 
   return (
     <StyledHeader>
@@ -58,29 +71,20 @@ export default function Header(props: HeaderProps) {
           />
         </StyledContainerLogo>
 
-        {isMobile &&
-          <Image
-            onClick={() => setMenuActive(!menuActive)}
-            alt='Icone do Menu Mobile'
-            src='/icons/menu.svg'
-            width={24}
-            height={16}
-          />
-        }
+        <StyledMobileMenuIcon onClick={() => setMenuActive(!menuActive)} />
 
-        {menuActive &&
-          <NavLinks
-            links={props.menuLinks}
-            isMobile={isMobile}
-            ctaButton={{ url: props.ctaButton.url, label: props.ctaButton.label }}
-          />
-        }
+        <NavLinks
+          links={props.menuLinks}
+          menuActive={menuActive}
+          setMenuActive={setMenuActive}
+          ctaButton={{ url: props.ctaButton.url, label: props.ctaButton.label }}
+        />
 
-        {!isMobile &&
-          <CTAButton href={props.ctaButton.url} target='_blank'>
+        <CTAButtonWrapperDesktop>
+          <CTAButton href={props.ctaButton.url} target='_blank' className='cta__button-desktop'>
             {props.ctaButton.label}
           </CTAButton>
-        }
+        </CTAButtonWrapperDesktop>
       </StyledContainer>
     </StyledHeader>
   );

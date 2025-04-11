@@ -8,5 +8,6 @@ declare module 'styled-components' {
     fontSize: typeof import('../styles/Theme').default.fontSize;
     fontWeight: typeof import('../styles/Theme').default.fontWeight;
     spacing: typeof import('../styles/Theme').default.spacing;
+    font: { montserrat: string; };
   }
 }
