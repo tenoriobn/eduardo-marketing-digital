@@ -10,11 +10,12 @@ const StyledLinkContainer = styled.div`
 `;
 
 const StyledLink = styled(Link)`
+  background-color: ${({ theme }) => theme.colors['silverGray-4']};
+  color: ${({ theme }) => theme.colors.lightGray};
+  border-radius: ${({ theme }) => theme.borderRadius['rounded-4xl']};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors['silverGray-4']};
-  border-radius: ${({ theme }) => theme.borderRadius['rounded-4xl']};
   padding: .4375rem 1rem;
 `;
 
