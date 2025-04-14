@@ -15,39 +15,38 @@ const GlobalStyles = createGlobalStyle`
 
   /* 3. Configura largura e altura padrão */
   html, body, #root {
-    height: 100%;
-    width: 100%;
-  }
-
-  /* 4. Corrige a tipografia para herdar estilos */
-  body {
+    background-color: ${({ theme }) => theme.colors.darkGray};
+    color: ${({ theme }) => theme.colors.softGray};
     font-size: 16px;
     font-family: ${({ theme }) => theme.font.montserrat};
     line-height: normal;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-
-    color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.darkGray};
-
+    height: 100%;
+    width: 100%;
     margin: 0 auto;
     max-width: 1200px;
     min-height: 100vh;
-    padding: 0 1rem;
-    padding-top: 1.5rem!important;
 
     ::-webkit-scrollbar {
       width: 10px;
     }
     ::-webkit-scrollbar-track {
-      background: ${({ theme }) => theme.colors.red};
-      border-radius: .125rem;
+      background-color: ${({ theme }) => theme.colors.lightGray};
+
     }
     ::-webkit-scrollbar-thumb {
-      background-color: ${({ theme }) => theme.colors.black};
+      background: ${({ theme }) => theme.colors.softGray};
       border-radius: .125rem;
     }
+  }
+
+  /* 4. Corrige a tipografia para herdar estilos */
+  body {
+    padding: 0 1rem;
+    padding-top: 1.5rem!important;
 
     @media (min-width: 768px) {
       padding: 0 2rem;
@@ -65,6 +64,7 @@ const GlobalStyles = createGlobalStyle`
   /* 5. Evita estouros de texto */
   h1, h2, h3, h4, h5, h6 {
     word-wrap: balance;
+    all: unset;
   }
 
   /* 6. Melhora a quebra de linha */

@@ -5,9 +5,8 @@ import MobileMenuIcon from 'public/icons/menu.svg';
 import CTAButton from './CTAButton';
 import NavLinks from './NavLinks';
 import useResponsiveMenu from './useResponsiveMenu';
-import { useState } from 'react';
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
   background: ${({ theme }) => theme.gradients.softLight};
   border-radius: 1000px;
   padding: .0625rem;
