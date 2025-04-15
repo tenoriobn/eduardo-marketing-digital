@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import { HeroSectionProps } from './heroSection.type';
+import Newsletter from './Newsletter';
 
 const StyledHeroSection = styled.section`
   margin-top: 4rem;
+  display: grid;
+  gap: 1.5rem;
 
   @media (min-width: 768px) {
     margin-top: 5rem;
@@ -64,6 +67,8 @@ export default function HeroSection({ cotent }: HeroSectionProps) {
         </span>
         <StyledStrongHighlight>{strongHighlight.value}</StyledStrongHighlight>
       </StyledTitle>
+
+      <Newsletter content={cotent[1]} />
     </StyledHeroSection>
   );
 }

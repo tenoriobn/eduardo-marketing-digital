@@ -1,22 +1,27 @@
+import { NewlestterContent } from './Newsletter/newlestter.type';
+
 export interface HeroSectionProps {
-  cotent: Array<{
-    titlePart1: {
-      value: {
-        document: {
-          children: Array<{
-            children: { value: string }[];
-          }>;
+  cotent: [
+    {
+      titlePart1: {
+        value: {
+          document: {
+            children: {
+              children: { value: string }[];
+            }[];
+          };
         };
       };
-    };
-    titlePart2: {
-      value: {
-        document: {
-          children: Array<{
-            children: { value: string }[];
-          }>;
+      titlePart2: {
+        value: {
+          document: {
+            children: {
+              children: { value: string }[];
+            }[];
+          };
         };
       };
-    };
-  }>;
+    },
+    NewlestterContent
+  ];
 }

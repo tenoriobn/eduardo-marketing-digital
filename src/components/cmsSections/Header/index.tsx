@@ -8,7 +8,7 @@ import useResponsiveMenu from './useResponsiveMenu';
 
 const StyledHeader = styled.header`
   background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 1000px;
+  border-radius: 62.5rem;
   padding: .0625rem;
   position: relative;
 `;
@@ -18,7 +18,7 @@ const StyledContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.darkGray};
-  border-radius: 1000px;
+  border-radius: 62.5rem;
   padding: .75rem 1rem;
 
   @media (min-width: 768px) {
