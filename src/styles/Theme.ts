@@ -8,6 +8,8 @@ const Theme = {
     'silverGray-4': '#323232',
     'mediumGray': '#959595',
     'darkGray': '#2D2D2D',
+    'darkGray-50': '#2d2d2d7f',
+    'charcoalGray': '#484848',
     'red': 'rgb(255 69 69 / 81%)',
   },
   gradients: {

@@ -39,6 +39,14 @@ export async function getStaticProps() {
                       value
                     }
                   }
+                  ... on NewsletterContentRecord {
+                    id
+                    buttonText
+                    cardParagraph
+                    contactViaWhatsapp
+                    placeholder
+                    titleCard
+                  }
                 }
               }
             }
