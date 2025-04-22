@@ -87,7 +87,7 @@ const StyledButton = styled.button`
   height: 38px;
 
   @media (min-width: 768px) {
-    font-size: 1rem
+    font-size: 1rem;
   }
 `;
 

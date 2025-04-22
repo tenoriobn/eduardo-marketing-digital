@@ -31,6 +31,10 @@ const StyledCardKeyMetric = styled.div`
   border-radius: 1.5rem;
   padding: 1rem;
   height: 108px;
+
+  @media (min-width: 768px) {
+    padding: 1.5rem;
+  }
 `;
 
 const StyledKey = styled.h3`

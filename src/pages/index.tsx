@@ -57,6 +57,16 @@ export async function getStaticProps() {
                   }
                 }
               }
+              ... on ServicesSectionRecord {
+                id
+                titleSection
+                serviceCardContent {
+                  id
+                  titleCard
+                  description
+                  buttonText
+                }
+              }
             }
           }
         }
