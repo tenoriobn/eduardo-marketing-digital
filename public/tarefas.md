@@ -1,16 +1,16 @@
-OK - Preparar CI - CD
+* Ajustar altura dos títulos dos cards de Serviço para ocuparem dinâmicamente a mesma altura (quebra de linha..)
+* Ajustar icones svg para poder definir altura e largura sem cortar icone
+* Aplicar box-shadow
+* Aplicar hover e active
+* Centralizar técnica de borda
+* Centralizar título das seções
+* Centralizar tamanho dos paragráfos (se conter mesmo tamanho responsivo)
+* Centralizar botões
+* Ajustar Barra de rolagem
+* Criar Dropdowns
+* Criar Modal
+* Implementar transições com framemotion
+* Implementar Skeletoon
+* Implementar alguma biblioteca de UI
 
-* Instalar Bibliotecas
-  OK - Styled Components
-  OK - Axios
-  OK - @svgr/webpack
-  OK - Cypress
-
-* Configurar Bibliotecas
-  OK - Theme Styled components
- - Cypress
- OK - Axios
- - Provider Context
-
-
-* Verificar possibilidade de TDD
+* Aplicar Testes com Cypress

@@ -47,6 +47,24 @@ export async function getStaticProps() {
                     placeholder
                     titleCard
                   }
+                  ... on KeyMetricContentRecord {
+                    id
+                    keyMetricCard {
+                      count
+                      description
+                      id
+                    }
+                  }
+                }
+              }
+              ... on ServicesSectionRecord {
+                id
+                titleSection
+                serviceCardContent {
+                  id
+                  titleCard
+                  description
+                  buttonText
                 }
               }
             }
