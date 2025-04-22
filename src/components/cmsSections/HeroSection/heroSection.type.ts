@@ -1,3 +1,4 @@
+import { KeyMetricContent } from './KeyMetric/keyMetric.type';
 import { NewlestterContent } from './Newsletter/newlestter.type';
 
 export interface HeroSectionProps {
@@ -22,6 +23,7 @@ export interface HeroSectionProps {
         };
       };
     },
-    NewlestterContent
+    NewlestterContent,
+    KeyMetricContent
   ];
 }
