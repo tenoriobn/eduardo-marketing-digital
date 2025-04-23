@@ -5,7 +5,7 @@ const StyledServiceCardContainer = styled.div`
   display: grid;
   gap: 1rem;
   margin-top: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(342px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(288px, auto));
   grid-auto-rows: 1fr;
   margin-bottom: 4rem;
 

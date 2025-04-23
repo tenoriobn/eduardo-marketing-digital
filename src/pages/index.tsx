@@ -67,6 +67,29 @@ export async function getStaticProps() {
                   buttonText
                 }
               }
+              ... on AboutMeSectionRecord {
+                id
+                personalOverviewContent {
+                  ... on PersonalOverviewRecord {
+                    id
+                    description
+                    title
+                  }
+                }
+                titleSection
+                aboutMeImage {
+                  url
+                }
+                linkcta {
+                  label
+                  url
+                  id
+                }
+              }
+              ... on FooterSectionRecord {
+                id
+                copyright
+              }
             }
           }
         }

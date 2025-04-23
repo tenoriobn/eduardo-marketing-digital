@@ -12,5 +12,5 @@ export interface CMSPageContent {
 export interface CMSContent {
   cmsContent: {
     pageContent: CMSPageContent[];
-  }
+  };
 }
