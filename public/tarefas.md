@@ -12,5 +12,6 @@
 * Implementar transições com framemotion
 * Implementar Skeletoon
 * Implementar alguma biblioteca de UI
+* Obter Year do Footer a nível de SSG
 
 * Aplicar Testes com Cypress
