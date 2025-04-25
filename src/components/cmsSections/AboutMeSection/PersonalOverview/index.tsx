@@ -38,7 +38,6 @@ const StyledAboutMeDescription = styled.p`
   font-size: .875rem;
   font-weight: 400;
 
-
   @media (min-width: 768px) {
     font-size: 1rem;
   }

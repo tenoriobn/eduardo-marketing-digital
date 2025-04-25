@@ -86,6 +86,38 @@ export async function getStaticProps() {
                   id
                 }
               }
+              ... on ContactSectionRecord {
+                id
+                title
+                contantContent {
+                  ... on SocialFormRecord {
+                    id
+                    titleSocialForm
+                    buttonText
+                    inputFormContent {
+                      placeholder
+                      inputIcon {
+                        url
+                      }
+                      id
+                    }
+                  }
+                  ... on SocialLinkRecord {
+                    id
+                    description
+                    socialLinkContent {
+                      socialContent {
+                        label
+                        url
+                      }
+                      socialIcon {
+                        url
+                      }
+                      id
+                    }
+                  }
+                }
+              }
               ... on FooterSectionRecord {
                 id
                 copyright

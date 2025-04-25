@@ -15,6 +15,8 @@ const StyledAboutMeSection = styled.section`
 const StyledTitleSection = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
   justify-self: center;
   margin-bottom: 2rem;
 
