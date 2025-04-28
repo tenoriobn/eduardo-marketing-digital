@@ -1,4 +1,5 @@
 * Ajustar altura dos títulos dos cards de Serviço para ocuparem dinâmicamente a mesma altura (quebra de linha..)
+* Ajustar Seção de Depoimentos (ajustar nomeclaturas, dividir responsabilidades, reutilizar estilos e elementos...)
 * Textarea deve ter o texto contornando icone
 * Ajustar icones svg para poder definir altura e largura sem cortar icone
 * Aplicar box-shadow
