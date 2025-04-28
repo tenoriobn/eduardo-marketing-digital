@@ -86,6 +86,10 @@ export async function getStaticProps() {
                   id
                 }
               }
+              ... on TestimonialsSectionRecord {
+                id
+                titleSection
+              }
               ... on ContactSectionRecord {
                 id
                 title
