@@ -5,7 +5,7 @@ const StyledFooter = styled.footer`
   padding: 2rem 1rem;
 `;
 
-const StyledCopyright = styled.p`
+const CopyrightText = styled.p`
   font-size: .875rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -21,7 +21,7 @@ export default function Footer(props: FooterProps) {
 
   return (
     <StyledFooter>
-      <StyledCopyright>{year} {props.copyright}</StyledCopyright>
+      <CopyrightText>{year} {props.copyright}</CopyrightText>
     </StyledFooter>
   );
 }

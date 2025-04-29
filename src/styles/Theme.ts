@@ -9,8 +9,13 @@ const Theme = {
     'mediumGray': '#959595',
     'darkGray': '#2D2D2D',
     'darkGray-50': '#2d2d2d7f',
+    'darkGray-90': 'rgba(45, 45, 45, 0.8)',
     'charcoalGray': '#484848',
     'red': 'rgb(255 69 69 / 81%)',
+    'grayStone': '#6d6d6d',
+    'lightSilver-04': 'rgba(164, 164, 164, 0.04)',
+    'graphiteGray': '#363636'
+
   },
   gradients: {
     softLight: 'linear-gradient(80deg, rgba(255,255,255,0.14) 48%, rgba(153, 153, 153, 0.04) 100%)'

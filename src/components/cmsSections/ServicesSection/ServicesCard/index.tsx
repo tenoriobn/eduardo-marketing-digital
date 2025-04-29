@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ServicesCardProps } from '../services.type';
+import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
 const StyledServiceCardContainer = styled.div`
   display: grid;
@@ -17,14 +18,7 @@ const StyledServiceCardContainer = styled.div`
   }
 `;
 
-const StyledContainer = styled.div`
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 1.5rem;
-  padding: .0625rem;
-  height: 100%;
-`;
-
-const StyledCardService = styled.div`
+const CardService = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
 
@@ -39,7 +33,7 @@ const StyledCardService = styled.div`
   }
 `;
 
-const StyledServiceTitle = styled.h3`
+const ServiceCardTitle = styled.h3`
   font-size: 1.125rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -58,7 +52,7 @@ const StyledServiceTitle = styled.h3`
   }
 `;
 
-const StyledServiceDescription = styled.p`
+const ServiceCardDescription = styled.p`
   font-size: .875rem;
   font-weight: 400;
   text-align: center;
@@ -72,14 +66,7 @@ const StyledServiceDescription = styled.p`
   }
 `;
 
-const StyledButtonContainer = styled.div`
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 3rem;
-  padding: .0625rem;
-  width: 100%;
-`;
-
-const StyledButton = styled.button`
+const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.darkGray};
   color: ${({ theme }) => theme.colors.softGray};
   font-size: .875rem;
@@ -97,15 +84,15 @@ export default function ServicesCard({ serviceCardContent }: ServicesCardProps) 
   return (
     <StyledServiceCardContainer>
       {serviceCardContent.map((service) => (
-        <StyledContainer key={service.id}>
-          <StyledCardService>
-            <StyledServiceTitle>{service.titleCard}</StyledServiceTitle>
-            <StyledServiceDescription>{service.description}</StyledServiceDescription>
-            <StyledButtonContainer>
-              <StyledButton>{service.buttonText}</StyledButton>
-            </StyledButtonContainer>
-          </StyledCardService>
-        </StyledContainer>
+        <BorderGradientContainer key={service.id}>
+          <CardService>
+            <ServiceCardTitle>{service.titleCard}</ServiceCardTitle>
+            <ServiceCardDescription>{service.description}</ServiceCardDescription>
+            <BorderGradientContainer>
+              <Button>{service.buttonText}</Button>
+            </BorderGradientContainer>
+          </CardService>
+        </BorderGradientContainer>
       ))}
     </StyledServiceCardContainer>
   );

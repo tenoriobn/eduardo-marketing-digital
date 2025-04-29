@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import { ContactFormProps, InputComponentProps } from './contactForm.type';
+import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
-const StyledFormContainer = styled.form`
+const Form = styled.form`
   display: grid;
   gap: 1.5rem;
   width: 100%;
 `;
 
-const StyledTitleForm = styled.h3`
+const TitleForm = styled.h3`
   font-size: 1.125rem;
   font-weight: 700;
   text-align: center;
@@ -18,7 +19,7 @@ const StyledTitleForm = styled.h3`
   }
 `;
 
-const StyledInputsContainer = styled.div`
+const InputsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,8 +39,8 @@ const StyledBorderLabel = styled.div`
   width: 100%;
 `;
 
-const StyledLabel = styled.label`
-  background-color: #363636;
+const Label = styled.label`
+  background-color: ${({ theme }) => theme.colors.graphiteGray};
   display: grid;
   grid-template-columns: auto 1fr;
   border-radius: 3rem;
@@ -48,7 +49,7 @@ const StyledLabel = styled.label`
   width: 100%;
 `;
 
-const StyledInput = styled.input`
+const Input = styled.input`
   border: none;
   outline: none;
   background-color: transparent;
@@ -64,16 +65,15 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledLabelTextarea = styled(StyledLabel)`
+const LabelTextarea = styled(Label)`
   border-radius: 1.5rem;
 `;
 
-const StyledBorderTextarea = styled(StyledBorderLabel)`
+const BorderTextarea = styled(StyledBorderLabel)`
   border-radius: 1.5rem;
-
 `;
 
-const StyledTextarea = styled.textarea`
+const Textarea = styled.textarea`
   border: none;
   outline: none;
   background-color: transparent;
@@ -89,11 +89,8 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
-const StyledButtonContainer = styled.div`
+const ButtonWrapper = styled(BorderGradientContainer)`
   justify-self: end;
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 3rem;
-  padding: .0625rem;
   width: 100%;
   max-width: 120px;
 
@@ -102,7 +99,7 @@ const StyledButtonContainer = styled.div`
   }
 `;
 
-const StyledButton = styled.button`
+const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.darkGray};
   color: ${({ theme }) => theme.colors.softGray};
   font-size: .875rem;
@@ -118,17 +115,17 @@ const StyledButton = styled.button`
 
 export default function ContactForm({ inputsContent }: ContactFormProps) {
   return (
-    <StyledFormContainer>
-      <StyledTitleForm>{inputsContent.titleSocialForm}</StyledTitleForm>
+    <Form>
+      <TitleForm>{inputsContent.titleSocialForm}</TitleForm>
 
-      <StyledInputsContainer>
+      <InputsWrapper>
         {inputsContent.inputFormContent.map((inputContent) => {
           const isTextarea = inputContent.placeholder.toLowerCase() === 'mensagem';
 
-          const BorderComponent = isTextarea ? StyledBorderTextarea : StyledBorderLabel;
-          const LabelComponent = isTextarea ? StyledLabelTextarea : StyledLabel;
+          const BorderComponent = isTextarea ? BorderTextarea : StyledBorderLabel;
+          const LabelComponent = isTextarea ? LabelTextarea : Label;
           const InputComponent: InputComponentProps = {
-            component: isTextarea ? StyledTextarea : StyledInput,
+            component: isTextarea ? Textarea : Input,
           };
 
           return (
@@ -151,11 +148,11 @@ export default function ContactForm({ inputsContent }: ContactFormProps) {
             </BorderComponent>
           );
         })}
-      </StyledInputsContainer>
+      </InputsWrapper>
 
-      <StyledButtonContainer>
-        <StyledButton>{inputsContent.buttonText}</StyledButton>
-      </StyledButtonContainer>
-    </StyledFormContainer>
+      <ButtonWrapper $borderRadius='3rem'>
+        <Button>{inputsContent.buttonText}</Button>
+      </ButtonWrapper>
+    </Form>
   );
 }

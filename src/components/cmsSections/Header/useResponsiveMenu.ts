@@ -11,19 +11,19 @@ import useWindowSize from 'src/utils/useWindowSize';
  */
 
 function useResponsiveMenu() {
-  const [menuActive, setMenuActive] = useState(false);
+  const [isMenuActive, setIsMenuActive] = useState(false);
   const { isMobile } = useWindowSize();
 
   useEffect(() => {
     if (isMobile !== undefined && !isMobile) {
-      setMenuActive(true);
+      setIsMenuActive(true);
     } else {
-      setMenuActive(false);
+      setIsMenuActive(false);
     }
   }, [isMobile]);
 
 
-  return { menuActive, setMenuActive, isMobile };
+  return { isMenuActive, setIsMenuActive, isMobile };
 }
 
 export default useResponsiveMenu;

@@ -9,6 +9,7 @@ import Image from 'next/image';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
+import { BorderGradientContainer, borderGradientStylesCSS } from 'src/styles/BorderGradient';
 
 const StyledTestimonialsSection = styled.section`
   display: flex;
@@ -21,7 +22,7 @@ const StyledTestimonialsSection = styled.section`
   }
 `;
 
-const StyledTitleSection = styled.h2`
+const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -37,13 +38,7 @@ const StyledTitleSection = styled.h2`
   }
 `;
 
-const StyledContainer = styled.div`
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 1.5rem;
-  padding: .0625rem;
-`;
-
-const StyledSlideSection = styled.div`
+const SlideContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -57,16 +52,13 @@ const StyledSlideSection = styled.div`
   }
 `;
 
-const StyledUserSwiper = styled(Swiper)`
+const AuthorCardSwiper = styled(Swiper)`
   width: 100%;
   height: 100%;
   cursor: grab;
 
   .swiper-slide {
-    background: ${({ theme }) => theme.gradients.softLight}!important;
-    border-radius: 1.5rem!important;
-    padding: .0625rem!important;
-
+    ${borderGradientStylesCSS}
     opacity: 0.4;
   }
 
@@ -118,7 +110,7 @@ const StyledUserSwiper = styled(Swiper)`
   }
 `;
 
-const StyledTestimonial = styled(Swiper)`
+const TestimonialSwiper = styled(Swiper)`
   width: 100%;
   height: 100%;
   cursor: grab;
@@ -144,16 +136,11 @@ const StyledTestimonial = styled(Swiper)`
   }
 `;
 
-const StyledPaginationBorder = styled.div`
+const PaginationWrapper = styled(BorderGradientContainer)`
   align-self: center;
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 1.5rem;
-  padding: .0625rem;
-  width: max-content;
-
 `;
 
-const StyledPagination = styled.div`
+const PaginationContent = styled.div`
   position: relative;
   background-color: ${({ theme }) => theme.colors.darkGray};
   border-radius: 1.5rem;
@@ -170,9 +157,7 @@ const StyledPagination = styled.div`
   }
 
   .button-container {
-    background: ${({ theme }) => theme.gradients.softLight};
-    border-radius: 1.5rem;
-    padding: .0625rem;
+    ${borderGradientStylesCSS}
   }
 
   .swiper-button-prev, .swiper-button-next {
@@ -252,11 +237,11 @@ export default function TestimonialsSection() {
 
   return (
     <StyledTestimonialsSection>
-      <StyledTitleSection>O que nossos clientes dizem</StyledTitleSection>
+      <Title>O que nossos clientes dizem</Title>
 
-      <StyledContainer>
-        <StyledSlideSection>
-          <StyledUserSwiper
+      <BorderGradientContainer>
+        <SlideContentWrapper>
+          <AuthorCardSwiper
             onSwiper={setTestimonialSwiper}
             slidesPerView={1}
             breakpoints={{
@@ -295,9 +280,9 @@ export default function TestimonialsSection() {
                 </div>
               </SwiperSlide>
             ))}
-          </StyledUserSwiper>
+          </AuthorCardSwiper>
 
-          <StyledTestimonial
+          <TestimonialSwiper
             slidesPerView={1}
             spaceBetween={24}
             thumbs={{ swiper: testimonialSwiper }}
@@ -324,10 +309,10 @@ export default function TestimonialsSection() {
                 <p className='testimonial-paragraph'>"{testimonial.testimonial}"</p>
               </SwiperSlide>
             ))}
-          </StyledTestimonial>
+          </TestimonialSwiper>
 
-          <StyledPaginationBorder>
-            <StyledPagination>
+          <PaginationWrapper>
+            <PaginationContent>
               <div className='button-container'>
                 <button className="swiper-button-prev"></button>
               </div>
@@ -335,10 +320,10 @@ export default function TestimonialsSection() {
               <div className='button-container'>
                 <button className="swiper-button-next"></button>
               </div>
-            </StyledPagination>
-          </StyledPaginationBorder>
-        </StyledSlideSection>
-      </StyledContainer>
+            </PaginationContent>
+          </PaginationWrapper>
+        </SlideContentWrapper>
+      </BorderGradientContainer>
     </StyledTestimonialsSection>
   );
 }

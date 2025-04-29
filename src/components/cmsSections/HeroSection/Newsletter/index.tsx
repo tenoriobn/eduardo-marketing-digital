@@ -3,14 +3,9 @@ import { NewlestterProps } from './newlestter.type';
 import styled from 'styled-components';
 import CardNewsletter from './CardNewsletter';
 import WhatsappButton from './WhatsappButton';
+import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
-const StyledContainer = styled.div`
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 1.5rem;
-  padding: .0625rem;
-`;
-
-const StyledNewsletterContainer = styled.div`
+const NewsletterBackground = styled.div`
   background: url('/images/featured-card-bg.jpg') no-repeat bottom / 100%;
   background-position: 50% 77%;
   border-radius: 1.5rem;
@@ -32,7 +27,7 @@ const StyledNewsletterContainer = styled.div`
   }
 `;
 
-const StyledContent = styled.div`
+const NewsletterContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -47,13 +42,13 @@ const StyledContent = styled.div`
 
 export default function Newsletter({ content }: NewlestterProps) {
   return (
-    <StyledContainer>
-      <StyledNewsletterContainer>
-        <StyledContent>
+    <BorderGradientContainer>
+      <NewsletterBackground>
+        <NewsletterContentWrapper>
           <WhatsappButton contact={content.contactViaWhatsapp} />
           <CardNewsletter content={content} />
-        </StyledContent>
-      </StyledNewsletterContainer>
-    </StyledContainer>
+        </NewsletterContentWrapper>
+      </NewsletterBackground>
+    </BorderGradientContainer>
   );
 }

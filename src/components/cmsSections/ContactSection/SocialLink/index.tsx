@@ -8,7 +8,7 @@ const StyledSocialLink = styled.div`
   gap: 1rem;
 `;
 
-const StyledContactDescription = styled.p`
+const SocialDescription = styled.p`
   font-size: .875rem;
   font-weight: 500;
   text-align: center;
@@ -19,7 +19,7 @@ const StyledContactDescription = styled.p`
   }
 `;
 
-const StyledSocialLinksContainer = styled.div`
+const SocialLinksWrapper = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -33,15 +33,15 @@ const StyledSocialLinksContainer = styled.div`
 export default function SocialLink({ socialContent }: SocialLinkProps) {
   return (
     <StyledSocialLink>
-      <StyledContactDescription>{socialContent.description}</StyledContactDescription>
+      <SocialDescription>{socialContent.description}</SocialDescription>
 
-      <StyledSocialLinksContainer>
+      <SocialLinksWrapper>
         {socialContent.socialLinkContent.map((socialLink) => (
           <Link href={socialLink.socialContent.url} key={socialLink.id} target='_blank'>
             <Image src={socialLink.socialIcon.url} alt={socialLink.socialContent.label} width={36} height={36} />
           </Link>
         ))}
-      </StyledSocialLinksContainer>
+      </SocialLinksWrapper>
     </StyledSocialLink>
   );
 }

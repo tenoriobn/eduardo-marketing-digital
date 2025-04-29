@@ -13,7 +13,7 @@ const StyledHeroSection = styled.section`
   }
 `;
 
-const StyledTitle = styled.h2`
+const Title = styled.h2`
   font-size: 1rem;
   font-weight: 500;
   text-align: center;
@@ -32,7 +32,7 @@ const StyledTitle = styled.h2`
   }
 `;
 
-const StyledHighlighted = styled.span`
+const TitleHighlighted = styled.span`
   font-size: 1.125rem;
   font-weight: 700;
   text-decoration: underline;
@@ -43,7 +43,7 @@ const StyledHighlighted = styled.span`
   }
 `;
 
-const StyledStrongHighlight = styled.span`
+const TitleStrongHighlight = styled.span`
   font-size: clamp(1.625rem, 8vw, 1.875rem);
   font-weight: 700;
   text-transform: uppercase;
@@ -59,15 +59,15 @@ export default function HeroSection({ cotent }: HeroSectionProps) {
 
   return (
     <StyledHeroSection>
-      <StyledTitle>
+      <Title>
         <span>
           {normalIntro.value}
-          <StyledHighlighted>{highlighted.value}</StyledHighlighted>
+          <TitleHighlighted>{highlighted.value}</TitleHighlighted>
           {connector.value}
           <br />
         </span>
-        <StyledStrongHighlight>{strongHighlight.value}</StyledStrongHighlight>
-      </StyledTitle>
+        <TitleStrongHighlight>{strongHighlight.value}</TitleStrongHighlight>
+      </Title>
 
       <Newsletter content={cotent[1]} />
 

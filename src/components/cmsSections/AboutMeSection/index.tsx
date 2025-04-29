@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import PersonalOverview from './PersonalOverview';
 import { AboutMeProps } from './aboutMe.type';
+import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
 const StyledAboutMeSection = styled.section`
   display: grid;
@@ -12,7 +13,7 @@ const StyledAboutMeSection = styled.section`
   }
 `;
 
-const StyledTitleSection = styled.h2`
+const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -26,14 +27,7 @@ const StyledTitleSection = styled.h2`
   }
 `;
 
-const StyledContainer = styled.div`
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 1.5rem;
-  padding: .0625rem;
-  height: 100%;
-`;
-
-const StyledAboutMeContent = styled.div`
+const AboutMeContentWrapper = styled.div`
   display: grid;
   gap: 1.5rem;
 
@@ -52,7 +46,7 @@ const StyledAboutMeContent = styled.div`
   }
 `;
 
-const StyledBorderImage = styled(StyledContainer)`
+const BorderImage = styled(BorderGradientContainer)`
   width: 100%;
 
   @media (min-width: 768px) {
@@ -60,14 +54,14 @@ const StyledBorderImage = styled(StyledContainer)`
   }
 `;
 
-const StyledContainerProfileImage = styled.div`
+const ImageWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.darkGray};
   border-radius: 1.5rem;
   overflow: hidden;
   height: 100%;
 `;
 
-const StyledProfileImage = styled(Image)`
+const Avatar = styled(Image)`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -81,25 +75,25 @@ const StyledProfileImage = styled(Image)`
 export default function AboutMeSection(props: AboutMeProps) {
   return (
     <StyledAboutMeSection>
-      <StyledTitleSection>{props.titleSection}</StyledTitleSection>
+      <Title>{props.titleSection}</Title>
 
-      <StyledContainer>
-        <StyledAboutMeContent>
-          <StyledBorderImage>
-            <StyledContainerProfileImage>
-              <StyledProfileImage
+      <BorderGradientContainer>
+        <AboutMeContentWrapper>
+          <BorderImage>
+            <ImageWrapper>
+              <Avatar
                 src={props.aboutMeImage.url}
                 alt="Foto de Perfil do Eduardo Silva"
                 width={656}
                 height={540}
                 priority
               />
-            </StyledContainerProfileImage>
-          </StyledBorderImage>
+            </ImageWrapper>
+          </BorderImage>
 
           <PersonalOverview personalOverviewContent={props.personalOverviewContent} linkcta={props.linkcta} />
-        </StyledAboutMeContent>
-      </StyledContainer>
+        </AboutMeContentWrapper>
+      </BorderGradientContainer>
     </StyledAboutMeSection>
   );
 }
