@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { NavLinksProps } from './navLinks.type';
 import styled from 'styled-components';
-import CTAButton from '../CTAButton';
+import CTALink from '../CTALink';
 import { usePathname } from 'next/navigation';
+import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
-const StyledNavlinksContainer = styled.div<{$menuActive: Boolean}>`
+const NavLinksWrapper = styled.div<{$isMenuActive: Boolean}>`
   @media (max-width: 991px) {
-    display: ${({ $menuActive }) => $menuActive ? '' : 'none'};
+    display: ${({ $isMenuActive }) => $isMenuActive ? '' : 'none'};
     position: absolute;
     left: 0;
     top: 70px;
@@ -17,7 +18,7 @@ const StyledNavlinksContainer = styled.div<{$menuActive: Boolean}>`
   }
 `;
 
-const StyledNav = styled.nav`
+const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,10 +26,6 @@ const StyledNav = styled.nav`
   padding: .75rem 0;
   background-color: ${({ theme }) => theme.colors.darkGray};
   border-radius: 1.5rem;
-
-  div {
-    margin-top: .75rem;
-  }
 
   @media (min-width: 992px) {
     flex-direction: row;
@@ -46,35 +43,41 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const CTAButtonWrapperMobile = styled.div`
+const MobileCTAWrapper = styled(BorderGradientContainer)`
+  margin-top: .75rem;
+
   @media (min-width: 992px) {
     display: none;
   }
 `;
 
-export default function NavLinks({ links, ctaButton, menuActive, setMenuActive }: NavLinksProps) {
+export default function NavLinks({ links, ctaButton, isMenuActive, setIsMenuActive }: NavLinksProps) {
   const pathname = usePathname();
 
   return (
-    <StyledNavlinksContainer $menuActive={menuActive}>
-      <StyledNav>
+    <NavLinksWrapper $isMenuActive={isMenuActive}>
+      <Nav>
         {links.map((link) => (
           <StyledLink
             key={link.id}
             href={link.url}
-            onClick={() => setMenuActive(false)}
+            onClick={() => setIsMenuActive(false)}
             className={`${pathname === link.url ? 'active' : ''}`}
           >
             {link.label}
           </StyledLink>
         ))}
 
-        <CTAButtonWrapperMobile>
-          <CTAButton href={ctaButton.url} target="_blank" onClick={() => setMenuActive(false)}>
+        <MobileCTAWrapper>
+          <CTALink
+            href={ctaButton.url}
+            target="_blank"
+            onClick={() => setIsMenuActive(false)}
+          >
             {ctaButton.label}
-          </CTAButton>
-        </CTAButtonWrapperMobile>
-      </StyledNav>
-    </StyledNavlinksContainer>
+          </CTALink>
+        </MobileCTAWrapper>
+      </Nav>
+    </NavLinksWrapper>
   );
 }

@@ -1,14 +1,9 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import WhatsappIcon from 'public/icons/whatsapp.svg';
-import Link from 'next/link';
+import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
-const StyledBorderWhatsapp = styled.div`
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 62.5rem;
-  padding: .0625rem;
-  width: max-content;
-  height: max-content;
-
+const StyledWhatsappBorderGradient = styled(BorderGradientContainer)`
   @media (max-width: 767px) {
     align-self: end;
   }
@@ -18,8 +13,8 @@ const StyledBorderWhatsapp = styled.div`
   }
 `;
 
-const StyledWhatsappContainer = styled(Link)`
-  background-color: ${({ theme }) => theme.colors['darkGray-50']};
+const WhatsappLink = styled(Link)`
+  background-color: ${({ theme }) => theme.colors['darkGray-90']};
   border-radius: 62.5rem;
   display: flex;
   align-items: center;
@@ -30,10 +25,10 @@ const StyledWhatsappContainer = styled(Link)`
 
 export default function WhatsappButton({ contact }: {contact: string}) {
   return (
-    <StyledBorderWhatsapp>
-      <StyledWhatsappContainer href={contact} target='_blank'>
+    <StyledWhatsappBorderGradient>
+      <WhatsappLink href={contact} target='_blank'>
         <WhatsappIcon width={32} heigth={32} />
-      </StyledWhatsappContainer>
-    </StyledBorderWhatsapp>
+      </WhatsappLink>
+    </StyledWhatsappBorderGradient>
   );
 }

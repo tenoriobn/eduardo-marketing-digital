@@ -1,19 +1,15 @@
 import Image from 'next/image';
+import { BorderGradientContainer } from 'src/styles/BorderGradient';
 import { HeaderProps } from './header.type';
 import styled from 'styled-components';
 import MobileMenuIcon from 'public/icons/menu.svg';
-import CTAButton from './CTAButton';
+import CTALink from './CTALink';
 import NavLinks from './NavLinks';
 import useResponsiveMenu from './useResponsiveMenu';
 
-const StyledHeader = styled.header`
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 62.5rem;
-  padding: .0625rem;
-  position: relative;
-`;
+const StyledHeaderBorderGradient = styled(BorderGradientContainer)``;
 
-const StyledContainer = styled.div`
+const HeaderContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +26,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledContainerLogo = styled.div`
+const LogoWrapper = styled.div`
   img {
     width: 33px;
     height: auto;
@@ -41,7 +37,8 @@ const StyledContainerLogo = styled.div`
   }
 `;
 
-const StyledMobileMenuIcon = styled(MobileMenuIcon)`
+const MobileMenuButton = styled.button`
+  display: flex;
   cursor: pointer;
 
   @media (min-width: 992px) {
@@ -49,42 +46,44 @@ const StyledMobileMenuIcon = styled(MobileMenuIcon)`
   }
 `;
 
-const CTAButtonWrapperDesktop = styled.div`
+const CTAButtonWrapperDesktop = styled(BorderGradientContainer)`
   @media (max-width: 991px) {
     display: none;
   }
 `;
 
 export default function Header(props: HeaderProps) {
-  const { menuActive, setMenuActive, isMobile } = useResponsiveMenu();
+  const { isMenuActive, setIsMenuActive } = useResponsiveMenu();
 
   return (
-    <StyledHeader>
-      <StyledContainer>
-        <StyledContainerLogo>
+    <StyledHeaderBorderGradient as="header" $borderRadius='62.5rem'>
+      <HeaderContentWrapper>
+        <LogoWrapper>
           <Image
             alt='Logo do Eduardo Marketing Digital'
             src={props.logo.url}
             width={50}
             height={50}
           />
-        </StyledContainerLogo>
+        </LogoWrapper>
 
-        <StyledMobileMenuIcon onClick={() => setMenuActive(!menuActive)} />
+        <MobileMenuButton onClick={() => setIsMenuActive(!isMenuActive)} >
+          <MobileMenuIcon/>
+        </MobileMenuButton>
 
         <NavLinks
           links={props.menuLinks}
-          menuActive={menuActive}
-          setMenuActive={setMenuActive}
+          isMenuActive={isMenuActive}
+          setIsMenuActive={setIsMenuActive}
           ctaButton={{ url: props.ctaButton.url, label: props.ctaButton.label }}
         />
 
-        <CTAButtonWrapperDesktop>
-          <CTAButton href={props.ctaButton.url} target='_blank' className='cta__button-desktop'>
+        <CTAButtonWrapperDesktop $borderRadius='62.5rem'>
+          <CTALink href={props.ctaButton.url} target='_blank'>
             {props.ctaButton.label}
-          </CTAButton>
+          </CTALink>
         </CTAButtonWrapperDesktop>
-      </StyledContainer>
-    </StyledHeader>
+      </HeaderContentWrapper>
+    </StyledHeaderBorderGradient>
   );
 }

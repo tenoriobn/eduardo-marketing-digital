@@ -17,7 +17,7 @@ const StyledCardNewsletter = styled.div`
   }
 `;
 
-const StyledCardTitle = styled.h3`
+const CardTitle = styled.h3`
   font-size: 1.125rem;
   font-weight: 700;
 
@@ -26,7 +26,7 @@ const StyledCardTitle = styled.h3`
   }
 `;
 
-const StyledCardParagraph = styled.p`
+const CardParagraph = styled.p`
   font-size: .875rem;
 
   @media (min-width: 768px) {
@@ -34,7 +34,7 @@ const StyledCardParagraph = styled.p`
   }
 `;
 
-const StyledForm = styled.form`
+const Form = styled.form`
   border: .0625rem solid ${({ theme }) => theme.colors.charcoalGray};
   border-radius: 3rem;
   display: flex;
@@ -47,7 +47,7 @@ const StyledForm = styled.form`
   }
 `;
 
-const StyledLabel = styled.label`
+const Label = styled.label`
   display: grid;
   grid-template-columns: auto 1fr;
 
@@ -56,12 +56,12 @@ const StyledLabel = styled.label`
 
   svg {
     path {
-      stroke: #959595;
+      stroke: ${({ theme }) => theme.colors.grayStone};
     }
   }
 `;
 
-const StyledInput = styled.input`
+const Input = styled.input`
   border: none;
   outline: none;
   background-color: transparent;
@@ -77,8 +77,8 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledButton = styled.button`
-  background-color: rgba(164, 164, 164, 0.04);
+const Button = styled.button`
+  background-color: ${({ theme }) => theme.colors['lightSilver-04']};
   color: ${({ theme }) => theme.colors.softGray};
   font-size: .875rem;
   border-radius: 3rem;
@@ -94,23 +94,23 @@ const StyledButton = styled.button`
 export default function CardNewsletter({ content }: NewlestterProps) {
   return (
     <StyledCardNewsletter>
-      <StyledCardTitle>{content.titleCard}</StyledCardTitle>
-      <StyledCardParagraph>{content.cardParagraph}</StyledCardParagraph>
+      <CardTitle>{content.titleCard}</CardTitle>
+      <CardParagraph>{content.cardParagraph}</CardParagraph>
 
-      <StyledForm action="">
-        <StyledLabel htmlFor="input-email">
+      <Form action="">
+        <Label htmlFor="input-email">
           <EmailIcon />
 
-          <StyledInput
+          <Input
             id='input-email'
             type="email"
             placeholder={content.placeholder}
             required
           />
-        </StyledLabel>
+        </Label>
 
-        <StyledButton>{content.buttonText}</StyledButton>
-      </StyledForm>
+        <Button>{content.buttonText}</Button>
+      </Form>
     </StyledCardNewsletter>
   );
 }

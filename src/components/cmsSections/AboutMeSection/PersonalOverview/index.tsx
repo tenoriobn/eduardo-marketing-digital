@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { PersonalOverviewProps } from '../aboutMe.type';
+import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
-const StyledPersonalOverview = styled.div`
+const PersonalOverviewWrapper = styled.div`
   display: grid;
   gap: 1.5rem;
 `;
 
-const StyledOverviewContainer = styled.div`
+const OverviewSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -22,19 +23,19 @@ const StyledOverviewContainer = styled.div`
   }
 `;
 
-const StyledOverview = styled.div`
+const OverviewItem = styled.div`
   display: grid;
   gap: .5rem;
 
   width: 100%;
 `;
 
-const StyledAboutMeTitle = styled.h3`
+const OverviewTitle = styled.h3`
   font-size: 1.125rem;
   font-weight: 700;
 `;
 
-const StyledAboutMeDescription = styled.p`
+const OverviewDescription = styled.p`
   font-size: .875rem;
   font-weight: 400;
 
@@ -43,15 +44,7 @@ const StyledAboutMeDescription = styled.p`
   }
 `;
 
-const StyledLinkCTAContainer = styled.div`
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 3rem;
-  padding: .0625rem;
-  width: 100%;
-  height: max-content;
-`;
-
-const StyledLinkCTA = styled(Link)`
+const CTALink = styled(Link)`
   display: block;
   background-color: ${({ theme }) => theme.colors.darkGray};
   color: ${({ theme }) => theme.colors.softGray};
@@ -80,21 +73,21 @@ const StyledLinkCTA = styled(Link)`
 
 export default function PersonalOverview({ personalOverviewContent, linkcta }: PersonalOverviewProps) {
   return (
-    <StyledPersonalOverview>
-      <StyledOverviewContainer>
+    <PersonalOverviewWrapper>
+      <OverviewSection>
         {personalOverviewContent.map((overviews) => (
-          <StyledOverview key={overviews.id}>
-            <StyledAboutMeTitle>{overviews.title}</StyledAboutMeTitle>
-            <StyledAboutMeDescription>{overviews.description}</StyledAboutMeDescription>
-          </StyledOverview>
+          <OverviewItem key={overviews.id}>
+            <OverviewTitle>{overviews.title}</OverviewTitle>
+            <OverviewDescription>{overviews.description}</OverviewDescription>
+          </OverviewItem>
         ))}
-      </StyledOverviewContainer>
+      </OverviewSection>
 
-      <StyledLinkCTAContainer>
-        <StyledLinkCTA href={linkcta.url} target='_blank'>
+      <BorderGradientContainer $borderRadius='3rem'>
+        <CTALink href={linkcta.url} target='_blank'>
           <span>{linkcta.label}</span>
-        </StyledLinkCTA>
-      </StyledLinkCTAContainer>
-    </StyledPersonalOverview>
+        </CTALink>
+      </BorderGradientContainer>
+    </PersonalOverviewWrapper>
   );
 }

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { KeyMetricProps } from './keyMetric.type';
+import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
 const StyledKeyMetric = styled.div`
   display: grid;
@@ -16,13 +17,7 @@ const StyledKeyMetric = styled.div`
   }
 `;
 
-const StyledContainer = styled.div`
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 1.5rem;
-  padding: .0625rem;
-`;
-
-const StyledCardKeyMetric = styled.div`
+const CardKeyMetric = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +32,7 @@ const StyledCardKeyMetric = styled.div`
   }
 `;
 
-const StyledKey = styled.h3`
+const Key = styled.h3`
   font-size: 1.5rem;
   font-weight: 600;
 
@@ -46,7 +41,7 @@ const StyledKey = styled.h3`
   }
 `;
 
-const StyledMetric = styled.p`
+const Metric = styled.p`
   font-size: .875rem;
   font-weight: 400;
 
@@ -59,12 +54,12 @@ export default function KeyMetric({ keyMetricCard }: KeyMetricProps) {
   return (
     <StyledKeyMetric>
       {keyMetricCard.map((keyMetric) => (
-        <StyledContainer key={keyMetric.id}>
-          <StyledCardKeyMetric>
-            <StyledKey>{keyMetric.count}</StyledKey>
-            <StyledMetric>{keyMetric.description}</StyledMetric>
-          </StyledCardKeyMetric>
-        </StyledContainer>
+        <BorderGradientContainer key={keyMetric.id}>
+          <CardKeyMetric>
+            <Key>{keyMetric.count}</Key>
+            <Metric>{keyMetric.description}</Metric>
+          </CardKeyMetric>
+        </BorderGradientContainer>
       ))}
     </StyledKeyMetric>
   );

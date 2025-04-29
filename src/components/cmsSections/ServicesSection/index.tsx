@@ -6,7 +6,7 @@ const StyledServicesSection = styled.section`
   display: grid;
 `;
 
-const StyledTitleSection = styled.h2`
+const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -21,7 +21,7 @@ const StyledTitleSection = styled.h2`
 export default function ServicesSection(props: ServicesProps) {
   return (
     <StyledServicesSection>
-      <StyledTitleSection>{props.titleSection}</StyledTitleSection>
+      <Title>{props.titleSection}</Title>
 
       <ServicesCard serviceCardContent={props.serviceCardContent} />
     </StyledServicesSection>

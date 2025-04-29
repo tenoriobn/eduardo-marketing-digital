@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import SocialLink from './SocialLink';
 import ContactForm from './ContactForm';
 import { ContactProps } from './contact.type';
+import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
 const StyledContactSection = styled.section`
   display: grid;
@@ -12,7 +13,7 @@ const StyledContactSection = styled.section`
   }
 `;
 
-const StyledTitleSection = styled.h2`
+const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -34,7 +35,7 @@ const StyledContainer = styled.div`
 `;
 
 
-const StyledContactContent = styled.div`
+const ContactContentWrapper = styled.div`
   display: grid;
   gap: 1.5rem;
   justify-items: center;
@@ -53,7 +54,7 @@ const StyledContactContent = styled.div`
   }
 `;
 
-const StyledDivider = styled.span`
+const Separator = styled.span`
   height: 1px;
   width: 100%;
   background: ${({ theme }) => theme.gradients.softLight};
@@ -67,17 +68,17 @@ const StyledDivider = styled.span`
 export default function ContactSection(props: ContactProps) {
   return (
     <StyledContactSection>
-      <StyledTitleSection>{props.title}</StyledTitleSection>
+      <Title>{props.title}</Title>
 
-      <StyledContainer>
-        <StyledContactContent>
+      <BorderGradientContainer>
+        <ContactContentWrapper>
           <SocialLink socialContent={props.contantContent[0]} />
 
-          <StyledDivider></StyledDivider>
+          <Separator></Separator>
 
           <ContactForm inputsContent={props.contantContent[1]} />
-        </StyledContactContent>
-      </StyledContainer>
+        </ContactContentWrapper>
+      </BorderGradientContainer>
     </StyledContactSection>
   );
 }
