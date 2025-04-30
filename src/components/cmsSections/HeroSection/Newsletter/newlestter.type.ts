@@ -1,11 +1,4 @@
-export interface NewlestterContent {
-  id: string;
-  buttonText: string;
-  cardParagraph: string;
-  contactViaWhatsapp: string;
-  placeholder: string;
-  titleCard: string;
-}
+import { NewlestterContent } from './NewsletterCard/newsletterCard.type';
 
 export interface NewlestterProps {
   content: NewlestterContent;

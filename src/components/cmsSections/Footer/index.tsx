@@ -1,27 +1,31 @@
 import styled from 'styled-components';
 import { FooterProps } from './footer.type';
 
-const StyledFooter = styled.footer`
-  padding: 2rem 1rem;
-`;
+const Styled = {
+  Footer: styled.footer`
+    padding: 2rem 1rem;
+  `,
 
-const CopyrightText = styled.p`
-  font-size: .875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-align: center;
+  Copyright: styled.p`
+    font-size: .875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
 
-  @media (min-width: 768px) {
-    font-size: 1rem;
-  }
-`;
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
+  `,
+};
+
+
 
 export default function Footer(props: FooterProps) {
   const year = new Date().getFullYear();
 
   return (
-    <StyledFooter>
-      <CopyrightText>{year} {props.copyright}</CopyrightText>
-    </StyledFooter>
+    <Styled.Footer>
+      <Styled.Copyright>{year} {props.copyright}</Styled.Copyright>
+    </Styled.Footer>
   );
 }

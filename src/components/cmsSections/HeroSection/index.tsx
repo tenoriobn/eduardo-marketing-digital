@@ -3,75 +3,78 @@ import { HeroSectionProps } from './heroSection.type';
 import Newsletter from './Newsletter';
 import KeyMetric from './KeyMetric';
 
-const StyledHeroSection = styled.section`
-  margin: 4rem 0;
-  display: grid;
-  gap: 1.5rem;
+const Styled = {
+  Section: styled.section`
+    margin: 4rem 0;
+    display: grid;
+    gap: 1.5rem;
 
-  @media (min-width: 768px) {
-    margin: 5rem 0;
-  }
-`;
+    @media (min-width: 768px) {
+      margin: 5rem 0;
+    }
+  `,
 
-const Title = styled.h2`
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
+  Title: styled.h2`
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-  @media (max-width: 767px) {
-    max-width: 342px;
-    margin: 0 auto;
-  }
+    @media (max-width: 767px) {
+      max-width: 342px;
+      margin: 0 auto;
+    }
 
-  @media (min-width: 768px) {
+    @media (min-width: 768px) {
+      font-size: 1.125rem;
+    }
+  `,
+
+  TitleHighlighted: styled.span`
     font-size: 1.125rem;
-  }
-`;
+    font-weight: 700;
+    text-decoration: underline;
+    text-transform: capitalize;
 
-const TitleHighlighted = styled.span`
-  font-size: 1.125rem;
-  font-weight: 700;
-  text-decoration: underline;
-  text-transform: capitalize;
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+    }
+  `,
 
-  @media (min-width: 768px) {
-    font-size: 1.25rem;
-  }
-`;
+  TitleStrongHighlight: styled.span`
+    font-size: clamp(1.625rem, 8vw, 1.875rem);
+    font-weight: 700;
+    text-transform: uppercase;
 
-const TitleStrongHighlight = styled.span`
-  font-size: clamp(1.625rem, 8vw, 1.875rem);
-  font-weight: 700;
-  text-transform: uppercase;
-
-  @media (min-width: 768px) {
-    font-size: 3.375rem;
-  }
-`;
+    @media (min-width: 768px) {
+      font-size: 3.375rem;
+    }
+  `,
+};
 
 export default function HeroSection({ cotent }: HeroSectionProps) {
   const [normalIntro, highlighted, connector] = cotent[0].titlePart1.value.document.children[0].children;
   const [strongHighlight] = cotent[0].titlePart2.value.document.children[0].children;
 
   return (
-    <StyledHeroSection>
-      <Title>
+    <Styled.Section>
+      <Styled.Title>
         <span>
           {normalIntro.value}
-          <TitleHighlighted>{highlighted.value}</TitleHighlighted>
+          <Styled.TitleHighlighted>{highlighted.value}</Styled.TitleHighlighted>
           {connector.value}
           <br />
         </span>
-        <TitleStrongHighlight>{strongHighlight.value}</TitleStrongHighlight>
-      </Title>
+
+        <Styled.TitleStrongHighlight>{strongHighlight.value}</Styled.TitleStrongHighlight>
+      </Styled.Title>
 
       <Newsletter content={cotent[1]} />
 
       <KeyMetric keyMetricCard={cotent[2].keyMetricCard} />
-    </StyledHeroSection>
+    </Styled.Section>
   );
 }

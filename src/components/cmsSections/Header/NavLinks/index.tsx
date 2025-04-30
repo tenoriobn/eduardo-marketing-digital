@@ -5,70 +5,74 @@ import CTALink from '../CTALink';
 import { usePathname } from 'next/navigation';
 import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
-const NavLinksWrapper = styled.div<{$isMenuActive: Boolean}>`
-  @media (max-width: 991px) {
-    display: ${({ $isMenuActive }) => $isMenuActive ? '' : 'none'};
-    position: absolute;
-    left: 0;
-    top: 70px;
-    background: ${({ theme }) => theme.gradients.softLight};
+const Styled = {
+  NavLinksWrapper: styled.div<{$isMenuActive: Boolean}>`
+    @media (max-width: 991px) {
+      display: ${({ $isMenuActive }) => $isMenuActive ? '' : 'none'};
+      position: absolute;
+      left: 0;
+      top: 70px;
+      background: ${({ theme }) => theme.gradients.softLight};
+      border-radius: 1.5rem;
+      padding: .0625rem;
+      width: 100%;
+    }
+  `,
+
+  Nav: styled.nav`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: .75rem 0;
+    background-color: ${({ theme }) => theme.colors.darkGray};
     border-radius: 1.5rem;
-    padding: .0625rem;
-    width: 100%;
-  }
-`;
 
-const Nav = styled.nav`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: .75rem 0;
-  background-color: ${({ theme }) => theme.colors.darkGray};
-  border-radius: 1.5rem;
+    @media (min-width: 992px) {
+      flex-direction: row;
+      gap: 1.5rem;
+      padding: 0;
+    }
+  `,
 
-  @media (min-width: 992px) {
-    flex-direction: row;
-    gap: 1.5rem;
-    padding: 0;
-  }
-`;
+  Link: styled(Link)`
+    color: ${({ theme }) => theme.colors.silverGray};
 
-const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.colors.silverGray};
+    &:hover, &.active {
+      color: ${({ theme }) => theme.colors.lightGray};
+      text-decoration: underline;
+    }
+  `,
 
-  &:hover, &.active {
-    color: ${({ theme }) => theme.colors.lightGray};
-    text-decoration: underline;
-  }
-`;
+  MobileCTAWrapper: styled(BorderGradientContainer)`
+    margin-top: .75rem;
 
-const MobileCTAWrapper = styled(BorderGradientContainer)`
-  margin-top: .75rem;
+    @media (min-width: 992px) {
+      display: none;
+    }
+  `,
+};
 
-  @media (min-width: 992px) {
-    display: none;
-  }
-`;
+
 
 export default function NavLinks({ links, ctaButton, isMenuActive, setIsMenuActive }: NavLinksProps) {
   const pathname = usePathname();
 
   return (
-    <NavLinksWrapper $isMenuActive={isMenuActive}>
-      <Nav>
+    <Styled.NavLinksWrapper $isMenuActive={isMenuActive}>
+      <Styled.Nav>
         {links.map((link) => (
-          <StyledLink
+          <Styled.Link
             key={link.id}
             href={link.url}
             onClick={() => setIsMenuActive(false)}
             className={`${pathname === link.url ? 'active' : ''}`}
           >
             {link.label}
-          </StyledLink>
+          </Styled.Link>
         ))}
 
-        <MobileCTAWrapper>
+        <Styled.MobileCTAWrapper>
           <CTALink
             href={ctaButton.url}
             target="_blank"
@@ -76,8 +80,8 @@ export default function NavLinks({ links, ctaButton, isMenuActive, setIsMenuActi
           >
             {ctaButton.label}
           </CTALink>
-        </MobileCTAWrapper>
-      </Nav>
-    </NavLinksWrapper>
+        </Styled.MobileCTAWrapper>
+      </Styled.Nav>
+    </Styled.NavLinksWrapper>
   );
 }

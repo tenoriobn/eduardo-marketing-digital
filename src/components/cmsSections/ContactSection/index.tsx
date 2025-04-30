@@ -4,81 +4,75 @@ import ContactForm from './ContactForm';
 import { ContactProps } from './contact.type';
 import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
-const StyledContactSection = styled.section`
-  display: grid;
-  margin-bottom: 4rem;
+const Styled = {
+  Section: styled.section`
+    display: grid;
+    margin-bottom: 4rem;
 
-  @media (min-width: 768px) {
-    margin-bottom: 5rem;
-  }
-`;
+    @media (min-width: 768px) {
+      margin-bottom: 5rem;
+    }
+  `,
 
-const Title = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
-  justify-self: center;
-  margin-bottom: 2rem;
+  Title: styled.h2`
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    justify-self: center;
+    margin-bottom: 2rem;
 
-  @media (min-width: 768px) {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-  }
-`;
+    @media (min-width: 768px) {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+  `,
 
-const StyledContainer = styled.div`
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 1.5rem;
-  padding: .0625rem;
-  height: 100%;
-`;
+  ContactWrapper: styled.div`
+    display: grid;
+    gap: 1.5rem;
+    justify-items: center;
 
+    background-color: ${({ theme }) => theme.colors.darkGray};
+    border-radius: 1.5rem;
+    padding: 1rem;
 
-const ContactContentWrapper = styled.div`
-  display: grid;
-  gap: 1.5rem;
-  justify-items: center;
+    @media (min-width: 768px) {
+      padding: 1.5rem;
+      align-items: center;
+    }
 
-  background-color: ${({ theme }) => theme.colors.darkGray};
-  border-radius: 1.5rem;
-  padding: 1rem;
+    @media (min-width: 992px) {
+      grid-template-columns: 1fr auto 1fr;
+    }
+  `,
 
-  @media (min-width: 768px) {
-    padding: 1.5rem;
-    align-items: center;
-  }
+  Separator: styled.div`
+    height: 1px;
+    width: 100%;
+    background: ${({ theme }) => theme.gradients.softLight};
 
-  @media (min-width: 992px) {
-    grid-template-columns: 1fr auto 1fr;
-  }
-`;
-
-const Separator = styled.span`
-  height: 1px;
-  width: 100%;
-  background: ${({ theme }) => theme.gradients.softLight};
-
-  @media (min-width: 992px) {
-    height: 100%;
-    width: 1px;
-  }
-`;
+    @media (min-width: 992px) {
+      height: 100%;
+      width: 1px;
+    }
+  `,
+};
 
 export default function ContactSection(props: ContactProps) {
   return (
-    <StyledContactSection>
-      <Title>{props.title}</Title>
+    <Styled.Section>
+      <Styled.Title>{props.title}</Styled.Title>
 
       <BorderGradientContainer>
-        <ContactContentWrapper>
+        <Styled.ContactWrapper>
           <SocialLink socialContent={props.contantContent[0]} />
 
-          <Separator></Separator>
+          <Styled.Separator></Styled.Separator>
 
           <ContactForm inputsContent={props.contantContent[1]} />
-        </ContactContentWrapper>
+        </Styled.ContactWrapper>
       </BorderGradientContainer>
-    </StyledContactSection>
+    </Styled.Section>
   );
 }
