@@ -4,96 +4,107 @@ import PersonalOverview from './PersonalOverview';
 import { AboutMeProps } from './aboutMe.type';
 import { BorderGradientContainer } from 'src/styles/BorderGradient';
 
-const StyledAboutMeSection = styled.section`
-  display: grid;
-  margin-bottom: 4rem;
+const Styled = {
+  Section: styled.section`
+    display: grid;
+    margin-bottom: 4rem;
 
-  @media (min-width: 768px) {
-    margin-bottom: 5rem;
-  }
-`;
+    @media (min-width: 768px) {
+      margin-bottom: 5rem;
+    }
+  `,
 
-const Title = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
-  justify-self: center;
-  margin-bottom: 2rem;
+  Title: styled.h2`
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    justify-self: center;
+    margin-bottom: 2rem;
 
-  @media (min-width: 768px) {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-  }
-`;
+    @media (min-width: 768px) {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+  `,
 
-const AboutMeContentWrapper = styled.div`
-  display: grid;
-  gap: 1.5rem;
+  BorderGradientContainer: styled(BorderGradientContainer)`
+    justify-self: center;
+    max-width: 704px;
 
-  background-color: ${({ theme }) => theme.colors.darkGray};
-  border-radius: 1.5rem;
-  padding: 1rem;
+    @media (min-width: 992px) {
+      max-width: 100%;
+    }
+  `,
 
-  @media (min-width: 768px) {
-    padding: 1.5rem;
-    justify-items: center;
-    align-items: center;
-  }
+  AboutMeContentWrapper: styled.div`
+    display: grid;
+    gap: 1.5rem;
 
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-`;
+    background-color: ${({ theme }) => theme.colors.darkGray};
+    border-radius: 1.5rem;
+    padding: 1rem;
 
-const BorderImage = styled(BorderGradientContainer)`
-  width: 100%;
+    @media (min-width: 768px) {
+      padding: 1.5rem;
+      justify-items: center;
+      align-items: center;
+    }
 
-  @media (min-width: 768px) {
-    max-width: 658px;
-  }
-`;
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  `,
 
-const ImageWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.darkGray};
-  border-radius: 1.5rem;
-  overflow: hidden;
-  height: 100%;
-`;
+  AvatarBorder: styled(BorderGradientContainer)`
+    width: 100%;
 
-const Avatar = styled(Image)`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    @media (min-width: 768px) {
+      max-width: 658px;
+    }
+  `,
 
-  @media (min-width: 768px) {
-    max-width: 656px;
-  }
-`;
+  AvatarWrapper: styled.div`
+    background-color: ${({ theme }) => theme.colors.darkGray};
+    border-radius: 1.5rem;
+    overflow: hidden;
+    height: 100%;
+  `,
+
+  Avatar: styled(Image)`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @media (min-width: 768px) {
+      height: revert-layer;
+    }
+  `,
+};
 
 
 export default function AboutMeSection(props: AboutMeProps) {
   return (
-    <StyledAboutMeSection>
-      <Title>{props.titleSection}</Title>
+    <Styled.Section>
+      <Styled.Title>{props.titleSection}</Styled.Title>
 
-      <BorderGradientContainer>
-        <AboutMeContentWrapper>
-          <BorderImage>
-            <ImageWrapper>
-              <Avatar
+      <Styled.BorderGradientContainer>
+        <Styled.AboutMeContentWrapper>
+          <Styled.AvatarBorder>
+            <Styled.AvatarWrapper>
+              <Styled.Avatar
                 src={props.aboutMeImage.url}
                 alt="Foto de Perfil do Eduardo Silva"
                 width={656}
                 height={540}
                 priority
               />
-            </ImageWrapper>
-          </BorderImage>
+            </Styled.AvatarWrapper>
+          </Styled.AvatarBorder>
 
           <PersonalOverview personalOverviewContent={props.personalOverviewContent} linkcta={props.linkcta} />
-        </AboutMeContentWrapper>
-      </BorderGradientContainer>
-    </StyledAboutMeSection>
+        </Styled.AboutMeContentWrapper>
+      </Styled.BorderGradientContainer>
+    </Styled.Section>
   );
 }

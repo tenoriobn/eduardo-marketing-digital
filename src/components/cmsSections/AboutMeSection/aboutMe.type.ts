@@ -1,15 +1,4 @@
-export interface PersonalOverviewProps {
-  personalOverviewContent: {
-    id: string;
-    title: string;
-    description: string;
-  }[];
-  linkcta: {
-    id: string;
-    label: string;
-    url: string;
-  }
-}
+import { PersonalOverviewProps } from './PersonalOverview/personalOverview.type';
 
 export interface AboutMeProps extends PersonalOverviewProps {
   titleSection: string;

@@ -7,69 +7,71 @@ import CTALink from './CTALink';
 import NavLinks from './NavLinks';
 import useResponsiveMenu from './useResponsiveMenu';
 
-const StyledHeaderBorderGradient = styled(BorderGradientContainer)``;
+const Styled = {
+  Header: styled(BorderGradientContainer)``,
 
-const HeaderContentWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${({ theme }) => theme.colors.darkGray};
-  border-radius: 62.5rem;
-  padding: .75rem 1rem;
+  HeaderWrapper: styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: ${({ theme }) => theme.colors.darkGray};
+    border-radius: 62.5rem;
+    padding: .75rem 1rem;
 
-  @media (min-width: 768px) {
-    padding: .75rem 1.5rem;
-  }
+    @media (min-width: 768px) {
+      padding: .75rem 1.5rem;
+    }
 
-  @media (min-width: 992px) {
-    padding-right: .75rem;
-  }
-`;
+    @media (min-width: 992px) {
+      padding-right: .75rem;
+    }
+  `,
 
-const LogoWrapper = styled.div`
-  img {
-    width: 33px;
-    height: auto;
-  }
+  LogoWrapper: styled.div`
+    img {
+      width: 33px;
+      height: auto;
+    }
 
-  @media (min-width: 992px) {
-    width: 156.13px;
-  }
-`;
+    @media (min-width: 992px) {
+      width: 156.13px;
+    }
+  `,
 
-const MobileMenuButton = styled.button`
-  display: flex;
-  cursor: pointer;
+  MobileMenuButton: styled.button`
+    display: flex;
+    cursor: pointer;
 
-  @media (min-width: 992px) {
-    display: none;
-  }
-`;
+    @media (min-width: 992px) {
+      display: none;
+    }
+  `,
 
-const CTAButtonWrapperDesktop = styled(BorderGradientContainer)`
-  @media (max-width: 991px) {
-    display: none;
-  }
-`;
+  CTAButtonWrapperDesktop: styled(BorderGradientContainer)`
+    @media (max-width: 991px) {
+      display: none;
+    }
+  `,
+};
 
 export default function Header(props: HeaderProps) {
   const { isMenuActive, setIsMenuActive } = useResponsiveMenu();
 
   return (
-    <StyledHeaderBorderGradient as="header" $borderRadius='62.5rem'>
-      <HeaderContentWrapper>
-        <LogoWrapper>
+    <Styled.Header as="header" $borderRadius='62.5rem'>
+      <Styled.HeaderWrapper>
+        <Styled.LogoWrapper>
           <Image
             alt='Logo do Eduardo Marketing Digital'
             src={props.logo.url}
             width={50}
             height={50}
           />
-        </LogoWrapper>
+        </Styled.LogoWrapper>
 
-        <MobileMenuButton onClick={() => setIsMenuActive(!isMenuActive)} >
+        <Styled.MobileMenuButton onClick={() => setIsMenuActive(!isMenuActive)} >
           <MobileMenuIcon/>
-        </MobileMenuButton>
+        </Styled.MobileMenuButton>
 
         <NavLinks
           links={props.menuLinks}
@@ -78,12 +80,12 @@ export default function Header(props: HeaderProps) {
           ctaButton={{ url: props.ctaButton.url, label: props.ctaButton.label }}
         />
 
-        <CTAButtonWrapperDesktop $borderRadius='62.5rem'>
+        <Styled.CTAButtonWrapperDesktop $borderRadius='62.5rem'>
           <CTALink href={props.ctaButton.url} target='_blank'>
             {props.ctaButton.label}
           </CTALink>
-        </CTAButtonWrapperDesktop>
-      </HeaderContentWrapper>
-    </StyledHeaderBorderGradient>
+        </Styled.CTAButtonWrapperDesktop>
+      </Styled.HeaderWrapper>
+    </Styled.Header>
   );
 }

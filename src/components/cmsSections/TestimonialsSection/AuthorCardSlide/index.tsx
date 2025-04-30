@@ -65,7 +65,7 @@ export default function AuthorCardSlider({ testimonials, onSwiper }: AuthorCardS
       onSwiper={onSwiper}
       slidesPerView={1}
       breakpoints={{
-        768: { slidesPerView: 2 },
+        624: { slidesPerView: 2 },
         992: { slidesPerView: 3 },
         1200: { slidesPerView: 4 },
       }}

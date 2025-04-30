@@ -1,5 +1,5 @@
 import { KeyMetricContent } from './KeyMetric/keyMetric.type';
-import { NewlestterContent } from './Newsletter/newlestter.type';
+import { NewlestterContent } from './Newsletter/NewsletterCard/newsletterCard.type';
 
 export interface HeroSectionProps {
   cotent: [

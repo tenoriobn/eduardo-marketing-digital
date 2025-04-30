@@ -1,9 +1,20 @@
-import { InputContent } from '../contact.type';
-
 export interface ContactFormProps {
   inputsContent: InputContent;
 }
 
-export interface InputComponentProps {
-  component: React.ComponentType<React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>>;
+export interface InputContent {
+  id: string;
+  titleSocialForm: string;
+  buttonText: string;
+  inputFormContent: InputItem[];
+}
+
+interface InputItem {
+  id: string;
+  placeholder: string;
+  inputIcon: InputIcon;
+}
+
+export interface InputIcon {
+  url: string;
 }
