@@ -1,8 +1,9 @@
 * Centralizar técnica de borda *** QUASE LÁ, FALTA AJUSTAR SEÇÃO DEPOIMENTOS E SLIDES PARA FINALIZAR CENTRALIZAÇÃO ***
-* Ajustar Seção de Depoimentos (ajustar nomeclaturas, dividir responsabilidades, reutilizar estilos e elementos...)
+OK Ajustar Seção de Depoimentos (ajustar nomeclaturas, dividir responsabilidades, reutilizar estilos e elementos...)
+* Aplicar o mesmo padrão de ***agrupamento de estilização*** dos componentes do Testimonials
 
 * Ajustar Barra de rolagem
-
+* Ajustar box-shadow e BorderGradients - {Tem haver também com organização de pastas}
 * Aplicar box-shadow
 * Aplicar hover e active
 * Centralizar título das seções

@@ -27,13 +27,6 @@ const Title = styled.h2`
   }
 `;
 
-const StyledContainer = styled.div`
-  background: ${({ theme }) => theme.gradients.softLight};
-  border-radius: 1.5rem;
-  padding: .0625rem;
-  height: 100%;
-`;
-
 
 const ContactContentWrapper = styled.div`
   display: grid;
