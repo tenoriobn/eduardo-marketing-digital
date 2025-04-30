@@ -1,4 +1,3 @@
-* Ajustar Barra de rolagem
 * Centralizar título das seções
 * Centralizar tamanho dos paragráfos (se conter mesmo tamanho responsivo)
 * Centralizar botões
@@ -27,3 +26,4 @@
 OK Centralizar técnica de borda *** QUASE LÁ, FALTA AJUSTAR SEÇÃO DEPOIMENTOS E SLIDES PARA FINALIZAR CENTRALIZAÇÃO ***
 OK Ajustar Seção de Depoimentos (ajustar nomeclaturas, dividir responsabilidades, reutilizar estilos e elementos...)
 OK Aplicar o mesmo padrão de ***agrupamento de estilização*** dos componentes do Testimonials
+OK - Ajustar Barra de rolagem
