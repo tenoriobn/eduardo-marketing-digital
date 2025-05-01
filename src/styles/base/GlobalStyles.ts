@@ -34,10 +34,11 @@ export const GlobalStyles = createGlobalStyle`
       width: 10px;
     }
     ::-webkit-scrollbar-track {
-      background: ${({ theme }) => theme.colors.grayStone};
+      background: ${({ theme }) => theme.colors['charcoalGray']};
+
     }
     ::-webkit-scrollbar-thumb {
-      background: ${({ theme }) => theme.colors['darkGray-90']};
+      background: ${({ theme }) => theme.colors['grayStone']};
       border-radius: .125rem;
     }
   }

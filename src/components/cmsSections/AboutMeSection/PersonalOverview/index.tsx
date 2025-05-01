@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { PersonalOverviewProps } from './personalOverview.type';
-import { CardTitle, Text } from 'src/styles';
+import { boxShadow, CardTitle, Text } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
@@ -46,10 +46,11 @@ const Styled = {
     color: ${({ theme }) => theme.colors.softGray};
     font-size: .875rem;
     font-weight: 500;
+    text-align: center;
     border-radius: 3rem;
+    ${boxShadow};
     padding: 1rem;
     width: 100%;
-    text-align: center;
 
     span {
       max-width: 184px;

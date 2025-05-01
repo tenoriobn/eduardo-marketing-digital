@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import SocialLink from './SocialLink';
 import ContactForm from './ContactForm';
 import { ContactProps } from './contact.type';
-import { TitleSection } from 'src/styles';
+import { boxShadow, TitleSection } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
@@ -25,6 +25,7 @@ const Styled = {
 
     background-color: ${({ theme }) => theme.colors.darkGray};
     border-radius: 1.5rem;
+    ${boxShadow};
     padding: 1rem;
 
     @media (min-width: 768px) {

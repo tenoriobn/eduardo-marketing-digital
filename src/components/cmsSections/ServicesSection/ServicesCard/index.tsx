@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ServicesCardProps } from './servicesCard.type';
-import { CardTitle, Text } from 'src/styles';
+import { boxShadow, CardTitle, Text } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
@@ -21,6 +21,7 @@ const Styled = {
   ServiceCard: styled.div`
     display: grid;
     grid-template-rows: auto 1fr auto;
+    ${boxShadow};
 
     gap: 1rem;
     background-color: ${({ theme }) => theme.colors.darkGray};
@@ -62,6 +63,7 @@ const Styled = {
     border-radius: 3rem;
     padding: .875rem;
     width: 100%;
+    ${boxShadow};
 
     @media (min-width: 768px) {
       font-size: 1rem;

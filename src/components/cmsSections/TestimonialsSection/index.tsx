@@ -6,7 +6,7 @@ import TestimonialSlider from './TestimonialSlider';
 import TestimonialsPagination from './TestimonialsPagination';
 import testimonials from './testimonials.json';
 import { TestimonialsProps } from './testimonials.type';
-import { TitleSection } from 'src/styles';
+import { boxShadow, TitleSection } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
@@ -30,6 +30,7 @@ const Styled = {
 
     background-color: ${({ theme }) => theme.colors.darkGray};
     border-radius: 1.5rem;
+    ${boxShadow};
     padding: 1rem;
 
     @media (min-width: 768px) {

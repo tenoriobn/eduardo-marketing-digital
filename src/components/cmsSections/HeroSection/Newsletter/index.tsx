@@ -1,15 +1,16 @@
-import React from 'react';
 import { NewlestterProps } from './newlestter.type';
 import styled from 'styled-components';
 import NewsletterCard from './NewsletterCard';
 import WhatsappButton from './WhatsappButton';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { boxShadow } from 'src/styles';
 
 const Styled = {
   NewsletterBackground: styled.div`
     background: url('/images/featured-card-bg.jpg') no-repeat bottom / 100%;
     background-position: 50% 77%;
     border-radius: 1.5rem;
+    ${boxShadow}
 
     display: flex;
     align-items: end;

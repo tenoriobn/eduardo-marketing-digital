@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { FormFieldProps } from './formField.type';
 import styled, { css } from 'styled-components';
+import { innerShadow } from 'src/styles';
 
 const inputStyles = css`
   border: none;
@@ -19,12 +20,13 @@ const inputStyles = css`
 
 const Styled = {
   Label: styled.label<{ $isTextarea: boolean }>`
-    cursor: text;
-    background-color: ${({ theme }) => theme.colors.graphiteGray};
-    border-radius: ${({ $isTextarea }) => ($isTextarea ? '1.5rem' : '3rem')};
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 0.75rem;
+    cursor: text;
+    background-color: ${({ theme }) => theme.colors.graphiteGray};
+    border-radius: ${({ $isTextarea }) => ($isTextarea ? '1.5rem' : '3rem')};
+    ${innerShadow};
     padding: 1rem;
     width: 100%;
   `,

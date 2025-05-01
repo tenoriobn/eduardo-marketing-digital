@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import WhatsappIcon from 'public/icons/whatsapp.svg';
 import { WhatsappButtonProps } from './whatsappButton.type';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { boxShadow } from 'src/styles';
 
 const Styled = {
   BorderGradientContainer: styled(BorderGradientContainer)`
@@ -18,6 +19,7 @@ const Styled = {
   Link: styled(Link)`
     background-color: ${({ theme }) => theme.colors['darkGray-90']};
     border-radius: 62.5rem;
+    ${boxShadow};
     display: flex;
     align-items: center;
     justify-content: center;

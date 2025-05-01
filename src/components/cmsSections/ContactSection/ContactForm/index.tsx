@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ContactFormProps } from './contactForm.type';
 import FormField from './FormField';
-import { CardTitle } from 'src/styles';
+import { boxShadow, CardTitle } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
@@ -51,6 +51,7 @@ const Styled = {
     font-size: .875rem;
     font-weight: 500;
     border-radius: 3rem;
+    ${boxShadow};
     padding: .75rem 1.5rem;
     width: 100%;
 

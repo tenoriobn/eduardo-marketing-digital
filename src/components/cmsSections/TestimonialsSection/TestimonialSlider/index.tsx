@@ -16,6 +16,10 @@ const Styled = {
       align-items: center;
       height: 152px;
     }
+
+    @media (min-width: 768px) {
+      padding: 0 1rem;
+    }
   `,
 
   Text: styled(Text)`

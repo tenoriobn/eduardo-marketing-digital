@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import EmailIcon from 'public/icons/email.svg';
 import { NewlestterCardProps } from './newsletterCard.type';
-import { CardTitle, Text } from 'src/styles';
+import { CardTitle, innerShadow, Text } from 'src/styles';
 
 const Styled = {
   NewsletterCard: styled.div`
@@ -35,6 +35,7 @@ const Styled = {
     align-items: center;
     gap: 1rem;
     padding: .5rem .5rem .5rem 1rem;
+    ${innerShadow}
 
     @media (min-width: 992px) {
       max-width: 380px;
@@ -44,7 +45,6 @@ const Styled = {
   Label: styled.label`
     display: grid;
     grid-template-columns: auto 1fr;
-
     gap: .375rem;
     width: 100%;
 

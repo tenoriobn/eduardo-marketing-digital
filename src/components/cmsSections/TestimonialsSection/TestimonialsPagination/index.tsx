@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { borderGradientStylesCSS } from 'src/styles';
+import { borderGradientStylesCSS, boxShadow } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
@@ -15,8 +15,9 @@ const Styled = {
     grid-template-columns: repeat(3, auto);
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: .75rem;
     padding: 1rem;
+    ${boxShadow};
 
     .swiper-button-prev,
     .swiper-button-next,
@@ -38,6 +39,7 @@ const Styled = {
       border-radius: 5000px;
       width: 32px;
       height: 32px;
+      ${boxShadow};
 
       &::after {
         color: ${({ theme }) => theme.colors.softGray};
@@ -64,6 +66,10 @@ const Styled = {
     .swiper-pagination-bullet-active {
       background: ${({ theme }) => theme.colors.softGray};
       opacity: 1;
+    }
+
+    @media (min-width: 375px) {
+      gap: 1.5rem;
     }
 
     @media (min-width: 768px) {

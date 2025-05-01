@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { KeyMetricProps } from './keyMetric.type';
-import { Text } from 'src/styles';
+import { boxShadow, Text } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
@@ -26,6 +26,7 @@ const Styled = {
     justify-content: center;
     background-color: ${({ theme }) => theme.colors.darkGray};
     border-radius: 1.5rem;
+    ${boxShadow};
     padding: 1rem;
     height: 108px;
 

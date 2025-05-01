@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import PersonalOverview from './PersonalOverview';
 import { AboutMeProps } from './aboutMe.type';
-import { TitleSection } from 'src/styles';
+import { boxShadow, TitleSection } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
@@ -27,9 +27,9 @@ const Styled = {
   AboutMeContentWrapper: styled.div`
     display: grid;
     gap: 1.5rem;
-
     background-color: ${({ theme }) => theme.colors.darkGray};
     border-radius: 1.5rem;
+    ${boxShadow};
     padding: 1rem;
 
     @media (min-width: 768px) {
@@ -45,7 +45,6 @@ const Styled = {
 
   AvatarBorder: styled(BorderGradientContainer)`
     width: 100%;
-
     @media (min-width: 768px) {
       max-width: 658px;
     }
@@ -55,6 +54,7 @@ const Styled = {
     background-color: ${({ theme }) => theme.colors.darkGray};
     border-radius: 1.5rem;
     overflow: hidden;
+    ${boxShadow};
     height: 100%;
   `,
 
