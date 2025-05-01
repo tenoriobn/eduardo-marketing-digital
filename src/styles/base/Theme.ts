@@ -1,4 +1,4 @@
-const Theme = {
+export const Theme = {
   colors: {
     'black': '#000',
     'white': '#FFFFFF',
@@ -55,5 +55,3 @@ const Theme = {
   },
   transitions: {}
 } as const;
-
-export default Theme;

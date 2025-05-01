@@ -1,16 +1,6 @@
-import styled, { css } from 'styled-components';
-
-interface BorderGradientContainerProps {
-  $borderRadius?: string;
-  height?: string;
-}
-
-export const borderGradientStylesCSS = css`
-  background: ${({ theme }) => theme.gradients.softLight};
-  padding: .0625rem;
-  border-radius: 1.5rem;
-  position: relative;
-`;
+import styled from 'styled-components';
+import { BorderGradientContainerProps } from './borderGradient.type';
+import { borderGradientStylesCSS } from 'src/styles';
 
 export const BorderGradientContainer = styled.div<BorderGradientContainerProps>`
   ${borderGradientStylesCSS}

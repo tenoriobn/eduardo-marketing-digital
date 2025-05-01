@@ -1,38 +1,25 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { Swiper as SwiperClass } from 'swiper/types';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
 import AuthorCardSlider from './AuthorCardSlide';
 import TestimonialSlider from './TestimonialSlider';
 import TestimonialsPagination from './TestimonialsPagination';
 import testimonials from './testimonials.json';
 import { TestimonialsProps } from './testimonials.type';
+import { TitleSection } from 'src/styles';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
   Section: styled.section`
     display: flex;
     flex-direction: column;
-
-    margin-bottom: 4rem;
-
-    @media (min-width: 768px) {
-      margin-bottom: 5rem;
-    }
   `,
 
-  Title: styled.h2`
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    max-width: 214px;
-    align-self: center;
-    margin-bottom: 2rem;
+  BorderGradientContainer: styled(BorderGradientContainer)`
+    margin: 2rem 0 4rem 0;
 
     @media (min-width: 768px) {
-      font-size: 2rem;
-      margin-bottom: 3rem;
-      max-width: 100%;
+      margin: 3rem 0 5rem 0;
     }
   `,
 
@@ -56,15 +43,15 @@ export default function TestimonialsSection(props: TestimonialsProps) {
 
   return (
     <Styled.Section>
-      <Styled.Title>{props.titleSection}</Styled.Title>
+      <TitleSection>{props.titleSection}</TitleSection>
 
-      <BorderGradientContainer>
+      <Styled.BorderGradientContainer>
         <Styled.SlidesWrapper>
           <AuthorCardSlider testimonials={testimonials} onSwiper={setTestimonialSwiper} />
           <TestimonialSlider testimonials={testimonials} thumbsSwiper={testimonialSwiper} />
           <TestimonialsPagination />
         </Styled.SlidesWrapper>
-      </BorderGradientContainer>
+      </Styled.BorderGradientContainer>
     </Styled.Section>
   );
 }

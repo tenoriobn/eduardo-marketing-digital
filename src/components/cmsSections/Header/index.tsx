@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
 import { HeaderProps } from './header.type';
 import styled from 'styled-components';
 import MobileMenuIcon from 'public/icons/menu.svg';
 import CTALink from './CTALink';
 import NavLinks from './NavLinks';
 import useResponsiveMenu from './useResponsiveMenu';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
   Header: styled(BorderGradientContainer)``,

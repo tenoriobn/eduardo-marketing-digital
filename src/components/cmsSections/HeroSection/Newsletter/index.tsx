@@ -3,7 +3,7 @@ import { NewlestterProps } from './newlestter.type';
 import styled from 'styled-components';
 import NewsletterCard from './NewsletterCard';
 import WhatsappButton from './WhatsappButton';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
   NewsletterBackground: styled.div`

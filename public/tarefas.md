@@ -1,5 +1,5 @@
-* Centralizar título das seções
-* Centralizar tamanho dos paragráfos (se conter mesmo tamanho responsivo)
+OK * Centralizar título das seções
+ok * Centralizar tamanho dos paragráfos (se conter mesmo tamanho responsivo)
 * Centralizar botões
 * Ajustar Dropdown do Menu Mobile
 * Criar Modal (Services)

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import EmailIcon from 'public/icons/email.svg';
 import { NewlestterCardProps } from './newsletterCard.type';
+import { CardTitle, Text } from 'src/styles';
 
 const Styled = {
   NewsletterCard: styled.div`
@@ -24,14 +25,6 @@ const Styled = {
 
     @media (min-width: 768px) {
       font-size: 1.5rem;
-    }
-  `,
-
-  CardText: styled.p`
-    font-size: .875rem;
-
-    @media (min-width: 768px) {
-      font-size: 1rem;
     }
   `,
 
@@ -97,8 +90,8 @@ const Styled = {
 export default function NewsletterCard({ contentNewsletter }: NewlestterCardProps) {
   return (
     <Styled.NewsletterCard>
-      <Styled.CardTitle>{contentNewsletter.titleCard}</Styled.CardTitle>
-      <Styled.CardText>{contentNewsletter.cardParagraph}</Styled.CardText>
+      <CardTitle>{contentNewsletter.titleCard}</CardTitle>
+      <Text>{contentNewsletter.cardParagraph}</Text>
 
       <Styled.Form action="">
         <Styled.Label htmlFor="input-email">

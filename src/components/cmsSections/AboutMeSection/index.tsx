@@ -2,35 +2,22 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import PersonalOverview from './PersonalOverview';
 import { AboutMeProps } from './aboutMe.type';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
+import { TitleSection } from 'src/styles';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
   Section: styled.section`
     display: grid;
-    margin-bottom: 4rem;
-
-    @media (min-width: 768px) {
-      margin-bottom: 5rem;
-    }
-  `,
-
-  Title: styled.h2`
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    justify-self: center;
-    margin-bottom: 2rem;
-
-    @media (min-width: 768px) {
-      font-size: 2rem;
-      margin-bottom: 3rem;
-    }
   `,
 
   BorderGradientContainer: styled(BorderGradientContainer)`
     justify-self: center;
     max-width: 704px;
+    margin: 2rem 0 4rem 0;
+
+    @media (min-width: 768px) {
+      margin: 3rem 0 5rem 0;
+    }
 
     @media (min-width: 992px) {
       max-width: 100%;
@@ -86,7 +73,7 @@ const Styled = {
 export default function AboutMeSection(props: AboutMeProps) {
   return (
     <Styled.Section>
-      <Styled.Title>{props.titleSection}</Styled.Title>
+      <TitleSection>{props.titleSection}</TitleSection>
 
       <Styled.BorderGradientContainer>
         <Styled.AboutMeContentWrapper>

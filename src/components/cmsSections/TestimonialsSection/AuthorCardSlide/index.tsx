@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Thumbs } from 'swiper/modules';
-import { borderGradientStylesCSS } from 'src/styles/BorderGradient';
 import { AuthorCardSlideProps } from './authorCardSlide';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
+import { borderGradientStylesCSS } from 'src/styles';
 
 const Styled = {
   Swiper: styled(Swiper)`
@@ -48,7 +48,7 @@ const AuthorCard = {
     gap: 0.25rem;
   `,
 
-  FullName: styled.h4`
+  FullName: styled.h3`
     font-size: 1rem;
     font-weight: 700;
   `,

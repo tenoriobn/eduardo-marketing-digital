@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import styled from 'styled-components';
 import { Autoplay, EffectFade, Navigation, Pagination, Thumbs } from 'swiper/modules';
 import { TestimonialSliderProps } from './testimonialSlider';
+import { Text } from 'src/styles';
 
 const Styled = {
   Swiper: styled(Swiper)`
@@ -17,17 +18,12 @@ const Styled = {
     }
   `,
 
-  Testimonial: styled.p`
-    font-size: .875rem;
+  Text: styled(Text)`
     font-style: italic;
     font-weight: 300;
     text-align: center;
     max-width: 716px;
     width: 100%;
-
-    @media (min-width: 768px) {
-      font-size: 1rem;
-    }
   `,
 };
 
@@ -56,7 +52,7 @@ export default function TestimonialSlider({ testimonials, thumbsSwiper }: Testim
     >
       {testimonials.map((testimonial) => (
         <SwiperSlide key={testimonial.id}>
-          <Styled.Testimonial>"{testimonial.testimonial}"</Styled.Testimonial>
+          <Styled.Text>"{testimonial.testimonial}"</Styled.Text>
         </SwiperSlide>
       ))}
     </Styled.Swiper>

@@ -1,12 +1,17 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
 import { PersonalOverviewProps } from './personalOverview.type';
+import { CardTitle, Text } from 'src/styles';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
   PersonalOverviewWrapper: styled.div`
     display: grid;
     gap: 1.5rem;
+
+    @media (min-width: 768px) {
+      gap: 2rem;
+    }
   `,
 
   OverviewItems: styled.div`
@@ -33,15 +38,6 @@ const Styled = {
   OverviewTitle: styled.h3`
     font-size: 1.125rem;
     font-weight: 700;
-  `,
-
-  OverviewText: styled.p`
-    font-size: .875rem;
-    font-weight: 400;
-
-    @media (min-width: 768px) {
-      font-size: 1rem;
-    }
   `,
 
   CTALink: styled(Link)`
@@ -78,8 +74,8 @@ export default function PersonalOverview({ personalOverviewContent, linkcta }: P
       <Styled.OverviewItems>
         {personalOverviewContent.map((overviews) => (
           <Styled.OverviewItem key={overviews.id}>
-            <Styled.OverviewTitle>{overviews.title}</Styled.OverviewTitle>
-            <Styled.OverviewText>{overviews.description}</Styled.OverviewText>
+            <CardTitle>{overviews.title}</CardTitle>
+            <Text>{overviews.description}</Text>
           </Styled.OverviewItem>
         ))}
       </Styled.OverviewItems>

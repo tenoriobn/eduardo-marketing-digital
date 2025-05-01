@@ -2,29 +2,19 @@ import styled from 'styled-components';
 import SocialLink from './SocialLink';
 import ContactForm from './ContactForm';
 import { ContactProps } from './contact.type';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
+import { TitleSection } from 'src/styles';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
   Section: styled.section`
     display: grid;
-    margin-bottom: 4rem;
-
-    @media (min-width: 768px) {
-      margin-bottom: 5rem;
-    }
   `,
 
-  Title: styled.h2`
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    justify-self: center;
-    margin-bottom: 2rem;
+  BorderGradientContainer: styled(BorderGradientContainer)`
+    margin: 2rem 0 4rem 0;
 
     @media (min-width: 768px) {
-      font-size: 2rem;
-      margin-bottom: 3rem;
+      margin: 3rem 0 5rem 0;
     }
   `,
 
@@ -62,9 +52,9 @@ const Styled = {
 export default function ContactSection(props: ContactProps) {
   return (
     <Styled.Section>
-      <Styled.Title>{props.title}</Styled.Title>
+      <TitleSection>{props.title}</TitleSection>
 
-      <BorderGradientContainer>
+      <Styled.BorderGradientContainer>
         <Styled.ContactWrapper>
           <SocialLink socialContent={props.contantContent[0]} />
 
@@ -72,7 +62,7 @@ export default function ContactSection(props: ContactProps) {
 
           <ContactForm inputsContent={props.contantContent[1]} />
         </Styled.ContactWrapper>
-      </BorderGradientContainer>
+      </Styled.BorderGradientContainer>
     </Styled.Section>
   );
 }

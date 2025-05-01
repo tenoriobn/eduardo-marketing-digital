@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import WhatsappIcon from 'public/icons/whatsapp.svg';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
 import { WhatsappButtonProps } from './whatsappButton.type';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
   BorderGradientContainer: styled(BorderGradientContainer)`

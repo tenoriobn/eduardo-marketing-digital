@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { ContactFormProps } from './contactForm.type';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
 import FormField from './FormField';
+import { CardTitle } from 'src/styles';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
   Form: styled.form`
@@ -10,9 +11,7 @@ const Styled = {
     width: 100%;
   `,
 
-  TitleForm: styled.h3`
-    font-size: 1.125rem;
-    font-weight: 700;
+  TitleForm: styled(CardTitle)`
     text-align: center;
 
     @media (min-width: 992px) {
