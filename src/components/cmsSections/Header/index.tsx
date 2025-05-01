@@ -1,14 +1,17 @@
 import Image from 'next/image';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
 import { HeaderProps } from './header.type';
 import styled from 'styled-components';
 import MobileMenuIcon from 'public/icons/menu.svg';
 import CTALink from './CTALink';
 import NavLinks from './NavLinks';
 import useResponsiveMenu from './useResponsiveMenu';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { boxShadow } from 'src/styles';
 
 const Styled = {
-  Header: styled(BorderGradientContainer)``,
+  Header: styled(BorderGradientContainer)`
+
+  `,
 
   HeaderWrapper: styled.div`
     display: flex;
@@ -16,6 +19,7 @@ const Styled = {
     align-items: center;
     background-color: ${({ theme }) => theme.colors.darkGray};
     border-radius: 62.5rem;
+    ${boxShadow}
     padding: .75rem 1rem;
 
     @media (min-width: 768px) {

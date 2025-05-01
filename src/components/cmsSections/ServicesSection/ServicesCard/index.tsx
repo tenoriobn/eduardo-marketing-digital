@@ -1,27 +1,27 @@
 import styled from 'styled-components';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
 import { ServicesCardProps } from './servicesCard.type';
+import { boxShadow, CardTitle, Text } from 'src/styles';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
   ServiceCardWrapper: styled.div`
     display: grid;
-    gap: 1rem;
-    margin-top: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(288px, auto));
+    gap: 1rem;
     grid-auto-rows: 1fr;
-    margin-bottom: 4rem;
+    margin: 2rem 0 4rem 0;
 
     @media (min-width: 768px) {
-      margin-top: 3rem;
-      gap: 1.5rem;
       grid-template-columns: repeat(2, 1fr);
-      margin-bottom: 5rem;
+      gap: 1.5rem;
+      margin: 3rem 0 5rem 0;
     }
   `,
 
   ServiceCard: styled.div`
     display: grid;
     grid-template-rows: auto 1fr auto;
+    ${boxShadow};
 
     gap: 1rem;
     background-color: ${({ theme }) => theme.colors.darkGray};
@@ -34,9 +34,7 @@ const Styled = {
     }
   `,
 
-  ServiceCardTitle: styled.h3`
-    font-size: 1.125rem;
-    font-weight: 700;
+  CardTitle: styled(CardTitle)`
     text-transform: uppercase;
     text-align: center;
 
@@ -44,23 +42,13 @@ const Styled = {
       min-height: 51px;
     }
 
-    @media (min-width: 768px) {
-      font-size: 1.25rem;
-    }
-
     @media (min-width: 992px) {
       text-align: start;
     }
   `,
 
-  ServiceCardText: styled.p`
-    font-size: .875rem;
-    font-weight: 400;
+  Text: styled(Text)`
     text-align: center;
-
-    @media (min-width: 768px) {
-      font-size: 1rem;
-    }
 
     @media (min-width: 992px) {
       text-align: start;
@@ -75,6 +63,7 @@ const Styled = {
     border-radius: 3rem;
     padding: .875rem;
     width: 100%;
+    ${boxShadow};
 
     @media (min-width: 768px) {
       font-size: 1rem;
@@ -89,13 +78,13 @@ export default function ServicesCard({ serviceCardContent }: ServicesCardProps) 
       {serviceCardContent.map((service) => (
         <BorderGradientContainer key={service.id}>
           <Styled.ServiceCard>
-            <Styled.ServiceCardTitle>
+            <Styled.CardTitle>
               {service.titleCard}
-            </Styled.ServiceCardTitle>
+            </Styled.CardTitle>
 
-            <Styled.ServiceCardText>
+            <Styled.Text>
               {service.description}
-            </Styled.ServiceCardText>
+            </Styled.Text>
 
             <BorderGradientContainer>
               <Styled.Button>

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 /* 1. Modelo de dimensionamento de caixa mais intuitivo */
   *, *::before, *::after {
     box-sizing: border-box;
@@ -34,10 +34,11 @@ const GlobalStyles = createGlobalStyle`
       width: 10px;
     }
     ::-webkit-scrollbar-track {
-      background: ${({ theme }) => theme.colors.grayStone};
+      background: ${({ theme }) => theme.colors['charcoalGray']};
+
     }
     ::-webkit-scrollbar-thumb {
-      background: ${({ theme }) => theme.colors['darkGray-90']};
+      background: ${({ theme }) => theme.colors['grayStone']};
       border-radius: .125rem;
     }
   }
@@ -126,5 +127,3 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Courier New', Courier, monospace;
   }
 `;
-
-export default GlobalStyles;

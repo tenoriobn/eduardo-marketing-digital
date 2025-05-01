@@ -1,20 +1,16 @@
 import styled from 'styled-components';
 import { FooterProps } from './footer.type';
+import { Text } from 'src/styles';
 
 const Styled = {
   Footer: styled.footer`
     padding: 2rem 1rem;
   `,
 
-  Copyright: styled.p`
-    font-size: .875rem;
+  Copyright: styled(Text)`
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
-
-    @media (min-width: 768px) {
-      font-size: 1rem;
-    }
   `,
 };
 

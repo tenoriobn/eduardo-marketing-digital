@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { KeyMetricProps } from './keyMetric.type';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
+import { boxShadow, Text } from 'src/styles';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
   KeyMetricWrapper: styled.div`
@@ -25,6 +26,7 @@ const Styled = {
     justify-content: center;
     background-color: ${({ theme }) => theme.colors.darkGray};
     border-radius: 1.5rem;
+    ${boxShadow};
     padding: 1rem;
     height: 108px;
 
@@ -41,15 +43,6 @@ const Styled = {
       font-size: 2rem;
     }
   `,
-
-  Metric: styled.p`
-    font-size: .875rem;
-    font-weight: 400;
-
-    @media (min-width: 768px) {
-      font-size: 1rem;
-    }
-  `,
 };
 
 
@@ -61,7 +54,7 @@ export default function KeyMetric({ keyMetricCard }: KeyMetricProps) {
         <BorderGradientContainer key={keyMetric.id}>
           <Styled.KeyMetricCard>
             <Styled.Key>{keyMetric.count}</Styled.Key>
-            <Styled.Metric>{keyMetric.description}</Styled.Metric>
+            <Text>{keyMetric.description}</Text>
           </Styled.KeyMetricCard>
         </BorderGradientContainer>
       ))}

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import EmailIcon from 'public/icons/email.svg';
 import { NewlestterCardProps } from './newsletterCard.type';
+import { CardTitle, innerShadow, Text } from 'src/styles';
 
 const Styled = {
   NewsletterCard: styled.div`
@@ -27,14 +28,6 @@ const Styled = {
     }
   `,
 
-  CardText: styled.p`
-    font-size: .875rem;
-
-    @media (min-width: 768px) {
-      font-size: 1rem;
-    }
-  `,
-
   Form: styled.form`
     border: .0625rem solid ${({ theme }) => theme.colors.charcoalGray};
     border-radius: 3rem;
@@ -42,6 +35,7 @@ const Styled = {
     align-items: center;
     gap: 1rem;
     padding: .5rem .5rem .5rem 1rem;
+    ${innerShadow}
 
     @media (min-width: 992px) {
       max-width: 380px;
@@ -51,7 +45,6 @@ const Styled = {
   Label: styled.label`
     display: grid;
     grid-template-columns: auto 1fr;
-
     gap: .375rem;
     width: 100%;
 
@@ -97,8 +90,8 @@ const Styled = {
 export default function NewsletterCard({ contentNewsletter }: NewlestterCardProps) {
   return (
     <Styled.NewsletterCard>
-      <Styled.CardTitle>{contentNewsletter.titleCard}</Styled.CardTitle>
-      <Styled.CardText>{contentNewsletter.cardParagraph}</Styled.CardText>
+      <CardTitle>{contentNewsletter.titleCard}</CardTitle>
+      <Text>{contentNewsletter.cardParagraph}</Text>
 
       <Styled.Form action="">
         <Styled.Label htmlFor="input-email">

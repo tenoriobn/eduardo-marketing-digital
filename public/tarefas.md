@@ -1,11 +1,7 @@
-* Centralizar título das seções
-* Centralizar tamanho dos paragráfos (se conter mesmo tamanho responsivo)
-* Centralizar botões
 * Ajustar Dropdown do Menu Mobile
 * Criar Modal (Services)
+* Centralizar botões
 
-* Ajustar box-shadow e BorderGradients - {Tem haver também com organização de pastas}
-* Aplicar box-shadow
 * Aplicar hover e active
 
 * Textarea deve ter o texto contornando icone
@@ -27,3 +23,7 @@ OK Centralizar técnica de borda *** QUASE LÁ, FALTA AJUSTAR SEÇÃO DEPOIMENTO
 OK Ajustar Seção de Depoimentos (ajustar nomeclaturas, dividir responsabilidades, reutilizar estilos e elementos...)
 OK Aplicar o mesmo padrão de ***agrupamento de estilização*** dos componentes do Testimonials
 OK - Ajustar Barra de rolagem
+
+OK * Centralizar título das seções
+ok * Centralizar tamanho dos paragráfos (se conter mesmo tamanho responsivo)
+OK * Criar mixin box-shadow (Pegar boxshadow do BorderGradients e criar um InnerShadow)

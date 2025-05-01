@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { SocialLinkProps } from './socialLink.type';
+import { Text } from 'src/styles';
 
 const Styled = {
   SocialLinkWrapper: styled.div`
@@ -9,15 +10,9 @@ const Styled = {
     gap: 1rem;
   `,
 
-  SocialText: styled.p`
-    font-size: .875rem;
-    font-weight: 500;
+  Text: styled(Text)`
     text-align: center;
     max-width: 512px;
-
-    @media (min-width: 768px) {
-      font-size: 1rem;
-    }
   `,
 
   SocialLinkContent: styled.div`
@@ -35,7 +30,7 @@ const Styled = {
 export default function SocialLink({ socialContent }: SocialLinkProps) {
   return (
     <Styled.SocialLinkWrapper>
-      <Styled.SocialText>{socialContent.description}</Styled.SocialText>
+      <Styled.Text>{socialContent.description}</Styled.Text>
 
       <Styled.SocialLinkContent>
         {socialContent.socialLinkContent.map((socialLink) => (

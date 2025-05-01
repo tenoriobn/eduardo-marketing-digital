@@ -3,7 +3,7 @@ import { NavLinksProps } from './navLinks.type';
 import styled from 'styled-components';
 import CTALink from '../CTALink';
 import { usePathname } from 'next/navigation';
-import { BorderGradientContainer } from 'src/styles/BorderGradient';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
   NavLinksWrapper: styled.div<{$isMenuActive: Boolean}>`
