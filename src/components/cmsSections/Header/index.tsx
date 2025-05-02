@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { HeaderProps } from './header.type';
 import styled from 'styled-components';
 import MobileMenuIcon from 'public/icons/menu.svg';
+import CloseIcon from 'public/icons/close.svg';
 import CTALink from './CTALink';
 import NavLinks from './NavLinks';
 import useResponsiveMenu from './useResponsiveMenu';
@@ -10,7 +11,7 @@ import { boxShadow } from 'src/styles';
 
 const Styled = {
   Header: styled(BorderGradientContainer)`
-
+    z-index: 99;
   `,
 
   HeaderWrapper: styled.div`
@@ -74,7 +75,7 @@ export default function Header(props: HeaderProps) {
         </Styled.LogoWrapper>
 
         <Styled.MobileMenuButton onClick={() => setIsMenuActive(!isMenuActive)} >
-          <MobileMenuIcon/>
+          { isMenuActive ? <CloseIcon /> : <MobileMenuIcon /> }
         </Styled.MobileMenuButton>
 
         <NavLinks

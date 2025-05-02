@@ -4,18 +4,20 @@ import styled from 'styled-components';
 import CTALink from '../CTALink';
 import { usePathname } from 'next/navigation';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { boxShadow } from 'src/styles';
 
 const Styled = {
   NavLinksWrapper: styled.div<{$isMenuActive: Boolean}>`
     @media (max-width: 991px) {
       display: ${({ $isMenuActive }) => $isMenuActive ? '' : 'none'};
       position: absolute;
-      left: 0;
-      top: 70px;
+      right: 0;
+      top: 76px;
       background: ${({ theme }) => theme.gradients.softLight};
       border-radius: 1.5rem;
       padding: .0625rem;
       width: 100%;
+      max-width: max-content;
     }
   `,
 
@@ -24,13 +26,21 @@ const Styled = {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: .75rem 0;
+    padding: 1rem;
     background-color: ${({ theme }) => theme.colors.darkGray};
     border-radius: 1.5rem;
 
+    @media (max-width: 991px) {
+      ${boxShadow}
+    }
+
+    @media (min-width: 768px) {
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
     @media (min-width: 992px) {
       flex-direction: row;
-      gap: 1.5rem;
       padding: 0;
     }
   `,

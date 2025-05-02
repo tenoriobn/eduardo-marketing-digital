@@ -1,4 +1,3 @@
-* Aplicar Proteção nos links com *_target*
 * Ajustar Dropdown do Menu Mobile (verificar se utilizo *motion*, *gsap* ou *outra lib de ui*)
 * Criar Modal (Services)
 * Centralizar botões
@@ -28,3 +27,17 @@ OK - Ajustar Barra de rolagem
 OK * Centralizar título das seções
 ok * Centralizar tamanho dos paragráfos (se conter mesmo tamanho responsivo)
 OK * Criar mixin box-shadow (Pegar boxshadow do BorderGradients e criar um InnerShadow)
+
+OK - Aplicar Proteção nos links com *_target*
+
+
+
+
+
+
+
+
+
+
+
+
