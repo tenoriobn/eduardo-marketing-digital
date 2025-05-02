@@ -85,7 +85,11 @@ export default function Header(props: HeaderProps) {
         />
 
         <Styled.CTAButtonWrapperDesktop $borderRadius='62.5rem'>
-          <CTALink href={props.ctaButton.url} target='_blank'>
+          <CTALink
+            href={props.ctaButton.url}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             {props.ctaButton.label}
           </CTALink>
         </Styled.CTAButtonWrapperDesktop>

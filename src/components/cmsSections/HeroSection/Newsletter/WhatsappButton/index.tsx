@@ -33,7 +33,11 @@ const Styled = {
 export default function WhatsappButton({ contactViaWhatsapp }:WhatsappButtonProps) {
   return (
     <Styled.BorderGradientContainer>
-      <Styled.Link href={contactViaWhatsapp} target='_blank'>
+      <Styled.Link
+        href={contactViaWhatsapp}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
         <WhatsappIcon width={32} heigth={32} />
       </Styled.Link>
     </Styled.BorderGradientContainer>

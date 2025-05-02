@@ -76,6 +76,7 @@ export default function NavLinks({ links, ctaButton, isMenuActive, setIsMenuActi
           <CTALink
             href={ctaButton.url}
             target="_blank"
+            rel='noopener noreferrer'
             onClick={() => setIsMenuActive(false)}
           >
             {ctaButton.label}

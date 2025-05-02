@@ -1,4 +1,5 @@
-* Ajustar Dropdown do Menu Mobile
+* Aplicar Proteção nos links com *_target*
+* Ajustar Dropdown do Menu Mobile (verificar se utilizo *motion*, *gsap* ou *outra lib de ui*)
 * Criar Modal (Services)
 * Centralizar botões
 

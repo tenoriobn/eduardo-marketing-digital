@@ -4,4 +4,5 @@ export interface CTALinkProps extends LinkProps {
   children: React.ReactNode;
   target?: string;
   className?: string;
+  rel: string;
 }
