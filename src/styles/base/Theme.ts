@@ -10,6 +10,7 @@ export const Theme = {
     'darkGray': '#2D2D2D',
     'darkGray-50': '#2d2d2d7f',
     'darkGray-90': 'rgba(45, 45, 45, 0.9)',
+    'darkGray-76': 'rgba(45, 45, 45, 0.76)',
     'charcoalGray': '#484848',
     'red': 'rgb(255 69 69 / 81%)',
     'grayStone': '#6d6d6d',

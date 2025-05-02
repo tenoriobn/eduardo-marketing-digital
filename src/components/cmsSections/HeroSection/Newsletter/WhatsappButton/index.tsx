@@ -7,6 +7,8 @@ import { boxShadow } from 'src/styles';
 
 const Styled = {
   BorderGradientContainer: styled(BorderGradientContainer)`
+    max-width: max-content;
+
     @media (max-width: 767px) {
       align-self: end;
     }

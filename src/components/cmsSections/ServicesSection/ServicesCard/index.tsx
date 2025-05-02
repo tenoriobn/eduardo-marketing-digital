@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { ServicesCardProps } from './servicesCard.type';
 import { boxShadow, CardTitle, Text } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { useState } from 'react';
+import ServiceCardModal from './ServiceCardModal';
+import { AnimatePresence  } from 'framer-motion';
+import useBodyOverflow from 'src/utils/useBodyOverflow';
 
 const Styled = {
   ServiceCardWrapper: styled.div`
@@ -73,6 +77,9 @@ const Styled = {
 
 
 export default function ServicesCard({ serviceCardContent }: ServicesCardProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  useBodyOverflow(isModalOpen);
+
   return (
     <Styled.ServiceCardWrapper>
       {serviceCardContent.map((service) => (
@@ -87,13 +94,22 @@ export default function ServicesCard({ serviceCardContent }: ServicesCardProps) 
             </Styled.Text>
 
             <BorderGradientContainer>
-              <Styled.Button>
+              <Styled.Button onClick={() => setIsModalOpen(true)}>
                 {service.buttonText}
               </Styled.Button>
             </BorderGradientContainer>
           </Styled.ServiceCard>
         </BorderGradientContainer>
       ))}
+
+      <AnimatePresence mode="wait" initial={false}>
+        {isModalOpen &&
+          <ServiceCardModal
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          />
+        }
+      </AnimatePresence>
     </Styled.ServiceCardWrapper>
   );
 }
