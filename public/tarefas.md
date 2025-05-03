@@ -1,7 +1,4 @@
-* Aplicar hook **useBodyOverflow** no menu mobile
-* Corrigir bug da barra de rolagem ao fechar modal em versão de telas menores
 * Centralizar botões
-
 * Aplicar hover e active
 
 * Textarea deve ter o texto contornando icone
@@ -31,8 +28,8 @@ OK * Criar mixin box-shadow (Pegar boxshadow do BorderGradients e criar um Inner
 OK - Aplicar Proteção nos links com *_target*
 OK - Ajustar Dropdown do Menu Mobile (verificar se utilizo *motion*, *gsap* ou *outra lib de ui*)
 OK - Criar Modal (Services)
-
-
+OK - Corrigir bug da barra de rolagem ao fechar modal em versão de telas menores
+OK - Aplicar hook **useBodyOverflow** no menu mobile
 
 
 

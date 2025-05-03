@@ -64,14 +64,13 @@ const Styled = {
   `,
 };
 
-
-
 export default function NavLinks({ links, ctaButton, isMenuActive, isMobile, setIsMenuActive }: NavLinksProps) {
   const pathname = usePathname();
 
   return (
     <AnimatePresence mode="wait" initial={false}>
-      <Styled.NavLinksWrapper $isMenuActive={isMenuActive}
+      <Styled.NavLinksWrapper
+        $isMenuActive={isMenuActive}
         key={isMenuActive ? 'navLinkOpen' : 'navLinkClose'}
         {...(isMobile && {
           initial: { opacity: 0, y: -16 },
@@ -85,7 +84,7 @@ export default function NavLinks({ links, ctaButton, isMenuActive, isMobile, set
             <Styled.Link
               key={link.id}
               href={link.url}
-              onClick={() => setIsMenuActive(false)}
+              onClick={isMobile ? () => setIsMenuActive(false) : undefined}
               className={`${pathname === link.url ? 'active' : ''}`}
             >
               {link.label}

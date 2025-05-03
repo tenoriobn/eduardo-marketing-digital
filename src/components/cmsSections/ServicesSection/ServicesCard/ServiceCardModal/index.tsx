@@ -1,12 +1,15 @@
-import CloseIcon from 'public/icons/close.svg';
+import { useRef } from 'react';
+import Link from 'next/link';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import WhatsappButton from '../../../HeroSection/Newsletter/WhatsappButton';
-import styled, { css } from 'styled-components';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 import { boxShadow, CardTitle, Text } from 'src/styles';
-import Link from 'next/link';
-import { useRef } from 'react';
 import { useClickOutside } from 'src/utils/useClickOutside';
-import { motion } from 'framer-motion';
+import CloseIcon from 'public/icons/close.svg';
+import CheckIcon from 'public/icons/check.svg';
+import CoolFaceIcon from 'public/icons/cool-face.svg';
+import RocketIcon from 'public/icons/rocket.svg';
 
 const Styled = {
   ModalOverlay: styled(motion.div)<{$isModalOpen: boolean}>`
@@ -28,6 +31,19 @@ const Styled = {
     padding: 5rem 1rem;
     overflow-y: auto;
     overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(194, 20, 20, 0);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
 
     @media (min-width: 768px) {
       padding: 5rem 2rem;
@@ -111,6 +127,12 @@ const Styled = {
       font-size: 1.125rem;
     }
   `,
+
+  InfoWrapper: styled.div`
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  `,
 };
 
 export default function ServiceCardModal({ isModalOpen, setIsModalOpen }: ServiceCardModalProps) {
@@ -130,7 +152,11 @@ export default function ServiceCardModal({ isModalOpen, setIsModalOpen }: Servic
       <Styled.BorderGradientContainer>
         <Styled.ModalWrapper ref={modalRef}>
           <Styled.Header>
-            <Styled.ModalTitle as="h2">🚀 Estratégias de SEO</Styled.ModalTitle>
+            <Styled.InfoWrapper>
+              <RocketIcon />
+
+              <Styled.ModalTitle as="h2">Estratégias de SEO</Styled.ModalTitle>
+            </Styled.InfoWrapper>
 
             <Styled.ModalIconClose onClick={() => setIsModalOpen(false)}>
               <CloseIcon />
@@ -141,7 +167,11 @@ export default function ServiceCardModal({ isModalOpen, setIsModalOpen }: Servic
 
           <Styled.Main>
             <Styled.ServicoInfoWrapper>
-              <CardTitle>😎 Domine o topo do Google com SEO estratégico!</CardTitle>
+              <Styled.InfoWrapper>
+                <CoolFaceIcon />
+                <CardTitle>Domine o topo do Google com SEO estratégico!</CardTitle>
+              </Styled.InfoWrapper>
+
               <Text>
                   O SEO é a chave para atrair tráfego orgânico de qualidade e gerar crescimento sustentável para sua marca. Aplicamos estratégias personalizadas para melhorar seu ranqueamento no Google, tornando seu site mais visível e relevante para o seu público.
               </Text>
@@ -151,10 +181,22 @@ export default function ServiceCardModal({ isModalOpen, setIsModalOpen }: Servic
               <CardTitle>O que fazemos?</CardTitle>
 
               <Styled.ServiceInfoContent>
-                <Text>✔ SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
-                <Text>✔ SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
-                <Text>✔ SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
-                <Text>✔ SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
+                <Styled.InfoWrapper>
+                  <CheckIcon />
+                  <Text>SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
+                </Styled.InfoWrapper>
+                <Styled.InfoWrapper>
+                  <CheckIcon />
+                  <Text>SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
+                </Styled.InfoWrapper>
+                <Styled.InfoWrapper>
+                  <CheckIcon />
+                  <Text>SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
+                </Styled.InfoWrapper>
+                <Styled.InfoWrapper>
+                  <CheckIcon />
+                  <Text>SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
+                </Styled.InfoWrapper>
               </Styled.ServiceInfoContent>
             </Styled.ServicoInfoWrapper>
 
@@ -162,10 +204,22 @@ export default function ServiceCardModal({ isModalOpen, setIsModalOpen }: Servic
               <CardTitle>Resultados que você pode esperar:</CardTitle>
 
               <Styled.ServiceInfoContent>
-                <Text>✔ Mais tráfego qualificado</Text>
-                <Text>✔ Mais tráfego qualificado</Text>
-                <Text>✔ Mais tráfego qualificado</Text>
-                <Text>✔ Mais tráfego qualificado</Text>
+                <Styled.InfoWrapper>
+                  <CheckIcon />
+                  <Text>Mais tráfego qualificado</Text>
+                </Styled.InfoWrapper>
+                <Styled.InfoWrapper>
+                  <CheckIcon />
+                  <Text>Mais tráfego qualificado</Text>
+                </Styled.InfoWrapper>
+                <Styled.InfoWrapper>
+                  <CheckIcon />
+                  <Text>Mais tráfego qualificado</Text>
+                </Styled.InfoWrapper>
+                <Styled.InfoWrapper>
+                  <CheckIcon />
+                  <Text>Mais tráfego qualificado</Text>
+                </Styled.InfoWrapper>
               </Styled.ServiceInfoContent>
             </Styled.ServicoInfoWrapper>
           </Styled.Main>
