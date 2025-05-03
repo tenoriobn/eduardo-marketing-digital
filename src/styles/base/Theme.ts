@@ -1,3 +1,5 @@
+import { montserrat } from './Font';
+
 export const Theme = {
   colors: {
     'black': '#000',
@@ -54,7 +56,10 @@ export const Theme = {
     'margin-8xl': '5rem',
     'margin-120': '7.5rem',
   },
-  transitions: {}
+  transitions: {},
+  font: {
+    montserrat: montserrat.style.fontFamily,
+  }
 } as const;
 
 export type ThemeType = typeof Theme;
