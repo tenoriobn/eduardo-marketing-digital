@@ -62,10 +62,10 @@ const Styled = {
 };
 
 export default function Header(props: HeaderProps) {
-  const { isMenuActive, setIsMenuActive, isMobile } = useResponsiveMenu();
+  const { isMenuActive, setIsMenuActive, isMobile, menuMobileRef } = useResponsiveMenu();
 
   return (
-    <Styled.Header as="header" $borderRadius='62.5rem'>
+    <Styled.Header as="header" $borderRadius='62.5rem' ref={menuMobileRef}>
       <Styled.HeaderWrapper>
         <Styled.LogoWrapper>
           <Image
