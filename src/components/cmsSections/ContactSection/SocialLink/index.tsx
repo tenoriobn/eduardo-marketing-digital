@@ -34,7 +34,12 @@ export default function SocialLink({ socialContent }: SocialLinkProps) {
 
       <Styled.SocialLinkContent>
         {socialContent.socialLinkContent.map((socialLink) => (
-          <Link href={socialLink.socialContent.url} key={socialLink.id} target='_blank'>
+          <Link
+            href={socialLink.socialContent.url}
+            key={socialLink.id}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <Image src={socialLink.socialIcon.url} alt={socialLink.socialContent.label} width={36} height={36} />
           </Link>
         ))}

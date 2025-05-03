@@ -1,5 +1,5 @@
-* Ajustar Dropdown do Menu Mobile
-* Criar Modal (Services)
+* Aplicar hook **useBodyOverflow** no menu mobile
+* Corrigir bug da barra de rolagem ao fechar modal em versão de telas menores
 * Centralizar botões
 
 * Aplicar hover e active
@@ -27,3 +27,18 @@ OK - Ajustar Barra de rolagem
 OK * Centralizar título das seções
 ok * Centralizar tamanho dos paragráfos (se conter mesmo tamanho responsivo)
 OK * Criar mixin box-shadow (Pegar boxshadow do BorderGradients e criar um InnerShadow)
+
+OK - Aplicar Proteção nos links com *_target*
+OK - Ajustar Dropdown do Menu Mobile (verificar se utilizo *motion*, *gsap* ou *outra lib de ui*)
+OK - Criar Modal (Services)
+
+
+
+
+
+
+
+
+
+
+

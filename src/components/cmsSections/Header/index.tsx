@@ -1,16 +1,18 @@
 import Image from 'next/image';
-import { HeaderProps } from './header.type';
 import styled from 'styled-components';
-import MobileMenuIcon from 'public/icons/menu.svg';
-import CTALink from './CTALink';
 import NavLinks from './NavLinks';
-import useResponsiveMenu from './useResponsiveMenu';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import CTALink from './CTALink';
 import { boxShadow } from 'src/styles';
+import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import useResponsiveMenu from './useResponsiveMenu';
+import { HeaderProps } from './header.type';
+import MobileMenuIcon from 'public/icons/menu.svg';
+import CloseIcon from 'public/icons/close.svg';
+import { AnimatePresence, motion } from 'motion/react';
 
 const Styled = {
   Header: styled(BorderGradientContainer)`
-
+    z-index: 99;
   `,
 
   HeaderWrapper: styled.div`
@@ -42,9 +44,10 @@ const Styled = {
     }
   `,
 
-  MobileMenuButton: styled.button`
+  MobileMenuButton: styled(motion.button)`
     display: flex;
     cursor: pointer;
+    height: 17px;
 
     @media (min-width: 992px) {
       display: none;
@@ -59,7 +62,7 @@ const Styled = {
 };
 
 export default function Header(props: HeaderProps) {
-  const { isMenuActive, setIsMenuActive } = useResponsiveMenu();
+  const { isMenuActive, setIsMenuActive, isMobile } = useResponsiveMenu();
 
   return (
     <Styled.Header as="header" $borderRadius='62.5rem'>
@@ -73,19 +76,34 @@ export default function Header(props: HeaderProps) {
           />
         </Styled.LogoWrapper>
 
-        <Styled.MobileMenuButton onClick={() => setIsMenuActive(!isMenuActive)} >
-          <MobileMenuIcon/>
+        <Styled.MobileMenuButton onClick={() => setIsMenuActive(!isMenuActive)}>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={isMenuActive ? 'close' : 'menu'}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: .075 }}
+            >
+              {isMenuActive ? <CloseIcon /> : <MobileMenuIcon />}
+            </motion.div>
+          </AnimatePresence>
         </Styled.MobileMenuButton>
 
         <NavLinks
           links={props.menuLinks}
           isMenuActive={isMenuActive}
           setIsMenuActive={setIsMenuActive}
+          isMobile={isMobile}
           ctaButton={{ url: props.ctaButton.url, label: props.ctaButton.label }}
         />
 
         <Styled.CTAButtonWrapperDesktop $borderRadius='62.5rem'>
-          <CTALink href={props.ctaButton.url} target='_blank'>
+          <CTALink
+            href={props.ctaButton.url}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             {props.ctaButton.label}
           </CTALink>
         </Styled.CTAButtonWrapperDesktop>

@@ -82,7 +82,11 @@ export default function PersonalOverview({ personalOverviewContent, linkcta }: P
       </Styled.OverviewItems>
 
       <BorderGradientContainer $borderRadius='3rem'>
-        <Styled.CTALink href={linkcta.url} target='_blank'>
+        <Styled.CTALink
+          href={linkcta.url}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           <span>{linkcta.label}</span>
         </Styled.CTALink>
       </BorderGradientContainer>

@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
-import { GlobalStyles, montserrat, Theme } from 'src/styles';
+import { GlobalStyles, Theme } from 'src/styles';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Eduardo - Consultoria Digital</title>
       </Head>
 
-      <ThemeProvider theme={{...Theme, font: { montserrat: montserrat.style.fontFamily }}}>
+      <ThemeProvider theme={Theme}>
         <GlobalStyles />
         <Component {...pageProps} />
       </ThemeProvider>

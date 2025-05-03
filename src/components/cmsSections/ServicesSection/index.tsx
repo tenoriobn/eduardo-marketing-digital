@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import ServicesCard from './ServicesCard';
 import { ServicesProps } from './services.type';
 import { TitleSection } from 'src/styles';
+import ServiceCardModal from './ServicesCard/ServiceCardModal';
 
 const Styled = {
   Section: styled.section`
