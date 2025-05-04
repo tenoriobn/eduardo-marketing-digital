@@ -47,7 +47,6 @@ export const GlobalStyles = createGlobalStyle`
   /* 4. Corrige a tipografia para herdar estilos */
   body {
     padding: 0 1rem;
-    padding-top: 1.5rem!important;
 
     @media (min-width: 768px) {
       padding: 0 2rem;

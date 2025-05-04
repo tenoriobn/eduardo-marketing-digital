@@ -72,7 +72,7 @@ const Styled = {
 
 export default function AboutMeSection(props: AboutMeProps) {
   return (
-    <Styled.Section>
+    <Styled.Section id='sobre'>
       <TitleSection>{props.titleSection}</TitleSection>
 
       <Styled.BorderGradientContainer>

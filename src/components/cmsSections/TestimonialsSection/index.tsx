@@ -43,7 +43,7 @@ export default function TestimonialsSection(props: TestimonialsProps) {
   const [testimonialSwiper, setTestimonialSwiper] = useState<SwiperClass | null>(null);
 
   return (
-    <Styled.Section>
+    <Styled.Section id='depoimentos'>
       <TitleSection>{props.titleSection}</TitleSection>
 
       <Styled.BorderGradientContainer>

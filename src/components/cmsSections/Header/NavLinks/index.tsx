@@ -1,11 +1,10 @@
-import Link from 'next/link';
 import { NavLinksProps } from './navLinks.type';
 import styled from 'styled-components';
 import CTALink from '../CTALink';
-import { usePathname } from 'next/navigation';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 import { boxShadow } from 'src/styles';
 import { AnimatePresence, motion } from 'motion/react';
+import { Link } from 'react-scroll';
 
 const Styled = {
   NavLinksWrapper: styled(motion.div)<{$isMenuActive: Boolean}>`
@@ -47,6 +46,7 @@ const Styled = {
   `,
 
   Link: styled(Link)`
+    cursor: pointer;
     color: ${({ theme }) => theme.colors.silverGray};
 
     &:hover, &.active {
@@ -65,8 +65,6 @@ const Styled = {
 };
 
 export default function NavLinks({ links, ctaButton, isMenuActive, isMobile, setIsMenuActive }: NavLinksProps) {
-  const pathname = usePathname();
-
   return (
     <AnimatePresence mode="wait" initial={false}>
       <Styled.NavLinksWrapper
@@ -80,14 +78,17 @@ export default function NavLinks({ links, ctaButton, isMenuActive, isMobile, set
         })}
       >
         <Styled.Nav>
-          {links.map((link) => (
+          {links.map((navlink) => (
             <Styled.Link
-              key={link.id}
-              href={link.url}
+              key={navlink.id}
+              activeClass="active"
+              to={navlink.url}
+              spy={true}
+              smooth={true}
+              duration={600}
               onClick={isMobile ? () => setIsMenuActive(false) : undefined}
-              className={`${pathname === link.url ? 'active' : ''}`}
             >
-              {link.label}
+              {navlink.label}
             </Styled.Link>
           ))}
 
