@@ -129,9 +129,13 @@ const Styled = {
   `,
 
   InfoWrapper: styled.div`
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto 1fr;
     gap: .5rem;
+
+    @media (min-width: 768px) {
+      align-items: center;
+    }
   `,
 };
 
