@@ -31,10 +31,6 @@ const Styled = {
     }
   `,
 
-  BorderGradientContainer: styled(BorderGradientContainer)`
-    width: 100%;
-  `,
-
   ButtonWrapper: styled(BorderGradientContainer)`
     justify-self: end;
     width: 100%;
@@ -71,20 +67,7 @@ export default function ContactForm({ inputsContent }: ContactFormProps) {
       <Styled.TitleForm>{inputsContent.titleSocialForm}</Styled.TitleForm>
 
       <Styled.InputsContentWrapper>
-        {inputsContent.inputFormContent.map((inputContent) => (
-          <Styled.BorderGradientContainer
-            key={inputContent.id}
-            $borderRadius={inputContent.placeholder.toLowerCase() === 'mensagem' ? '1.5rem' : '3rem'}
-          >
-            <FormField
-              id={inputContent.placeholder}
-              placeholder={inputContent.placeholder}
-              icon={inputContent.inputIcon}
-              type={inputContent.placeholder.toLowerCase() === 'mensagem' ? 'textarea' : 'input'}
-              inputType={inputContent.placeholder.toLowerCase() === 'e-mail' ? 'email' : 'text'}
-            />
-          </Styled.BorderGradientContainer>
-        ))}
+        <FormField />
       </Styled.InputsContentWrapper>
 
       <Styled.ButtonWrapper $borderRadius='3rem'>

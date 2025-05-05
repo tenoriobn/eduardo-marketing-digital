@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import EmailIcon from 'public/icons/email.svg';
 import { NewlestterCardProps } from './newsletterCard.type';
-import { buttonActive, buttonHover, CardTitle, innerShadow, Text } from 'src/styles';
+import { buttonActive, buttonHover, CardTitle, innerShadow, focusField, Text, focusFieldBorder } from 'src/styles';
 
 const Styled = {
   NewsletterCard: styled.div`
@@ -37,6 +37,7 @@ const Styled = {
     padding: .5rem .5rem .5rem 1rem;
     transition: ${({ theme }) => theme.transitions.softInteraction};
     ${innerShadow}
+    ${focusFieldBorder}
 
     @media (min-width: 992px) {
       max-width: 380px;
@@ -49,9 +50,11 @@ const Styled = {
     gap: .375rem;
     width: 100%;
     transition: ${({ theme }) => theme.transitions.softInteraction};
+    ${focusField}
 
     svg {
       path {
+        transition: ${({ theme }) => theme.transitions.softInteraction};
         stroke: ${({ theme }) => theme.colors.grayStone};
       }
     }
@@ -61,7 +64,6 @@ const Styled = {
     border: none;
     outline: none;
     background-color: transparent;
-    color: ${({ theme }) => theme.colors.softGray};
     font-size: .875rem;
     font-weight: 500;
     white-space: nowrap;
@@ -89,10 +91,6 @@ const Styled = {
 
     span {
       z-index: 20;
-    }
-
-    &:focus-within {
-      color: ${({ theme }) => theme.colors['softGray']};
     }
 
     @media (min-width: 768px) {

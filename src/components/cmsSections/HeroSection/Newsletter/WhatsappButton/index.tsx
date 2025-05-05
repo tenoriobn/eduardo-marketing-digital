@@ -9,9 +9,6 @@ const Styled = {
   BorderGradientContainer: styled(BorderGradientContainer)`
     cursor: pointer;
     max-width: max-content;
-    transition: ${({ theme }) => theme.transitions.softInteraction};
-    ${buttonHover}
-    ${buttonActive}
 
     @media (max-width: 767px) {
       align-self: end;
@@ -31,6 +28,9 @@ const Styled = {
     justify-content: center;
     height: 46px;
     width: 46px;
+    transition: ${({ theme }) => theme.transitions.softInteraction};
+    ${buttonHover}
+    ${buttonActive}
   `,
 };
 

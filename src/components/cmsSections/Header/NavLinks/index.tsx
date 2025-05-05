@@ -83,6 +83,7 @@ export default function NavLinks({ links, ctaButton, isMenuActive, isMobile, set
         <Styled.Nav>
           {links.map((navlink) => (
             <Styled.Link
+              role="link"
               key={navlink.id}
               activeClass="active"
               to={navlink.url}
