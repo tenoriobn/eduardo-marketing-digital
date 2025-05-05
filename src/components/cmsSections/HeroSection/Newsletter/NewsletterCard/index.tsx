@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import EmailIcon from 'public/icons/email.svg';
 import { NewlestterCardProps } from './newsletterCard.type';
-import { CardTitle, innerShadow, Text } from 'src/styles';
+import { buttonActive, buttonHover, CardTitle, innerShadow, Text } from 'src/styles';
 
 const Styled = {
   NewsletterCard: styled.div`
@@ -35,6 +35,7 @@ const Styled = {
     align-items: center;
     gap: 1rem;
     padding: .5rem .5rem .5rem 1rem;
+    transition: ${({ theme }) => theme.transitions.softInteraction};
     ${innerShadow}
 
     @media (min-width: 992px) {
@@ -47,6 +48,7 @@ const Styled = {
     grid-template-columns: auto 1fr;
     gap: .375rem;
     width: 100%;
+    transition: ${({ theme }) => theme.transitions.softInteraction};
 
     svg {
       path {
@@ -72,16 +74,30 @@ const Styled = {
   `,
 
   Button: styled.button`
-    background-color: ${({ theme }) => theme.colors['lightSilver-04']};
-    color: ${({ theme }) => theme.colors.softGray};
+    background-color: ${({ theme }) => theme.colors['silverGray-4']};
+    color: ${({ theme }) => theme.colors.silverGray};
     font-size: .875rem;
     border-radius: 3rem;
     border: .0625rem solid ${({ theme }) => theme.colors.charcoalGray};
     padding: 0 .75rem;
     height: 38px;
+    min-width: 78px;
+    transition: ${({ theme }) => theme.transitions.softInteraction};
+
+    ${buttonHover};
+    ${buttonActive}
+
+    span {
+      z-index: 20;
+    }
+
+    &:focus-within {
+      color: ${({ theme }) => theme.colors['softGray']};
+    }
 
     @media (min-width: 768px) {
       font-size: 1rem;
+      min-width: 84px;
     }
   `,
 };
@@ -105,7 +121,9 @@ export default function NewsletterCard({ contentNewsletter }: NewlestterCardProp
           />
         </Styled.Label>
 
-        <Styled.Button>{contentNewsletter.buttonText}</Styled.Button>
+        <Styled.Button>
+          <span>{contentNewsletter.buttonText}</span>
+        </Styled.Button>
       </Styled.Form>
     </Styled.NewsletterCard>
   );

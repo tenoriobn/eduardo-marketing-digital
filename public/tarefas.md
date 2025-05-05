@@ -1,9 +1,11 @@
+* - Aplicar hover e active (**FALTA OS INPUTS **)
 * Centralizar botões
-* Aplicar hover e active
 
 * Textarea deve ter o texto contornando icone
 * Ajustar icones svg para poder definir altura e largura sem cortar icone
 * Ajustar altura dos títulos dos cards de Serviço para ocuparem dinâmicamente a mesma altura (quebra de linha..)
+* Adicionar validações e mensagens nos inputs
+* Trazer informações dos modais de Serviços
 
 * Implementar Sistema de newsletter
 * Obter Year do Footer a nível de SSG

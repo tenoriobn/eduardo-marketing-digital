@@ -56,7 +56,10 @@ export const Theme = {
     'margin-8xl': '5rem',
     'margin-120': '7.5rem',
   },
-  transitions: {},
+  transitions: {
+    'softInteraction': 'all 550ms cubic-bezier(0.19, 1, 0.22, 1)',
+    'elegantEntrance': 'all 750ms cubic-bezier(0.19, 1, 0.22, 1)',
+  },
   font: {
     montserrat: montserrat.style.fontFamily,
   }

@@ -2,7 +2,7 @@ import { NavLinksProps } from './navLinks.type';
 import styled from 'styled-components';
 import CTALink from '../CTALink';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
-import { boxShadow } from 'src/styles';
+import { boxShadow, linkHover } from 'src/styles';
 import { AnimatePresence, motion } from 'motion/react';
 import { Link } from 'react-scroll';
 
@@ -48,8 +48,11 @@ const Styled = {
   Link: styled(Link)`
     cursor: pointer;
     color: ${({ theme }) => theme.colors.silverGray};
+    transition: ${({ theme }) => theme.transitions.softInteraction};
 
-    &:hover, &.active {
+    ${linkHover}
+
+    &.active {
       color: ${({ theme }) => theme.colors.lightGray};
       text-decoration: underline;
     }
