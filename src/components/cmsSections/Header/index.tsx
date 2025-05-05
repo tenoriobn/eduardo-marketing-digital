@@ -13,6 +13,7 @@ import { AnimatePresence, motion } from 'motion/react';
 const Styled = {
   Header: styled(BorderGradientContainer)`
     z-index: 99;
+    margin-top: 1.5rem!important;
   `,
 
   HeaderWrapper: styled.div`
@@ -65,7 +66,7 @@ export default function Header(props: HeaderProps) {
   const { isMenuActive, setIsMenuActive, isMobile, menuMobileRef } = useResponsiveMenu();
 
   return (
-    <Styled.Header as="header" $borderRadius='62.5rem' ref={menuMobileRef}>
+    <Styled.Header id='inicio' as="header" $borderRadius='62.5rem' ref={menuMobileRef}>
       <Styled.HeaderWrapper>
         <Styled.LogoWrapper>
           <Image

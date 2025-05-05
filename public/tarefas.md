@@ -1,18 +1,16 @@
-* Centralizar botões
-* Aplicar hover e active
 
+* Adicionar validações e mensagens nos inputs
+* Trazer informações dos modais de Serviços & depoimentos
+* Obter Year do Footer a nível de SSG
 * Textarea deve ter o texto contornando icone
 * Ajustar icones svg para poder definir altura e largura sem cortar icone
 * Ajustar altura dos títulos dos cards de Serviço para ocuparem dinâmicamente a mesma altura (quebra de linha..)
-
 * Implementar Sistema de newsletter
-* Obter Year do Footer a nível de SSG
 
 
 * Implementar transições com framemotion
 * Implementar Skeletoon
 * Implementar alguma biblioteca de UI
-
 * Aplicar Testes com Cypress
 
 
@@ -31,6 +29,7 @@ OK - Criar Modal (Services)
 OK - Corrigir bug da barra de rolagem ao fechar modal em versão de telas menores
 OK - Aplicar hook **useBodyOverflow** no menu mobile
 
+OK - Aplicar hover e active (**FALTA OS INPUTS **)
 
 
 

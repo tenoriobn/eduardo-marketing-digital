@@ -8,6 +8,7 @@ export const Theme = {
     'softGray': '#D7D7D7',
     'silverGray': '#A4A4A4',
     'silverGray-4': '#323232',
+    'softGray-78': 'rgba(215, 215, 215, 0.78)',
     'mediumGray': '#959595',
     'darkGray': '#2D2D2D',
     'darkGray-50': '#2d2d2d7f',
@@ -21,7 +22,8 @@ export const Theme = {
 
   },
   gradients: {
-    softLight: 'linear-gradient(80deg, rgba(255,255,255,0.14) 48%, rgba(153, 153, 153, 0.04) 100%)'
+    softLight: 'linear-gradient(80deg, rgba(255,255,255,0.14) 48%, rgba(153, 153, 153, 0.04) 100%)',
+    softGrayLight: 'linear-gradient(80deg, rgb(215 215 215 / 78%) 80%, rgb(215 215 215 / 5%) 100%)'
   },
   borderRadius: {
     'rounded-3xl': '1.5rem',
@@ -56,7 +58,10 @@ export const Theme = {
     'margin-8xl': '5rem',
     'margin-120': '7.5rem',
   },
-  transitions: {},
+  transitions: {
+    'softInteraction': 'all 550ms cubic-bezier(0.19, 1, 0.22, 1)',
+    'elegantEntrance': 'all 750ms cubic-bezier(0.19, 1, 0.22, 1)',
+  },
   font: {
     montserrat: montserrat.style.fontFamily,
   }

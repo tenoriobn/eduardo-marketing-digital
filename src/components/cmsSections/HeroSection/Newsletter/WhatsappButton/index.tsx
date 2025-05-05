@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import WhatsappIcon from 'public/icons/whatsapp.svg';
 import { WhatsappButtonProps } from './whatsappButton.type';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
-import { boxShadow } from 'src/styles';
+import { boxShadow, buttonActive, buttonHover } from 'src/styles';
 
 const Styled = {
   BorderGradientContainer: styled(BorderGradientContainer)`
+    cursor: pointer;
     max-width: max-content;
 
     @media (max-width: 767px) {
@@ -27,6 +28,9 @@ const Styled = {
     justify-content: center;
     height: 46px;
     width: 46px;
+    transition: ${({ theme }) => theme.transitions.softInteraction};
+    ${buttonHover}
+    ${buttonActive}
   `,
 };
 

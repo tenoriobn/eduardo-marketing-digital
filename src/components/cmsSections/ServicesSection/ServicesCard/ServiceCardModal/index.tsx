@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import WhatsappButton from '../../../HeroSection/Newsletter/WhatsappButton';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
-import { boxShadow, CardTitle, Text } from 'src/styles';
+import { boxShadow, CardTitle, linkHover, Text } from 'src/styles';
 import { useClickOutside } from 'src/utils/useClickOutside';
 import CloseIcon from 'public/icons/close.svg';
 import CheckIcon from 'public/icons/check.svg';
@@ -122,6 +122,10 @@ const Styled = {
     font-weight: 600;
     text-decoration: underline;
     order: 3;
+    transition: ${({ theme }) => theme.transitions.softInteraction};
+    color: ${({ theme }) => theme.colors.silverGray};
+
+    ${linkHover}
 
     @media (min-width: 768px) {
       font-size: 1.125rem;
@@ -129,9 +133,13 @@ const Styled = {
   `,
 
   InfoWrapper: styled.div`
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto 1fr;
     gap: .5rem;
+
+    @media (min-width: 768px) {
+      align-items: center;
+    }
   `,
 };
 

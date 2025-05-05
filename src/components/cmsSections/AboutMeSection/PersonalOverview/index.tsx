@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { PersonalOverviewProps } from './personalOverview.type';
-import { boxShadow, CardTitle, Text } from 'src/styles';
+import { boxShadow, buttonActive, buttonHover, CardTitle, Text } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 
 const Styled = {
@@ -43,14 +43,18 @@ const Styled = {
   CTALink: styled(Link)`
     display: block;
     background-color: ${({ theme }) => theme.colors.darkGray};
-    color: ${({ theme }) => theme.colors.softGray};
+    color: ${({ theme }) => theme.colors.silverGray};
     font-size: .875rem;
     font-weight: 500;
     text-align: center;
     border-radius: 3rem;
-    ${boxShadow};
     padding: 1rem;
     width: 100%;
+    transition: ${({ theme }) => theme.transitions.softInteraction};
+
+    ${boxShadow};
+    ${buttonHover};
+    ${buttonActive}
 
     span {
       max-width: 184px;

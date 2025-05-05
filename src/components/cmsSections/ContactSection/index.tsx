@@ -52,7 +52,7 @@ const Styled = {
 
 export default function ContactSection(props: ContactProps) {
   return (
-    <Styled.Section>
+    <Styled.Section id='contato'>
       <TitleSection>{props.title}</TitleSection>
 
       <Styled.BorderGradientContainer>

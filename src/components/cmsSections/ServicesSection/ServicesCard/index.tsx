@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ServicesCardProps } from './servicesCard.type';
-import { boxShadow, CardTitle, Text } from 'src/styles';
+import { boxShadow, buttonActive, buttonHover, CardTitle, Text } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 import { useState } from 'react';
 import ServiceCardModal from './ServiceCardModal';
@@ -61,13 +61,17 @@ const Styled = {
 
   Button: styled.button`
     background-color: ${({ theme }) => theme.colors.darkGray};
-    color: ${({ theme }) => theme.colors.softGray};
+    color: ${({ theme }) => theme.colors.silverGray};
     font-size: .875rem;
     font-weight: 500;
     border-radius: 3rem;
     padding: .875rem;
     width: 100%;
+    transition: ${({ theme }) => theme.transitions.softInteraction};
+
     ${boxShadow};
+    ${buttonHover};
+    ${buttonActive}
 
     @media (min-width: 768px) {
       font-size: 1rem;
@@ -95,7 +99,7 @@ export default function ServicesCard({ serviceCardContent }: ServicesCardProps) 
 
             <BorderGradientContainer>
               <Styled.Button onClick={() => setIsModalOpen(true)}>
-                {service.buttonText}
+                <span>{service.buttonText}</span>
               </Styled.Button>
             </BorderGradientContainer>
           </Styled.ServiceCard>

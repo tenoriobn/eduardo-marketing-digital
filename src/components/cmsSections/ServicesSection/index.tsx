@@ -12,7 +12,7 @@ const Styled = {
 
 export default function ServicesSection(props: ServicesProps) {
   return (
-    <Styled.Section>
+    <Styled.Section id='servicos'>
       <TitleSection>{props.titleSection}</TitleSection>
 
       <ServicesCard serviceCardContent={props.serviceCardContent} />
