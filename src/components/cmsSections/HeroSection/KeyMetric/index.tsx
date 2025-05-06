@@ -51,7 +51,7 @@ export default function KeyMetric({ keyMetricCard }: KeyMetricProps) {
   return (
     <Styled.KeyMetricWrapper>
       {keyMetricCard.map((keyMetric) => (
-        <BorderGradientContainer key={keyMetric.id}>
+        <BorderGradientContainer height='max-content' key={keyMetric.id}>
           <Styled.KeyMetricCard>
             <Styled.Key>{keyMetric.count}</Styled.Key>
             <Text>{keyMetric.description}</Text>

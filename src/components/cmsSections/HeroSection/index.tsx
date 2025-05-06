@@ -5,12 +5,18 @@ import KeyMetric from './KeyMetric';
 
 const Styled = {
   Section: styled.section`
-    margin: 4rem 0;
-    display: grid;
+    padding: 9.25rem 0 4rem 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: clamp(0px, 100dvh, 956px);
     gap: 1.5rem;
 
+
     @media (min-width: 768px) {
-      margin: 5rem 0;
+      padding: 10.25rem 0 5rem 0;
     }
   `,
 
@@ -60,7 +66,7 @@ export default function HeroSection({ cotent }: HeroSectionProps) {
   const [strongHighlight] = cotent[0].titlePart2.value.document.children[0].children;
 
   return (
-    <Styled.Section>
+    <Styled.Section id='inicio'>
       <Styled.Title>
         <span>
           {normalIntro.value}

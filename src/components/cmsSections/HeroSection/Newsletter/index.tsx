@@ -45,7 +45,7 @@ const Styled = {
 
 export default function Newsletter({ content }: NewlestterProps) {
   return (
-    <BorderGradientContainer>
+    <BorderGradientContainer height='max-content'>
       <Styled.NewsletterBackground>
         <Styled.NewsletterContentWrapper>
           <WhatsappButton contactViaWhatsapp={content.contactViaWhatsapp} />

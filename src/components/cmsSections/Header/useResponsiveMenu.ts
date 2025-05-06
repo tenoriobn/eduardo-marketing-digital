@@ -15,7 +15,7 @@ import useWindowSize from 'src/utils/useWindowSize';
 function useResponsiveMenu() {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const { isMobile } = useWindowSize();
-  const menuMobileRef = useRef<HTMLElement | null>(null);
+  const menuMobileRef = useRef<HTMLDivElement | null>(null);
   useClickOutside(menuMobileRef, () => setIsMenuActive(false));
 
   useEffect(() => {
