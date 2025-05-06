@@ -89,6 +89,7 @@ export default function NavLinks({ links, ctaButton, isMenuActive, isMobile, set
               to={navlink.url}
               spy={true}
               smooth={true}
+              offset={-80}
               duration={600}
               onClick={isMobile ? () => setIsMenuActive(false) : undefined}
             >

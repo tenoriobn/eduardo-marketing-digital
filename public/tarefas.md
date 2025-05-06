@@ -1,14 +1,16 @@
-
-* Adicionar validações e mensagens nos inputs
+* Implementar transições com framemotion (seções)
 * Trazer informações dos modais de Serviços & depoimentos
-* Obter Year do Footer a nível de SSG
+* Adicionar validações e mensagens nos inputs
+
 * Textarea deve ter o texto contornando icone
 * Ajustar icones svg para poder definir altura e largura sem cortar icone
+
 * Ajustar altura dos títulos dos cards de Serviço para ocuparem dinâmicamente a mesma altura (quebra de linha..)
+* Obter Year do Footer a nível de SSG
 * Implementar Sistema de newsletter
 
 
-* Implementar transições com framemotion
+
 * Implementar Skeletoon
 * Implementar alguma biblioteca de UI
 * Aplicar Testes com Cypress
@@ -30,7 +32,8 @@ OK - Corrigir bug da barra de rolagem ao fechar modal em versão de telas menore
 OK - Aplicar hook **useBodyOverflow** no menu mobile
 
 OK - Aplicar hover e active (**FALTA OS INPUTS **)
-
+OK - Ajustar scroll suave ao clicar nos links
+OK - Fixar Header no top com blur de fundo
 
 
 

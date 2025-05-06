@@ -11,9 +11,30 @@ import CloseIcon from 'public/icons/close.svg';
 import { AnimatePresence, motion } from 'motion/react';
 
 const Styled = {
-  Header: styled(BorderGradientContainer)`
+  Header: styled.header`
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
     z-index: 99;
-    margin-top: 1.5rem!important;
+
+    backdrop-filter: blur(12px);
+    border-radius: 0 0 2rem 2rem;
+
+    padding: 1.5rem 1rem .0625rem 1rem;
+
+    @media (min-width: 768px) {
+      padding: 1.5rem 2rem .0625rem 2rem;
+    }
+
+    @media (min-width: 1440px) {
+      padding: 1.5rem 0 .0625rem 0;
+    }
+  `,
+
+  BorderGradientContainer: styled(BorderGradientContainer)`
+    max-width: 1200px;
+    margin: 0 auto;
   `,
 
   HeaderWrapper: styled.div`
@@ -66,49 +87,51 @@ export default function Header(props: HeaderProps) {
   const { isMenuActive, setIsMenuActive, isMobile, menuMobileRef } = useResponsiveMenu();
 
   return (
-    <Styled.Header id='inicio' as="header" $borderRadius='62.5rem' ref={menuMobileRef}>
-      <Styled.HeaderWrapper>
-        <Styled.LogoWrapper>
-          <Image
-            alt='Logo do Eduardo Marketing Digital'
-            src={props.logo.url}
-            width={50}
-            height={50}
+    <Styled.Header>
+      <Styled.BorderGradientContainer $borderRadius='62.5rem' >
+        <Styled.HeaderWrapper ref={menuMobileRef}>
+          <Styled.LogoWrapper>
+            <Image
+              alt='Logo do Eduardo Marketing Digital'
+              src={props.logo.url}
+              width={50}
+              height={50}
+            />
+          </Styled.LogoWrapper>
+
+          <Styled.MobileMenuButton onClick={() => setIsMenuActive(!isMenuActive)}>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={isMenuActive ? 'close' : 'menu'}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: .075 }}
+              >
+                {isMenuActive ? <CloseIcon /> : <MobileMenuIcon />}
+              </motion.div>
+            </AnimatePresence>
+          </Styled.MobileMenuButton>
+
+          <NavLinks
+            links={props.menuLinks}
+            isMenuActive={isMenuActive}
+            setIsMenuActive={setIsMenuActive}
+            isMobile={isMobile}
+            ctaButton={{ url: props.ctaButton.url, label: props.ctaButton.label }}
           />
-        </Styled.LogoWrapper>
 
-        <Styled.MobileMenuButton onClick={() => setIsMenuActive(!isMenuActive)}>
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={isMenuActive ? 'close' : 'menu'}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: .075 }}
+          <Styled.CTAButtonWrapperDesktop $borderRadius='62.5rem'>
+            <CTALink
+              href={props.ctaButton.url}
+              target='_blank'
+              rel='noopener noreferrer'
             >
-              {isMenuActive ? <CloseIcon /> : <MobileMenuIcon />}
-            </motion.div>
-          </AnimatePresence>
-        </Styled.MobileMenuButton>
-
-        <NavLinks
-          links={props.menuLinks}
-          isMenuActive={isMenuActive}
-          setIsMenuActive={setIsMenuActive}
-          isMobile={isMobile}
-          ctaButton={{ url: props.ctaButton.url, label: props.ctaButton.label }}
-        />
-
-        <Styled.CTAButtonWrapperDesktop $borderRadius='62.5rem'>
-          <CTALink
-            href={props.ctaButton.url}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {props.ctaButton.label}
-          </CTALink>
-        </Styled.CTAButtonWrapperDesktop>
-      </Styled.HeaderWrapper>
+              {props.ctaButton.label}
+            </CTALink>
+          </Styled.CTAButtonWrapperDesktop>
+        </Styled.HeaderWrapper>
+      </Styled.BorderGradientContainer>
     </Styled.Header>
   );
 }
