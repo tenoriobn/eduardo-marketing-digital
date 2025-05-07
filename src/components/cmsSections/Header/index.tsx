@@ -17,10 +17,8 @@ const Styled = {
     right: 0px;
     top: 0px;
     z-index: 99;
-
+    background: linear-gradient(180deg, rgb(45 45 45) 45%, rgb(153 153 153 / 0%) 72%);
     backdrop-filter: blur(12px);
-    border-radius: 0 0 2rem 2rem;
-
     padding: 1.5rem 1rem .0625rem 1rem;
 
     @media (min-width: 768px) {
@@ -88,7 +86,7 @@ export default function Header(props: HeaderProps) {
 
   return (
     <Styled.Header
-      {...sectionMotionProps}
+
     >
       <Styled.BorderGradientContainer $borderRadius='62.5rem' >
         <Styled.HeaderWrapper ref={menuMobileRef}>

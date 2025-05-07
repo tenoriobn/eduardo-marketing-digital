@@ -1,5 +1,4 @@
 * Trazer informações dos modais de Serviços & depoimentos
-* Adicionar validações e mensagens nos inputs
 
 
 * Textarea deve ter o texto contornando icone
@@ -37,7 +36,7 @@ OK - Fixar Header no top com blur de fundo
 
 OK - Adicionar efeito de luz no fundo do Card da herosection
 OK - Implementar transições com framemotion (seções)
-
+OK - Adicionar validações e mensagens nos inputs
 
 
 
