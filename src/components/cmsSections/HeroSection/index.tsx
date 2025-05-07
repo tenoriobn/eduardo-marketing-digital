@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import { HeroSectionProps } from './heroSection.type';
 import Newsletter from './Newsletter';
 import KeyMetric from './KeyMetric';
+import { motion } from 'motion/react';
+import { sectionMotionProps } from 'src/styles';
 
 const Styled = {
-  Section: styled.section`
+  Section: styled(motion.section)`
     padding: 9.25rem 0 4rem 0;
 
     display: flex;
@@ -66,7 +68,10 @@ export default function HeroSection({ cotent }: HeroSectionProps) {
   const [strongHighlight] = cotent[0].titlePart2.value.document.children[0].children;
 
   return (
-    <Styled.Section id='inicio'>
+    <Styled.Section
+      id='inicio'
+      {...sectionMotionProps}
+    >
       <Styled.Title>
         <span>
           {normalIntro.value}

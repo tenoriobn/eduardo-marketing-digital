@@ -1,10 +1,8 @@
-
 import styled, { css } from 'styled-components';
 import { focusFieldBorderBackground, innerShadow, focusField } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
-import UserIcon from 'public/icons/user.svg';
-import EmailIcon from 'public/icons/email.svg';
-import MessageIcon from 'public/icons/message.svg';
+import { useFormFieldValidation } from './useFormFieldValidation';
+import { formFieldsSchema } from './formFieldsSchema';
 
 const inputStyles = css`
   border: none;
@@ -21,8 +19,11 @@ const inputStyles = css`
 `;
 
 const Styled = {
-  BorderGradientContainer: styled(BorderGradientContainer)`
+  FieldWrapper: styled.div`
     width: 100%;
+  `,
+
+  BorderGradientContainer: styled(BorderGradientContainer)`
     transition: ${({ theme }) => theme.transitions.softInteraction};
     ${focusFieldBorderBackground}
   `,
@@ -36,15 +37,13 @@ const Styled = {
     border-radius: 3rem;
     padding: 1rem;
     width: 100%;
-      transition: ${({ theme }) => theme.transitions.softInteraction};
+    transition: ${({ theme }) => theme.transitions.softInteraction};
     ${innerShadow};
-    ${focusField}
+    ${focusField};
 
-    svg {
-      path {
-        transition: ${({ theme }) => theme.transitions.softInteraction};
-        stroke: ${({ theme }) => theme.colors.grayStone};
-      }
+    svg path {
+      transition: ${({ theme }) => theme.transitions.softInteraction};
+      stroke: ${({ theme }) => theme.colors.grayStone};
     }
   `,
 
@@ -61,36 +60,57 @@ const Styled = {
     height: 120px;
     transition: ${({ theme }) => theme.transitions.softInteraction};
   `,
+
+  ErrorMessage: styled.p`
+    color: ${({ theme }) => theme.colors.red};
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+  `,
 };
 
 const TextareaLabel = styled(Styled.InputLabel)`
   border-radius: 1.5rem;
-  transition: ${({ theme }) => theme.transitions.softInteraction};
 `;
 
 export default function FormField() {
+  const { bindValidationToField, errors } = useFormFieldValidation();
+
   return (
     <>
-      <Styled.BorderGradientContainer $borderRadius='3rem'>
-        <Styled.InputLabel htmlFor="1">
-          <UserIcon />
-          <Styled.InputField id="1" type="text" placeholder="Nome" required />
-        </Styled.InputLabel>
-      </Styled.BorderGradientContainer>
-
-      <Styled.BorderGradientContainer $borderRadius='3rem'>
-        <Styled.InputLabel htmlFor="2" >
-          <EmailIcon />
-          <Styled.InputField id="2" type="email" placeholder="E-mail" required />
-        </Styled.InputLabel>
-      </Styled.BorderGradientContainer>
-
-      <Styled.BorderGradientContainer $borderRadius='1.5rem'>
-        <TextareaLabel htmlFor="3">
-          <MessageIcon />
-          <Styled.TextareaField id="3" placeholder="Mensagem" required />
-        </TextareaLabel>
-      </Styled.BorderGradientContainer>
+      {formFieldsSchema.map(({ id, type, placeholder, icon, as, borderRadius, ...fieldAttributes }) => (
+        <Styled.FieldWrapper key={id}>
+          <Styled.BorderGradientContainer  $borderRadius={borderRadius}>
+            {as === 'input' ? (
+              <Styled.InputLabel htmlFor={id}>
+                {icon}
+                <Styled.InputField
+                  id={id}
+                  type={type}
+                  placeholder={placeholder}
+                  required
+                  {...bindValidationToField(id)}
+                  {...fieldAttributes}
+                />
+              </Styled.InputLabel>
+            ) : (
+              <TextareaLabel htmlFor={id}>
+                {icon}
+                <Styled.TextareaField
+                  id={id}
+                  placeholder={placeholder}
+                  required
+                  {...bindValidationToField(id)}
+                  {...fieldAttributes}
+                />
+              </TextareaLabel>
+            )}
+          </Styled.BorderGradientContainer>
+          {errors[id] &&
+            <Styled.ErrorMessage>{errors[id]}</Styled.ErrorMessage>
+          }
+        </Styled.FieldWrapper>
+      ))}
     </>
   );
 }

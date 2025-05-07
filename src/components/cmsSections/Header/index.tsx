@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import NavLinks from './NavLinks';
 import CTALink from './CTALink';
-import { boxShadow } from 'src/styles';
+import { boxShadow, sectionMotionProps } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 import useResponsiveMenu from './useResponsiveMenu';
 import { HeaderProps } from './header.type';
@@ -11,16 +11,14 @@ import CloseIcon from 'public/icons/close.svg';
 import { AnimatePresence, motion } from 'motion/react';
 
 const Styled = {
-  Header: styled.header`
+  Header: styled(motion.header)`
     position: fixed;
     left: 0px;
     right: 0px;
     top: 0px;
     z-index: 99;
-
+    background: linear-gradient(180deg, rgb(45 45 45) 45%, rgb(153 153 153 / 0%) 72%);
     backdrop-filter: blur(12px);
-    border-radius: 0 0 2rem 2rem;
-
     padding: 1.5rem 1rem .0625rem 1rem;
 
     @media (min-width: 768px) {
@@ -87,7 +85,9 @@ export default function Header(props: HeaderProps) {
   const { isMenuActive, setIsMenuActive, isMobile, menuMobileRef } = useResponsiveMenu();
 
   return (
-    <Styled.Header>
+    <Styled.Header
+
+    >
       <Styled.BorderGradientContainer $borderRadius='62.5rem' >
         <Styled.HeaderWrapper ref={menuMobileRef}>
           <Styled.LogoWrapper>

@@ -65,6 +65,25 @@ export async function getStaticProps() {
                   titleCard
                   description
                   buttonText
+                  serviceModal {
+                    id
+                    impactPhraseDescriptionModal
+                    impactPhraseModal
+                    serviceActivityTitle
+                    expectedImpactTitle
+                    expectedImpacts {
+                      id
+                      expectedImpactDescription
+                    }
+                    icon {
+                      url
+                    }
+                    activitiesContent {
+                      serviceActivity
+                      id
+                      serviceActivityDescription
+                    }
+                  }
                 }
               }
               ... on AboutMeSectionRecord {

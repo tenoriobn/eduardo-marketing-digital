@@ -19,13 +19,40 @@ const Styled = {
     height: 398px;
     padding: 1rem;
 
+    &::before {
+      content: '';
+      position: absolute;
+      top: 3%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background-color: ${({ theme }) => theme.colors.ironGray};
+      border-radius: 100%;
+      filter: blur(120px);
+      z-index: -1;
+    }
+
     @media (min-width: 768px) {
       background-position: 50% 77%;
       padding: 1.5rem;
+
+      &::before {
+        top: 7%;
+        width: 220px;
+        height: 220px;
+        filter: blur(180px);
+      }
     }
 
     @media (min-width: 992px) {
       background-position: 50% 65%;
+
+      &::before {
+        width: 240px;
+        height: 240px;
+        filter: blur(200px);
+      }
     }
   `,
 
