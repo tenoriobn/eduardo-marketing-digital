@@ -154,8 +154,7 @@ export default function ServiceCardModal({ isModalOpen, setIsModalOpen }: Servic
       key={isModalOpen ? 'modalOpen' : 'modalClose'}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ duration: .075 }}
+      exit={{ opacity: 0, scale: 0 }}
     >
       <Styled.BorderGradientContainer>
         <Styled.ModalWrapper ref={modalRef}>

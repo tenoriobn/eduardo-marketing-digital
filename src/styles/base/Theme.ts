@@ -17,6 +17,7 @@ export const Theme = {
     'charcoalGray': '#484848',
     'red': 'rgb(255 69 69 / 81%)',
     'grayStone': '#6d6d6d',
+    'ironGray': '#646464',
     'lightSilver-04': 'rgba(164, 164, 164, 0.04)',
     'graphiteGray': '#363636'
 

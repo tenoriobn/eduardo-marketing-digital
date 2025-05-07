@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { FooterProps } from './footer.type';
-import { Text } from 'src/styles';
+import { sectionMotionProps, Text } from 'src/styles';
+import { motion } from 'motion/react';
 
 const Styled = {
-  Footer: styled.footer`
+  Footer: styled(motion.footer)`
     padding: 2rem 1rem;
   `,
 
@@ -20,7 +21,9 @@ export default function Footer(props: FooterProps) {
   const year = new Date().getFullYear();
 
   return (
-    <Styled.Footer>
+    <Styled.Footer
+      {...sectionMotionProps}
+    >
       <Styled.Copyright>{year} {props.copyright}</Styled.Copyright>
     </Styled.Footer>
   );

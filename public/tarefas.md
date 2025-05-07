@@ -1,6 +1,6 @@
-* Implementar transições com framemotion (seções)
 * Trazer informações dos modais de Serviços & depoimentos
 * Adicionar validações e mensagens nos inputs
+
 
 * Textarea deve ter o texto contornando icone
 * Ajustar icones svg para poder definir altura e largura sem cortar icone
@@ -16,7 +16,7 @@
 * Aplicar Testes com Cypress
 
 
-OK Centralizar técnica de borda *** QUASE LÁ, FALTA AJUSTAR SEÇÃO DEPOIMENTOS E SLIDES PARA FINALIZAR CENTRALIZAÇÃO ***
+OK Centralizar técnica de borda
 OK Ajustar Seção de Depoimentos (ajustar nomeclaturas, dividir responsabilidades, reutilizar estilos e elementos...)
 OK Aplicar o mesmo padrão de ***agrupamento de estilização*** dos componentes do Testimonials
 OK - Ajustar Barra de rolagem
@@ -35,8 +35,8 @@ OK - Aplicar hover e active (**FALTA OS INPUTS **)
 OK - Ajustar scroll suave ao clicar nos links
 OK - Fixar Header no top com blur de fundo
 
-
-
+OK - Adicionar efeito de luz no fundo do Card da herosection
+OK - Implementar transições com framemotion (seções)
 
 
 

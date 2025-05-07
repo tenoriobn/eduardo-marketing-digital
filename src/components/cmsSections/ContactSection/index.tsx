@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import SocialLink from './SocialLink';
 import ContactForm from './ContactForm';
 import { ContactProps } from './contact.type';
-import { boxShadow, TitleSection } from 'src/styles';
+import { boxShadow, sectionMotionProps, TitleSection } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { motion } from 'motion/react';
 
 const Styled = {
-  Section: styled.section`
+  Section: styled(motion.section)`
     display: grid;
   `,
 
@@ -52,7 +53,10 @@ const Styled = {
 
 export default function ContactSection(props: ContactProps) {
   return (
-    <Styled.Section id='contato'>
+    <Styled.Section
+      id='contato'
+      {...sectionMotionProps}
+    >
       <TitleSection>{props.title}</TitleSection>
 
       <Styled.BorderGradientContainer>

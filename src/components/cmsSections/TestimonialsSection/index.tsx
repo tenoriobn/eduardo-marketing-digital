@@ -6,11 +6,12 @@ import TestimonialSlider from './TestimonialSlider';
 import TestimonialsPagination from './TestimonialsPagination';
 import testimonials from './testimonials.json';
 import { TestimonialsProps } from './testimonials.type';
-import { boxShadow, TitleSection } from 'src/styles';
+import { boxShadow, sectionMotionProps, TitleSection } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { motion } from 'motion/react';
 
 const Styled = {
-  Section: styled.section`
+  Section: styled(motion.section)`
     display: flex;
     flex-direction: column;
   `,
@@ -43,7 +44,10 @@ export default function TestimonialsSection(props: TestimonialsProps) {
   const [testimonialSwiper, setTestimonialSwiper] = useState<SwiperClass | null>(null);
 
   return (
-    <Styled.Section id='depoimentos'>
+    <Styled.Section
+      id='depoimentos'
+      {...sectionMotionProps}
+    >
       <TitleSection>{props.titleSection}</TitleSection>
 
       <Styled.BorderGradientContainer>
