@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import WhatsappButton from 'src/components/cmsSections/HeroSection/Newsletter/WhatsappButton';
+import WhatsappButton from 'components/WhatsappButton';
 import { linkHover } from 'src/styles';
 import styled from 'styled-components';
 import { ModalFooterProps } from './modalFooter.type';
