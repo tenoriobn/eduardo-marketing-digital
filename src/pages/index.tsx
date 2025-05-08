@@ -83,6 +83,10 @@ export async function getStaticProps() {
                       id
                       serviceActivityDescription
                     }
+                    ctalink {
+                      url
+                      label
+                    }
                   }
                 }
               }

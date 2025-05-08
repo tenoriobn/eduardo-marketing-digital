@@ -6,6 +6,7 @@ import { useState } from 'react';
 import ServiceCardModal from './ServiceCardModal';
 import { AnimatePresence  } from 'framer-motion';
 import useBodyOverflow from 'src/utils/useBodyOverflow';
+import { ModalContent } from './ServiceCardModal/serviceCardModal.type';
 
 const Styled = {
   ServiceCardWrapper: styled.div`
@@ -82,6 +83,7 @@ const Styled = {
 
 export default function ServicesCard({ serviceCardContent }: ServicesCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState<ModalContent | null>(null);
   useBodyOverflow(isModalOpen);
 
   return (
@@ -98,7 +100,15 @@ export default function ServicesCard({ serviceCardContent }: ServicesCardProps) 
             </Styled.Text>
 
             <BorderGradientContainer>
-              <Styled.Button onClick={() => setIsModalOpen(true)}>
+              <Styled.Button
+                onClick={() => {
+                  setIsModalOpen(true);
+                  setModalContent({
+                    titleCard: service.titleCard,
+                    serviceModal: service.serviceModal,
+                  });
+                }}
+              >
                 <span>{service.buttonText}</span>
               </Styled.Button>
             </BorderGradientContainer>
@@ -111,6 +121,7 @@ export default function ServicesCard({ serviceCardContent }: ServicesCardProps) 
           <ServiceCardModal
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
+            modalContent={modalContent as ModalContent}
           />
         }
       </AnimatePresence>

@@ -2,14 +2,13 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import WhatsappButton from '../../../HeroSection/Newsletter/WhatsappButton';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 import { boxShadow, CardTitle, linkHover, Text } from 'src/styles';
 import { useClickOutside } from 'src/utils/useClickOutside';
-import CloseIcon from 'public/icons/close.svg';
-import CheckIcon from 'public/icons/check.svg';
-import CoolFaceIcon from 'public/icons/cool-face.svg';
-import RocketIcon from 'public/icons/rocket.svg';
+import { ServiceCardModalProps } from './serviceCardModal.type';
+import ModalHeader from './ModalHeader';
+import ModalMain from './ModalMain';
+import ModalFooter from './ModalFooter';
 
 const Styled = {
   ModalOverlay: styled(motion.div)<{$isModalOpen: boolean}>`
@@ -72,80 +71,27 @@ const Styled = {
     }
   `,
 
-  Header: styled.header`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  `,
-
-  ModalTitle: styled(CardTitle)`
-    text-transform: uppercase;
-  `,
-
-  ModalIconClose: styled.button`
-    height: 16px;
-  `,
-
   Separator: styled.div`
     height: 1px;
     width: 100%;
     background: ${({ theme }) => theme.gradients.softLight};
   `,
-
-  Main: styled.main`
-    display: grid;
-    gap: 1rem;
-
-    @media (min-width: 768px) {
-      gap: 1.5rem;
-    }
-  `,
-
-  ServicoInfoWrapper: styled.div`
-    display: grid;
-    gap: .5rem;
-  `,
-
-  ServiceInfoContent: styled.div`
-    display: grid;
-    gap: .125rem;
-  `,
-
-  Footer: styled.footer`
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-  `,
-
-  CTALink: styled(Link)`
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: underline;
-    order: 3;
-    transition: ${({ theme }) => theme.transitions.softInteraction};
-    color: ${({ theme }) => theme.colors.silverGray};
-
-    ${linkHover}
-
-    @media (min-width: 768px) {
-      font-size: 1.125rem;
-    }
-  `,
-
-  InfoWrapper: styled.div`
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: .5rem;
-
-    @media (min-width: 768px) {
-      align-items: center;
-    }
-  `,
 };
 
-export default function ServiceCardModal({ isModalOpen, setIsModalOpen }: ServiceCardModalProps) {
+export const ModalInfoWrapper = styled.div`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .5rem;
+
+  @media (min-width: 768px) {
+    align-items: center;
+  }
+`;
+
+export default function ServiceCardModal({ isModalOpen, setIsModalOpen, modalContent }: ServiceCardModalProps) {
   const modalRef = useRef<HTMLDivElement | null>(null);
   useClickOutside(modalRef, () => setIsModalOpen(false));
+  const serviceModal = modalContent.serviceModal;
 
   return (
 
@@ -158,94 +104,18 @@ export default function ServiceCardModal({ isModalOpen, setIsModalOpen }: Servic
     >
       <Styled.BorderGradientContainer>
         <Styled.ModalWrapper ref={modalRef}>
-          <Styled.Header>
-            <Styled.InfoWrapper>
-              <RocketIcon />
-
-              <Styled.ModalTitle as="h2">Estratégias de SEO</Styled.ModalTitle>
-            </Styled.InfoWrapper>
-
-            <Styled.ModalIconClose onClick={() => setIsModalOpen(false)}>
-              <CloseIcon />
-            </Styled.ModalIconClose>
-          </Styled.Header>
+          <ModalHeader
+            setIsModalOpen={setIsModalOpen}
+            titleCard={modalContent.titleCard}
+          />
 
           <Styled.Separator></Styled.Separator>
 
-          <Styled.Main>
-            <Styled.ServicoInfoWrapper>
-              <Styled.InfoWrapper>
-                <CoolFaceIcon />
-                <CardTitle>Domine o topo do Google com SEO estratégico!</CardTitle>
-              </Styled.InfoWrapper>
-
-              <Text>
-                  O SEO é a chave para atrair tráfego orgânico de qualidade e gerar crescimento sustentável para sua marca. Aplicamos estratégias personalizadas para melhorar seu ranqueamento no Google, tornando seu site mais visível e relevante para o seu público.
-              </Text>
-            </Styled.ServicoInfoWrapper>
-
-            <Styled.ServicoInfoWrapper>
-              <CardTitle>O que fazemos?</CardTitle>
-
-              <Styled.ServiceInfoContent>
-                <Styled.InfoWrapper>
-                  <CheckIcon />
-                  <Text>SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
-                </Styled.InfoWrapper>
-                <Styled.InfoWrapper>
-                  <CheckIcon />
-                  <Text>SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
-                </Styled.InfoWrapper>
-                <Styled.InfoWrapper>
-                  <CheckIcon />
-                  <Text>SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
-                </Styled.InfoWrapper>
-                <Styled.InfoWrapper>
-                  <CheckIcon />
-                  <Text>SEO Técnico: Melhoramos a velocidade, estrutura e acessibilidade do seu site.</Text>
-                </Styled.InfoWrapper>
-              </Styled.ServiceInfoContent>
-            </Styled.ServicoInfoWrapper>
-
-            <Styled.ServicoInfoWrapper>
-              <CardTitle>Resultados que você pode esperar:</CardTitle>
-
-              <Styled.ServiceInfoContent>
-                <Styled.InfoWrapper>
-                  <CheckIcon />
-                  <Text>Mais tráfego qualificado</Text>
-                </Styled.InfoWrapper>
-                <Styled.InfoWrapper>
-                  <CheckIcon />
-                  <Text>Mais tráfego qualificado</Text>
-                </Styled.InfoWrapper>
-                <Styled.InfoWrapper>
-                  <CheckIcon />
-                  <Text>Mais tráfego qualificado</Text>
-                </Styled.InfoWrapper>
-                <Styled.InfoWrapper>
-                  <CheckIcon />
-                  <Text>Mais tráfego qualificado</Text>
-                </Styled.InfoWrapper>
-              </Styled.ServiceInfoContent>
-            </Styled.ServicoInfoWrapper>
-          </Styled.Main>
+          <ModalMain modalMainContent={serviceModal} />
 
           <Styled.Separator></Styled.Separator>
 
-          <Styled.Footer>
-            <WhatsappButton
-              contactViaWhatsapp='whatsapp'
-            />
-
-            <Styled.CTALink
-              href="whatsapp"
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-                Fale com Eduardo e potencialize seu marketing!
-            </Styled.CTALink>
-          </Styled.Footer>
+          <ModalFooter ctaLink={serviceModal.ctalink} />
         </Styled.ModalWrapper>
       </Styled.BorderGradientContainer>
     </Styled.ModalOverlay>
