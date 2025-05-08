@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Thumbs } from 'swiper/modules';
-import { AuthorCardSlideProps } from './authorCardSlide';
+import { AuthorCardSlideProps } from './authorCardSlide.type';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/pagination';
@@ -87,18 +87,18 @@ export default function AuthorCardSlider({ testimonials, onSwiper }: AuthorCardS
         <SwiperSlide key={testimonial.id}>
           <AuthorCard.Wrapper>
             <AuthorCard.Avatar
-              src={testimonial.avatar}
-              alt={testimonial.name}
+              src={testimonial.userImage.url}
+              alt={testimonial.fullName}
               width={44}
               height={44}
             />
             <AuthorCard.Info>
-              <AuthorCard.FullName title={testimonial.name}>
-                {testimonial.name}
+              <AuthorCard.FullName title={testimonial.fullName}>
+                {testimonial.fullName}
               </AuthorCard.FullName>
 
-              <AuthorCard.Username title={testimonial.username}>
-                {testimonial.username}
+              <AuthorCard.Username title={testimonial.userName}>
+                {testimonial.userName}
               </AuthorCard.Username>
             </AuthorCard.Info>
           </AuthorCard.Wrapper>

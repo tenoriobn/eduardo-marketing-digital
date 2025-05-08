@@ -1,15 +1,20 @@
 export interface TestimonialsProps {
   titleSection: string;
+  testimonialsContent: AuthorCardContent[];
 }
 
 export interface TestimonialsBaseProps {
-  testimonials: TestimonialContent[];
+  testimonials: AuthorCardContent[];
 }
 
-interface TestimonialContent {
-  id: string,
-  name: string;
-  username: string;
-  avatar: string;
+export interface AuthorCardContent {
+  id: string;
+  fullName: string;
+  userName: string;
   testimonial: string;
+  userImage: userImage
+}
+
+export interface userImage {
+  url: string;
 }

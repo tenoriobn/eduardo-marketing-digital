@@ -4,7 +4,6 @@ import { Swiper as SwiperClass } from 'swiper/types';
 import AuthorCardSlider from './AuthorCardSlide';
 import TestimonialSlider from './TestimonialSlider';
 import TestimonialsPagination from './TestimonialsPagination';
-import testimonials from './testimonials.json';
 import { TestimonialsProps } from './testimonials.type';
 import { boxShadow, sectionMotionProps, TitleSection } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
@@ -52,8 +51,8 @@ export default function TestimonialsSection(props: TestimonialsProps) {
 
       <Styled.BorderGradientContainer>
         <Styled.SlidesWrapper>
-          <AuthorCardSlider testimonials={testimonials} onSwiper={setTestimonialSwiper} />
-          <TestimonialSlider testimonials={testimonials} thumbsSwiper={testimonialSwiper} />
+          <AuthorCardSlider testimonials={props.testimonialsContent} onSwiper={setTestimonialSwiper} />
+          <TestimonialSlider testimonials={props.testimonialsContent} thumbsSwiper={testimonialSwiper} />
           <TestimonialsPagination />
         </Styled.SlidesWrapper>
       </Styled.BorderGradientContainer>
