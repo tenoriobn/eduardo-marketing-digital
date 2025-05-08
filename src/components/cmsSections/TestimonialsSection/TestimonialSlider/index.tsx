@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styled from 'styled-components';
 import { Autoplay, EffectFade, Navigation, Pagination, Thumbs } from 'swiper/modules';
-import { TestimonialSliderProps } from './testimonialSlider';
+import { TestimonialSliderProps } from './testimonialSlider.type';
 import { Text } from 'src/styles';
 
 const Styled = {

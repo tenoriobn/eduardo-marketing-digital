@@ -30,12 +30,13 @@ const Styled = {
 
   InputLabel: styled.label`
     display: grid;
+    align-items: center;
     grid-template-columns: auto 1fr;
     gap: 0.75rem;
     cursor: text;
     background-color: ${({ theme }) => theme.colors.graphiteGray};
     border-radius: 3rem;
-    padding: 1rem;
+    padding: 0 1rem;
     width: 100%;
     transition: ${({ theme }) => theme.transitions.softInteraction};
     ${innerShadow};
@@ -52,6 +53,8 @@ const Styled = {
     white-space: nowrap;
     text-overflow: ellipsis;
     transition: ${({ theme }) => theme.transitions.softInteraction};
+    padding: 1rem 0;
+    height: 52px;
   `,
 
   TextareaField: styled.textarea`
@@ -70,7 +73,9 @@ const Styled = {
 };
 
 const TextareaLabel = styled(Styled.InputLabel)`
+  grid-template-columns: 1fr;
   border-radius: 1.5rem;
+  padding: 1rem;
 `;
 
 export default function FormField() {
@@ -95,7 +100,6 @@ export default function FormField() {
               </Styled.InputLabel>
             ) : (
               <TextareaLabel htmlFor={id}>
-                {icon}
                 <Styled.TextareaField
                   id={id}
                   placeholder={placeholder}

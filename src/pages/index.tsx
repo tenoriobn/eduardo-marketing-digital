@@ -83,6 +83,10 @@ export async function getStaticProps() {
                       id
                       serviceActivityDescription
                     }
+                    ctalink {
+                      url
+                      label
+                    }
                   }
                 }
               }
@@ -108,6 +112,15 @@ export async function getStaticProps() {
               ... on TestimonialsSectionRecord {
                 id
                 titleSection
+                testimonialsContent {
+                  userName
+                  testimonial
+                  id
+                  fullName
+                  userImage {
+                    url
+                  }
+                }
               }
               ... on ContactSectionRecord {
                 id

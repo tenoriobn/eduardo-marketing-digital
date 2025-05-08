@@ -34,7 +34,7 @@ const Styled = {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: .5rem .5rem .5rem 1rem;
+    padding: 0 .5rem 0 1rem;
     transition: ${({ theme }) => theme.transitions.softInteraction};
     ${innerShadow}
     ${focusFieldBorder}
@@ -47,6 +47,7 @@ const Styled = {
   Label: styled.label`
     display: grid;
     grid-template-columns: auto 1fr;
+    align-items: center;
     gap: .375rem;
     width: 100%;
     transition: ${({ theme }) => theme.transitions.softInteraction};
@@ -69,6 +70,8 @@ const Styled = {
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 100%;
+    height: 56px;
+    padding: .5rem 0;
 
     @media (min-width: 768px) {
       font-size: 1rem;

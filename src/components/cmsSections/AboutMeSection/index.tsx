@@ -93,7 +93,7 @@ const Styled = {
     object-fit: cover;
 
     @media (min-width: 768px) {
-      height: revert-layer;
+      height: 540px;
     }
   `,
 };
@@ -114,8 +114,9 @@ export default function AboutMeSection(props: AboutMeProps) {
               <Styled.Avatar
                 src={props.aboutMeImage.url}
                 alt="Foto de Perfil do Eduardo Silva"
-                width={656}
-                height={540}
+                width={0}
+                height={0}
+                sizes="100vw"
                 priority
               />
             </Styled.AvatarWrapper>
