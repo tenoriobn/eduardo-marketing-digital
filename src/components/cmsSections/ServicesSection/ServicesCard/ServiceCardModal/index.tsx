@@ -32,7 +32,7 @@ const Styled = {
     overflow-x: hidden;
 
     &::-webkit-scrollbar {
-      width: 8px;
+      width: 0px;
     }
 
     &::-webkit-scrollbar-thumb {

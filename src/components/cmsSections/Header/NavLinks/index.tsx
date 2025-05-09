@@ -4,7 +4,9 @@ import CTALink from '../CTALink';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 import { boxShadow, linkHover } from 'src/styles';
 import { AnimatePresence, motion } from 'motion/react';
-import { Link } from 'react-scroll';
+import { Link, scrollSpy } from 'react-scroll';
+import { useEffect } from 'react';
+import useScrollSpyInit from './useScrollSpyInit';
 
 const Styled = {
   NavLinksWrapper: styled(motion.div)<{$isMenuActive: Boolean}>`
@@ -18,6 +20,10 @@ const Styled = {
       padding: .0625rem;
       width: 100%;
       max-width: max-content;
+    }
+
+    @media (min-width: 992px) {
+      display: block;
     }
   `,
 
@@ -53,7 +59,7 @@ const Styled = {
     ${linkHover}
 
     &.active {
-      color: ${({ theme }) => theme.colors.lightGray};
+      color: ${({ theme }) => theme.colors.lightGray}!important;
       text-decoration: underline;
     }
   `,
@@ -67,46 +73,44 @@ const Styled = {
   `,
 };
 
-export default function NavLinks({ links, ctaButton, isMenuActive, isMobile, setIsMenuActive }: NavLinksProps) {
+export default function NavLinks({ links, ctaButton, isMenuActive, isMobile, onLinkClick }: NavLinksProps) {
+  useScrollSpyInit();
+
   return (
     <AnimatePresence mode="wait" initial={false}>
       <Styled.NavLinksWrapper
+        key="navLinks"
         $isMenuActive={isMenuActive}
-        key={isMenuActive ? 'navLinkOpen' : 'navLinkClose'}
-        {...(isMobile && {
-          initial: { opacity: 0, y: -16 },
-          animate: { opacity: 1, y: 0 },
-          exit: { opacity: 0, y: -16 },
-          transition: { duration: .075 }
-        })}
+        initial={isMobile ? { opacity: 0, y: -16 } : false}
+        animate={isMobile ? { opacity: 1, y: 0 } : false}
+        exit={isMobile ? { opacity: 0, y: -16 } : ''}
+        transition={{ duration: .075 }}
       >
         <Styled.Nav>
-          {links.map((navlink) => (
+          {links.map((link) => (
             <Styled.Link
               role="link"
-              key={navlink.id}
-              activeClass="active"
-              to={navlink.url}
+              key={link.id}
+              to={link.url}
               spy={true}
               smooth={true}
-              offset={-80}
-              duration={600}
-              onClick={isMobile ? () => setIsMenuActive(false) : undefined}
+              offset={isMobile ? -130 : -240}
+              isDynamic={true}
+              duration={300}
+              onClick={onLinkClick}
+              activeClass="active"
             >
-              {navlink.label}
+              {link.label}
             </Styled.Link>
           ))}
 
-          <Styled.MobileCTAWrapper>
-            <CTALink
-              href={ctaButton.url}
-              target="_blank"
-              rel='noopener noreferrer'
-              onClick={() => setIsMenuActive(false)}
-            >
-              {ctaButton.label}
-            </CTALink>
-          </Styled.MobileCTAWrapper>
+          {isMobile && (
+            <Styled.MobileCTAWrapper>
+              <CTALink href={ctaButton.url} target="_blank" rel="noopener noreferrer" onClick={onLinkClick}>
+                {ctaButton.label}
+              </CTALink>
+            </Styled.MobileCTAWrapper>
+          )}
         </Styled.Nav>
       </Styled.NavLinksWrapper>
     </AnimatePresence>
