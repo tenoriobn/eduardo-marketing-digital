@@ -4,9 +4,9 @@ import { CMSContextType, CMSProviderProps } from './cms.types';
 
 export const CMSContext = createContext<CMSContextType | null>(null);
 
-export default function CMSProvider({ cmsContent, children }: CMSProviderProps) {
+export default function CMSProvider({ cmsContent, children, year }: CMSProviderProps) {
   return (
-    <CMSContext.Provider value={{ cmsContent }}>
+    <CMSContext.Provider value={{ cmsContent, year }}>
       { children }
     </CMSContext.Provider>
   );
