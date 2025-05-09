@@ -1,8 +1,6 @@
-* Ajustar Rolagem dos Scroll Links
-* Ajustar icones svg para poder definir altura e largura sem cortar icone
+
 * Ajustar altura dos títulos dos cards de Serviço para ocuparem dinâmicamente a mesma altura (quebra de linha..)
 
-* Obter Year do Footer a nível de SSG
 * Implementar Sistema de newsletter
 
 
@@ -35,5 +33,7 @@ OK - Adicionar efeito de luz no fundo do Card da herosection
 OK - Implementar transições com framemotion (seções)
 OK - Adicionar validações e mensagens nos inputs
 ok - Trazer informações dos modais de Serviços & depoimentos
+OK - Ajustar Rolagem dos Scroll Links
+OK - Obter Year do Footer a nível de SSG
 
-
+* Ajustar icones svg para poder definir altura e largura sem cortar icone

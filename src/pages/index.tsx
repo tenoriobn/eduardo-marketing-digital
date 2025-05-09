@@ -4,6 +4,8 @@ import { cmsService } from 'src/service/cmsService';
 import { CMSContent } from '../types/cmsContent.types';
 
 export async function getStaticProps() {
+  const year = new Date().getFullYear();
+
   const { data: cmsContent } = await cmsService({
     query: `
       query MyQuery {
@@ -166,14 +168,17 @@ export async function getStaticProps() {
   });
 
   return {
-    props: { cmsContent },
+    props: {
+      cmsContent ,
+      year
+    },
   };
 }
 
-export default function HomePage({ cmsContent }: CMSContent) {
+export default function HomePage({ cmsContent, year }: CMSContent) {
   return (
-    <CMSProvider cmsContent={cmsContent}>
-      <CMSSectionRender pageName="homePage" />
+    <CMSProvider cmsContent={cmsContent} year={year}>
+      <CMSSectionRender pageName="homePage" year={year} />
     </CMSProvider>
   );
 }

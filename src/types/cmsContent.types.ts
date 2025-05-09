@@ -13,4 +13,5 @@ export interface CMSContent {
   cmsContent: {
     pageContent: CMSPageContent[];
   };
+  year: number;
 }

@@ -4,7 +4,7 @@ export interface NavLinksProps {
   links: NavLinkContent[]
   isMenuActive: boolean;
   isMobile?: boolean;
-  setIsMenuActive: Dispatch<SetStateAction<boolean>>,
+  onLinkClick?: () => void;
   ctaButton: NavLinkContent;
 }
 

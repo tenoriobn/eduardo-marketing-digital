@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import NavLinks from './NavLinks';
 import CTALink from './CTALink';
-import { boxShadow, sectionMotionProps } from 'src/styles';
+import { boxShadow } from 'src/styles';
 import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
 import useResponsiveMenu from './useResponsiveMenu';
 import { HeaderProps } from './header.type';
@@ -81,25 +81,18 @@ const Styled = {
   `,
 };
 
-export default function Header(props: HeaderProps) {
-  const { isMenuActive, setIsMenuActive, isMobile, menuMobileRef } = useResponsiveMenu();
+export default function Header({ logo, menuLinks, ctaButton }: HeaderProps) {
+  const { isMenuActive, toggleMenu, menuRef, isMobile } = useResponsiveMenu();
 
   return (
-    <Styled.Header
-
-    >
+    <Styled.Header>
       <Styled.BorderGradientContainer $borderRadius='62.5rem' >
-        <Styled.HeaderWrapper ref={menuMobileRef}>
+        <Styled.HeaderWrapper ref={menuRef}>
           <Styled.LogoWrapper>
-            <Image
-              alt='Logo do Eduardo Marketing Digital'
-              src={props.logo.url}
-              width={50}
-              height={50}
-            />
+            <Image alt="Logo" src={logo.url} width={50} height={50} priority />
           </Styled.LogoWrapper>
 
-          <Styled.MobileMenuButton onClick={() => setIsMenuActive(!isMenuActive)}>
+          <Styled.MobileMenuButton onClick={toggleMenu}>
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={isMenuActive ? 'close' : 'menu'}
@@ -114,22 +107,20 @@ export default function Header(props: HeaderProps) {
           </Styled.MobileMenuButton>
 
           <NavLinks
-            links={props.menuLinks}
+            links={menuLinks}
+            ctaButton={ ctaButton }
             isMenuActive={isMenuActive}
-            setIsMenuActive={setIsMenuActive}
             isMobile={isMobile}
-            ctaButton={{ url: props.ctaButton.url, label: props.ctaButton.label }}
+            onLinkClick={() => isMobile && toggleMenu()}
           />
 
-          <Styled.CTAButtonWrapperDesktop $borderRadius='62.5rem'>
-            <CTALink
-              href={props.ctaButton.url}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              {props.ctaButton.label}
-            </CTALink>
-          </Styled.CTAButtonWrapperDesktop>
+          {!isMobile && (
+            <Styled.CTAButtonWrapperDesktop $borderRadius='62.5rem'>
+              <CTALink href={ctaButton.url} target='_blank' rel='noopener noreferrer'>
+                {ctaButton.label}
+              </CTALink>
+            </Styled.CTAButtonWrapperDesktop>
+          )}
         </Styled.HeaderWrapper>
       </Styled.BorderGradientContainer>
     </Styled.Header>

@@ -15,16 +15,12 @@ const Styled = {
   `,
 };
 
-
-
-export default function Footer(props: FooterProps) {
-  const year = new Date().getFullYear();
-
+export default function Footer({ year, copyright}: FooterProps) {
   return (
     <Styled.Footer
       {...sectionMotionProps}
     >
-      <Styled.Copyright>{year} {props.copyright}</Styled.Copyright>
+      <Styled.Copyright>{year} {copyright}</Styled.Copyright>
     </Styled.Footer>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useClickOutside } from 'src/utils/useClickOutside';
-import useWindowSize from 'src/utils/useWindowSize';
+import { useWindowSize } from 'src/utils/useWindowSize';
 
 /**
  * Hook customizado para gerenciar o comportamento responsivo do menu.
@@ -14,20 +14,12 @@ import useWindowSize from 'src/utils/useWindowSize';
 
 function useResponsiveMenu() {
   const [isMenuActive, setIsMenuActive] = useState(false);
-  const { isMobile } = useWindowSize();
-  const menuMobileRef = useRef<HTMLDivElement | null>(null);
-  useClickOutside(menuMobileRef, () => setIsMenuActive(false));
+  const isMobile = useWindowSize();
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (isMobile !== undefined && !isMobile) {
-      setIsMenuActive(true);
-    } else {
-      setIsMenuActive(false);
-    }
-  }, [isMobile]);
+  useClickOutside(menuRef, () => isMobile && setIsMenuActive(false));
 
-
-  return { isMenuActive, setIsMenuActive, isMobile, menuMobileRef };
+  return { isMenuActive, toggleMenu: () => setIsMenuActive(prev => !prev), menuRef, isMobile };
 }
 
 export default useResponsiveMenu;

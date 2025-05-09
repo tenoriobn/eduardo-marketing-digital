@@ -7,7 +7,7 @@ export const fadeInUp: Variants = {
     y: 0,
     transition: {
       duration: 0.6,
-      easing: [0.6, 0.05, -0.01, 0.3],
+      easing: [0.6, 0.05, -0.01, 0.2],
     },
   },
 };

@@ -1,5 +1,6 @@
 export interface CMSSectionRenderProps {
-  pageName: string
+  pageName: string;
+  year: number
 }
 
 export interface CMSSectionData {
