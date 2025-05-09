@@ -11,7 +11,7 @@ import { ModalContent } from './ServiceCardModal/serviceCardModal.type';
 const Styled = {
   ServiceCardWrapper: styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(288px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(290px, auto));
     gap: 1rem;
     grid-auto-rows: 1fr;
     margin: 2rem 0 4rem 0;
@@ -43,8 +43,8 @@ const Styled = {
     text-transform: uppercase;
     text-align: center;
 
-    @media (min-width: 768px) and (max-width: 1191px) {
-      min-height: 51px;
+    @media (min-width: 624px) and (max-width: 1090px) {
+      min-height: 46px;
     }
 
     @media (min-width: 992px) {
