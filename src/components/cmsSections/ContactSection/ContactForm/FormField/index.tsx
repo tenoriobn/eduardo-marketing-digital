@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
 import { focusFieldBorderBackground, innerShadow, focusField } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
-import { useFormFieldValidation } from './useFormFieldValidation';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
+import { useFormFieldValidation } from 'src/utils/useFormFieldValidation';
 import { formFieldsSchema } from './formFieldsSchema';
+import ErrorMessage from 'components/ErrorMessage';
 
 const inputStyles = css`
   border: none;
@@ -19,6 +20,18 @@ const inputStyles = css`
 `;
 
 const Styled = {
+  InputsContentWrapper: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      gap: 1.5rem;
+    }
+  `,
+
   FieldWrapper: styled.div`
     width: 100%;
   `,
@@ -63,13 +76,6 @@ const Styled = {
     height: 120px;
     transition: ${({ theme }) => theme.transitions.softInteraction};
   `,
-
-  ErrorMessage: styled.p`
-    color: ${({ theme }) => theme.colors.red};
-    font-size: 0.75rem;
-    margin-top: 0.5rem;
-    padding-left: 1rem;
-  `,
 };
 
 const TextareaLabel = styled(Styled.InputLabel)`
@@ -82,7 +88,7 @@ export default function FormField() {
   const { bindValidationToField, errors } = useFormFieldValidation();
 
   return (
-    <>
+    <Styled.InputsContentWrapper>
       {formFieldsSchema.map(({ id, type, placeholder, icon, as, borderRadius, ...fieldAttributes }) => (
         <Styled.FieldWrapper key={id}>
           <Styled.BorderGradientContainer  $borderRadius={borderRadius}>
@@ -91,6 +97,7 @@ export default function FormField() {
                 {icon}
                 <Styled.InputField
                   id={id}
+                  name={id}
                   type={type}
                   placeholder={placeholder}
                   required
@@ -102,6 +109,7 @@ export default function FormField() {
               <TextareaLabel htmlFor={id}>
                 <Styled.TextareaField
                   id={id}
+                  name={id}
                   placeholder={placeholder}
                   required
                   {...bindValidationToField(id)}
@@ -111,10 +119,10 @@ export default function FormField() {
             )}
           </Styled.BorderGradientContainer>
           {errors[id] &&
-            <Styled.ErrorMessage>{errors[id]}</Styled.ErrorMessage>
+            <ErrorMessage>{errors[id]}</ErrorMessage>
           }
         </Styled.FieldWrapper>
       ))}
-    </>
+    </Styled.InputsContentWrapper>
   );
 }

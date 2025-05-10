@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 import { boxShadow, CardTitle, linkHover, Text } from 'src/styles';
 import { useClickOutside } from 'src/utils/useClickOutside';
 import { ServiceCardModalProps } from './serviceCardModal.type';

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { KeyMetricProps } from './keyMetric.type';
 import { boxShadow, Text } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 
 const Styled = {
   KeyMetricWrapper: styled.div`

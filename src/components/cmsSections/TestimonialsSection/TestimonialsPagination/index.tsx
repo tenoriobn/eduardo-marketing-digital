@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { borderGradientStylesCSS, boxShadow } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 
 const Styled = {
   Pagination: styled(BorderGradientContainer)`

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ServicesCardProps } from './servicesCard.type';
 import { boxShadow, buttonActive, buttonHover, CardTitle, Text } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 import { useState } from 'react';
 import ServiceCardModal from './ServiceCardModal';
 import { AnimatePresence  } from 'framer-motion';

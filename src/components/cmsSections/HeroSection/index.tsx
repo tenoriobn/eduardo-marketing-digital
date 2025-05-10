@@ -63,9 +63,9 @@ const Styled = {
   `,
 };
 
-export default function HeroSection({ cotent }: HeroSectionProps) {
-  const [normalIntro, highlighted, connector] = cotent[0].titlePart1.value.document.children[0].children;
-  const [strongHighlight] = cotent[0].titlePart2.value.document.children[0].children;
+export default function HeroSection({ content }: HeroSectionProps) {
+  const [normalIntro, highlighted, connector] = content[0].titlePart1.value.document.children[0].children;
+  const [strongHighlight] = content[0].titlePart2.value.document.children[0].children;
 
   return (
     <Styled.Section
@@ -83,9 +83,9 @@ export default function HeroSection({ cotent }: HeroSectionProps) {
         <Styled.TitleStrongHighlight>{strongHighlight.value}</Styled.TitleStrongHighlight>
       </Styled.Title>
 
-      <Newsletter content={cotent[1]} />
+      <Newsletter content={content[1]} />
 
-      <KeyMetric keyMetricCard={cotent[2].keyMetricCard} />
+      <KeyMetric keyMetricCard={content[2].keyMetricCard} />
     </Styled.Section>
   );
 }

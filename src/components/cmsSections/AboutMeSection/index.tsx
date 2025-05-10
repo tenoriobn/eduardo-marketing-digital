@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PersonalOverview from './PersonalOverview';
 import { AboutMeProps } from './aboutMe.type';
 import { boxShadow, sectionMotionProps, TitleSection } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 import { motion } from 'motion/react';
 
 const Styled = {

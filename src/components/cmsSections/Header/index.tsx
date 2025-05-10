@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import NavLinks from './NavLinks';
 import CTALink from './CTALink';
 import { boxShadow } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 import useResponsiveMenu from './useResponsiveMenu';
 import { HeaderProps } from './header.type';
 import MobileMenuIcon from 'public/icons/menu.svg';

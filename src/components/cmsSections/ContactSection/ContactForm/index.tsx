@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { ContactFormProps } from './contactForm.type';
 import FormField from './FormField';
 import { boxShadow, buttonActive, buttonHover, CardTitle } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
+import { useSubmitForm } from 'src/utils/useSubmitForm';
 
 const Styled = {
   Form: styled.form`
@@ -19,17 +20,7 @@ const Styled = {
     }
   `,
 
-  InputsContentWrapper: styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
 
-    @media (min-width: 768px) {
-      gap: 1.5rem;
-    }
-  `,
 
   ButtonWrapper: styled(BorderGradientContainer)`
     justify-self: end;
@@ -62,13 +53,13 @@ const Styled = {
 };
 
 export default function ContactForm({ inputsContent }: ContactFormProps) {
+  const handleSubmit = useSubmitForm();
+
   return (
-    <Styled.Form>
+    <Styled.Form onSubmit={handleSubmit}>
       <Styled.TitleForm>{inputsContent.titleSocialForm}</Styled.TitleForm>
 
-      <Styled.InputsContentWrapper>
-        <FormField />
-      </Styled.InputsContentWrapper>
+      <FormField />
 
       <Styled.ButtonWrapper $borderRadius='3rem'>
         <Styled.Button>

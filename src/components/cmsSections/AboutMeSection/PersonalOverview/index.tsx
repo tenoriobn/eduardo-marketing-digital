@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { PersonalOverviewProps } from './personalOverview.type';
 import { boxShadow, buttonActive, buttonHover, CardTitle, Text } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 
 const Styled = {
   PersonalOverviewWrapper: styled.div`
