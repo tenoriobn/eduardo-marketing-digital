@@ -2,6 +2,7 @@ import { CMSSectionRender } from 'src/components/CMSSectionRender';
 import CMSProvider from 'src/providers/cms/CMSProvider';
 import { cmsService } from 'src/service/cmsService';
 import { CMSContent } from '../types/cmsContent.types';
+import { ToastContainer } from 'react-toastify';
 
 export async function getStaticProps() {
   const year = new Date().getFullYear();
@@ -179,6 +180,7 @@ export default function HomePage({ cmsContent, year }: CMSContent) {
   return (
     <CMSProvider cmsContent={cmsContent} year={year}>
       <CMSSectionRender pageName="homePage" year={year} />
+      <ToastContainer />
     </CMSProvider>
   );
 }
