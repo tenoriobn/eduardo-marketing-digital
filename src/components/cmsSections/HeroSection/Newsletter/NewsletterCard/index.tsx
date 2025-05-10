@@ -4,6 +4,7 @@ import { NewlestterCardProps } from './newsletterCard.type';
 import { buttonActive, buttonHover, CardTitle, innerShadow, focusField, Text, focusFieldBorder } from 'src/styles';
 import { useFormFieldValidation } from 'src/utils/useFormFieldValidation';
 import ErrorMessage from 'components/ErrorMessage';
+import { useSubmitForm } from 'src/utils/useSubmitForm';
 
 const Styled = {
   NewsletterCard: styled.div`
@@ -57,6 +58,7 @@ const Styled = {
     gap: .375rem;
     width: 100%;
     transition: ${({ theme }) => theme.transitions.softInteraction};
+    cursor: text;
     ${focusField}
 
     svg {
@@ -112,6 +114,7 @@ const Styled = {
 
 export default function NewsletterCard({ contentNewsletter }: NewlestterCardProps) {
   const { bindValidationToField, errors } = useFormFieldValidation();
+  const handleSubmit = useSubmitForm();
 
   return (
     <Styled.NewsletterCard>
@@ -119,12 +122,13 @@ export default function NewsletterCard({ contentNewsletter }: NewlestterCardProp
       <Text>{contentNewsletter.cardParagraph}</Text>
 
       <Styled.FormWrapper>
-        <Styled.Form action="">
+        <Styled.Form onSubmit={handleSubmit}>
           <Styled.Label htmlFor="input-email">
             <EmailIcon />
 
             <Styled.Input
               id='input-email'
+              name='input-email'
               type="email"
               placeholder={contentNewsletter.placeholder}
               minLength={4}

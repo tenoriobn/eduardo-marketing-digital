@@ -20,6 +20,18 @@ const inputStyles = css`
 `;
 
 const Styled = {
+  InputsContentWrapper: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      gap: 1.5rem;
+    }
+  `,
+
   FieldWrapper: styled.div`
     width: 100%;
   `,
@@ -76,7 +88,7 @@ export default function FormField() {
   const { bindValidationToField, errors } = useFormFieldValidation();
 
   return (
-    <>
+    <Styled.InputsContentWrapper>
       {formFieldsSchema.map(({ id, type, placeholder, icon, as, borderRadius, ...fieldAttributes }) => (
         <Styled.FieldWrapper key={id}>
           <Styled.BorderGradientContainer  $borderRadius={borderRadius}>
@@ -85,6 +97,7 @@ export default function FormField() {
                 {icon}
                 <Styled.InputField
                   id={id}
+                  name={id}
                   type={type}
                   placeholder={placeholder}
                   required
@@ -96,6 +109,7 @@ export default function FormField() {
               <TextareaLabel htmlFor={id}>
                 <Styled.TextareaField
                   id={id}
+                  name={id}
                   placeholder={placeholder}
                   required
                   {...bindValidationToField(id)}
@@ -109,6 +123,6 @@ export default function FormField() {
           }
         </Styled.FieldWrapper>
       ))}
-    </>
+    </Styled.InputsContentWrapper>
   );
 }
