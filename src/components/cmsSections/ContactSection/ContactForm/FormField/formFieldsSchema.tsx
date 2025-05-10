@@ -26,7 +26,7 @@ export const formFieldsSchema = [
     minLength: 4,
     maxLength: 40,
     autoComplete: 'email',
-    title: 'O email deve ter o formato email@email.dominio',
+    title: 'O e-mail deve estar no formato nome@dominio.com',
   },
   {
     id: 'message',

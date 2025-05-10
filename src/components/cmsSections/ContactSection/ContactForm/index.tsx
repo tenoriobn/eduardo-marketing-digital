@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ContactFormProps } from './contactForm.type';
 import FormField from './FormField';
 import { boxShadow, buttonActive, buttonHover, CardTitle } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 
 const Styled = {
   Form: styled.form`

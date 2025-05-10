@@ -1,7 +1,7 @@
 import { NavLinksProps } from './navLinks.type';
 import styled from 'styled-components';
 import CTALink from '../CTALink';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 import { boxShadow, linkHover } from 'src/styles';
 import { AnimatePresence, motion } from 'motion/react';
 import { Link, scrollSpy } from 'react-scroll';

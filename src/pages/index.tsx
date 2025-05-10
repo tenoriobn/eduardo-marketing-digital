@@ -31,7 +31,7 @@ export async function getStaticProps() {
               }
               ... on HeroSectionRecord {
                 id
-                cotent {
+                content {
                   ... on TitleHeroSectionRecord {
                     id
                     titlePart1 {

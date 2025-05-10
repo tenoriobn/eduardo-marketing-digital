@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import EmailIcon from 'public/icons/email.svg';
 import { NewlestterCardProps } from './newsletterCard.type';
 import { buttonActive, buttonHover, CardTitle, innerShadow, focusField, Text, focusFieldBorder } from 'src/styles';
+import { useFormFieldValidation } from 'src/utils/useFormFieldValidation';
+import ErrorMessage from 'components/ErrorMessage';
 
 const Styled = {
   NewsletterCard: styled.div`
@@ -28,6 +30,14 @@ const Styled = {
     }
   `,
 
+  FormWrapper: styled.div`
+    display: grid;
+
+    @media (min-width: 992px) {
+      max-width: 380px;
+    }
+  `,
+
   Form: styled.form`
     border: .0625rem solid ${({ theme }) => theme.colors.charcoalGray};
     border-radius: 3rem;
@@ -38,10 +48,6 @@ const Styled = {
     transition: ${({ theme }) => theme.transitions.softInteraction};
     ${innerShadow}
     ${focusFieldBorder}
-
-    @media (min-width: 992px) {
-      max-width: 380px;
-    }
   `,
 
   Label: styled.label`
@@ -100,32 +106,45 @@ const Styled = {
       font-size: 1rem;
       min-width: 84px;
     }
-  `,
+  `
 };
 
 
 export default function NewsletterCard({ contentNewsletter }: NewlestterCardProps) {
+  const { bindValidationToField, errors } = useFormFieldValidation();
+
   return (
     <Styled.NewsletterCard>
       <CardTitle>{contentNewsletter.titleCard}</CardTitle>
       <Text>{contentNewsletter.cardParagraph}</Text>
 
-      <Styled.Form action="">
-        <Styled.Label htmlFor="input-email">
-          <EmailIcon />
+      <Styled.FormWrapper>
+        <Styled.Form action="">
+          <Styled.Label htmlFor="input-email">
+            <EmailIcon />
 
-          <Styled.Input
-            id='input-email'
-            type="email"
-            placeholder={contentNewsletter.placeholder}
-            required
-          />
-        </Styled.Label>
+            <Styled.Input
+              id='input-email'
+              type="email"
+              placeholder={contentNewsletter.placeholder}
+              minLength={4}
+              maxLength={40}
+              autoComplete='email'
+              title='O e-mail deve estar no formato nome@dominio.com'
+              required
+              {...bindValidationToField('input-email')}
+            />
+          </Styled.Label>
 
-        <Styled.Button>
-          <span>{contentNewsletter.buttonText}</span>
-        </Styled.Button>
-      </Styled.Form>
+          <Styled.Button>
+            <span>{contentNewsletter.buttonText}</span>
+          </Styled.Button>
+        </Styled.Form>
+
+        {errors['input-email'] &&
+          <ErrorMessage>{errors['input-email']}</ErrorMessage>
+        }
+      </Styled.FormWrapper>
     </Styled.NewsletterCard>
   );
 }

@@ -1,8 +1,5 @@
-
-* Ajustar altura dos títulos dos cards de Serviço para ocuparem dinâmicamente a mesma altura (quebra de linha..)
-
-* Implementar Sistema de newsletter
-
+* Realizar Submit do Formulário de contato + Pop-up de enviado.
+* Validar e Implementar Sistema de newsletter
 
 
 * Implementar Skeletoon
@@ -37,3 +34,5 @@ OK - Ajustar Rolagem dos Scroll Links
 OK - Obter Year do Footer a nível de SSG
 
 * Ajustar icones svg para poder definir altura e largura sem cortar icone
+
+OK - Ajustar altura dos títulos dos cards de Serviço para ocuparem dinâmicamente a mesma altura (quebra de linha..)

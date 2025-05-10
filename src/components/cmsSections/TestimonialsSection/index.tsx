@@ -6,7 +6,7 @@ import TestimonialSlider from './TestimonialSlider';
 import TestimonialsPagination from './TestimonialsPagination';
 import { TestimonialsProps } from './testimonials.type';
 import { boxShadow, sectionMotionProps, TitleSection } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 import { motion } from 'motion/react';
 
 const Styled = {

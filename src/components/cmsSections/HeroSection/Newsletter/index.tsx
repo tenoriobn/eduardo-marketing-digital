@@ -2,7 +2,7 @@ import { NewlestterProps } from './newlestter.type';
 import styled from 'styled-components';
 import NewsletterCard from './NewsletterCard';
 import WhatsappButton from 'components/WhatsappButton';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 import { boxShadow } from 'src/styles';
 
 const Styled = {

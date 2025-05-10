@@ -107,6 +107,12 @@ export const GlobalStyles = createGlobalStyle`
     font: inherit;
   }
 
+  input:-webkit-autofill {
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.softGray} !important;
+    caret-color: ${({ theme }) => theme.colors.softGray} !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
   /* 12. Configura elementos HTML5 para block por padrão */
   article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;

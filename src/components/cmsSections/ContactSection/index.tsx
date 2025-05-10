@@ -3,7 +3,7 @@ import SocialLink from './SocialLink';
 import ContactForm from './ContactForm';
 import { ContactProps } from './contact.type';
 import { boxShadow, sectionMotionProps, TitleSection } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 import { motion } from 'motion/react';
 
 const Styled = {

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import WhatsappIcon from 'public/icons/whatsapp.svg';
 import { WhatsappButtonProps } from './whatsappButton.type';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 import { boxShadow, buttonActive, buttonHover } from 'src/styles';
 
 const Styled = {

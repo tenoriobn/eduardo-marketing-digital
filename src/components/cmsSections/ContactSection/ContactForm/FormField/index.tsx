@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
 import { focusFieldBorderBackground, innerShadow, focusField } from 'src/styles';
-import { BorderGradientContainer } from 'src/components/ui/BorderGradient';
-import { useFormFieldValidation } from './useFormFieldValidation';
+import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
+import { useFormFieldValidation } from 'src/utils/useFormFieldValidation';
 import { formFieldsSchema } from './formFieldsSchema';
+import ErrorMessage from 'components/ErrorMessage';
 
 const inputStyles = css`
   border: none;
@@ -63,13 +64,6 @@ const Styled = {
     height: 120px;
     transition: ${({ theme }) => theme.transitions.softInteraction};
   `,
-
-  ErrorMessage: styled.p`
-    color: ${({ theme }) => theme.colors.red};
-    font-size: 0.75rem;
-    margin-top: 0.5rem;
-    padding-left: 1rem;
-  `,
 };
 
 const TextareaLabel = styled(Styled.InputLabel)`
@@ -111,7 +105,7 @@ export default function FormField() {
             )}
           </Styled.BorderGradientContainer>
           {errors[id] &&
-            <Styled.ErrorMessage>{errors[id]}</Styled.ErrorMessage>
+            <ErrorMessage>{errors[id]}</ErrorMessage>
           }
         </Styled.FieldWrapper>
       ))}
