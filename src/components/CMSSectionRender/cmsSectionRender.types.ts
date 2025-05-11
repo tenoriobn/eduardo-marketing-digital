@@ -1,6 +1,7 @@
-export interface CMSSectionRenderProps {
+import { YearProps } from '../cmsSections/Footer/footer.type';
+
+export interface CMSSectionRenderProps extends YearProps {
   pageName: string;
-  year: number
 }
 
 export interface CMSSectionData {

@@ -100,6 +100,7 @@ export default function ServiceCardModal({ isModalOpen, setIsModalOpen, modalCon
       key={isModalOpen ? 'modalOpen' : 'modalClose'}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: .2 }}
       exit={{ opacity: 0, scale: 0 }}
     >
       <Styled.BorderGradientContainer>

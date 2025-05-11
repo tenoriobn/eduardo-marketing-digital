@@ -1,8 +1,9 @@
-import { CMSSectionRender } from 'src/components/CMSSectionRender';
+import { CMSSectionRender } from 'components/CMSSectionRender';
 import CMSProvider from 'src/providers/cms/CMSProvider';
 import { cmsService } from 'src/service/cmsService';
-import { CMSContent } from '../types/cmsContent.types';
+import { CMSContentProps } from '../types/cmsContent.types';
 import { ToastContainer } from 'react-toastify';
+import { DefaultSEO } from 'components/DefaultSEO';
 
 export async function getStaticProps() {
   const year = new Date().getFullYear();
@@ -14,6 +15,22 @@ export async function getStaticProps() {
           pageContent {
             section {
               componentName:  __typename
+              ... on SeoRecord {
+                id
+                websiteUrl
+                twitterSite
+                title
+                image {
+                  url
+                }
+                siteName
+                keywords
+                favicon {
+                  url
+                }
+                description
+                author
+              }
               ... on HeaderSectionRecord {
                 id
                 logo {
@@ -176,11 +193,14 @@ export async function getStaticProps() {
   };
 }
 
-export default function HomePage({ cmsContent, year }: CMSContent) {
+export default function HomePage({ cmsContent, year }: CMSContentProps) {
   return (
-    <CMSProvider cmsContent={cmsContent} year={year}>
-      <CMSSectionRender pageName="homePage" year={year} />
-      <ToastContainer />
-    </CMSProvider>
+    <>
+      <DefaultSEO seo={cmsContent.homePage.pageContent[0].section[0]} />
+      <CMSProvider cmsContent={cmsContent} year={year}>
+        <CMSSectionRender pageName="homePage" year={year} />
+        <ToastContainer />
+      </CMSProvider>
+    </>
   );
 }

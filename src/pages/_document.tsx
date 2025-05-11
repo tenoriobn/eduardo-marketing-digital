@@ -30,11 +30,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-BR">
-        <Head>
-          <link rel="shortcut icon" href="/icons/logo.svg" type="image/svg+xml" />
-          <link rel="preload" as="image" href="/images/featured-card-bg.jpg"/>
-          <meta name="theme-color" content="#2D2D2D" />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

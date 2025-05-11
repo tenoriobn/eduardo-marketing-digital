@@ -37,3 +37,6 @@ OK - Obter Year do Footer a nível de SSG
 * Ajustar icones svg para poder definir altura e largura sem cortar icone
 
 OK- Realizar Submit do Formulário de contato + Pop-up de enviado.
+OK - Diminuiro tempo de abertura do modal
+OK - Limpar formulário ao dar submit com tudo ok
+OK - Implementar SEO BÁSICO + SISTEMA GTM E ETC (PRINCIPAL PARA VER CLICK DO USUÁRIO)

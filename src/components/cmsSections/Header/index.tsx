@@ -89,7 +89,13 @@ export default function Header({ logo, menuLinks, ctaButton }: HeaderProps) {
       <Styled.BorderGradientContainer $borderRadius='62.5rem' >
         <Styled.HeaderWrapper ref={menuRef}>
           <Styled.LogoWrapper>
-            <Image alt="Logo" src={logo.url} width={50} height={50} priority />
+            <Image
+              alt="Logo da empresa Eduardo Consultoria Digital, especializada em SEO e marketing digital"
+              src={logo.url}
+              width={50}
+              height={50}
+              priority
+            />
           </Styled.LogoWrapper>
 
           <Styled.MobileMenuButton onClick={toggleMenu}>

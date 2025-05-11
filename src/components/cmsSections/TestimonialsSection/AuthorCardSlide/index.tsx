@@ -88,7 +88,7 @@ export default function AuthorCardSlider({ testimonials, onSwiper }: AuthorCardS
           <AuthorCard.Wrapper>
             <AuthorCard.Avatar
               src={testimonial.userImage.url}
-              alt={testimonial.fullName}
+              alt={`Foto de ${testimonial.fullName}, depoente sobre os serviços de consultoria digital`}
               width={44}
               height={44}
             />
