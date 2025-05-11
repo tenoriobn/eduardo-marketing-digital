@@ -23,10 +23,11 @@ export function useSubmitForm() {
       //   return;
       // }
 
+      e.currentTarget.reset();
       showSuccess('Os dados foram enviados com sucesso!');
     } catch (error: any) {
       showError('Ocorreu um erro ao enviar o formulário. Tente novamente.');
-      console.error('Erro ao enviar o formulário:', error);
+      // console.error('Erro ao enviar o formulário:', error);
     }
   };
 }

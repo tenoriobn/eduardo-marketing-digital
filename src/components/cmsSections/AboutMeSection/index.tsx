@@ -113,7 +113,7 @@ export default function AboutMeSection(props: AboutMeProps) {
             <Styled.AvatarWrapper>
               <Styled.Avatar
                 src={props.aboutMeImage.url}
-                alt="Foto de Perfil do Eduardo Silva"
+                alt="Foto de perfil de Eduardo Silva, consultor de SEO e marketing digital"
                 width={0}
                 height={0}
                 sizes="100vw"

@@ -40,7 +40,12 @@ export default function SocialLink({ socialContent }: SocialLinkProps) {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <Image src={socialLink.socialIcon.url} alt={socialLink.socialContent.label} width={36} height={36} />
+            <Image
+              src={socialLink.socialIcon.url}
+              alt={`Ícone do ${socialLink.socialContent.label} para acessar nossa página`}
+              width={36}
+              height={36}
+            />
           </Link>
         ))}
       </Styled.SocialLinkContent>

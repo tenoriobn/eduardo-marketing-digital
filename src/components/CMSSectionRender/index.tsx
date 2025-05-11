@@ -1,4 +1,4 @@
-import { cmsSections } from 'src/components/cmsSections';
+import { cmsSections } from 'components/cmsSections';
 import { useGetCMSContent } from 'src/providers/cms/useGetCMSContent';
 import { CMSSectionData, CMSSectionRenderProps } from './cmsSectionRender.types';
 
