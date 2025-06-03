@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Eduardo Marketing Digital
 
-## Getting Started
+## Sobre o Projeto
 
-First, run the development server:
+Eduardo Marketing Digital é uma plataforma moderna desenvolvida do zero para a criação e gestão dinâmica de páginas web focadas em marketing digital. Todo o design da interface foi pensado e criado no Figma, garantindo uma experiência visual única e alinhada às melhores práticas de UX/UI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O conteúdo do site é facilmente gerenciado via **DatoCMS**, permitindo controle total sobre as seções, ordenação dinâmica e atualizações em tempo real que disparam deploys automáticos.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Funcionalidades principais
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Interface 100% responsiva e personalizada, criada no Figma e implementada em React com Styled Components.
+- Conteúdo dinâmico gerenciado via DatoCMS, com integração contínua (CI/CD) que realiza deploy automático a cada atualização.
+- SEO dinâmico configurável, incluindo robots.txt e sitemap.xml.
+- Estrutura flexível da página com controle total sobre posição e visibilidade das seções via CMS.
+- Futuro suporte a testes end-to-end com Cypress e Skeleton para otimizar a experiência do usuário durante carregamentos.
+- Notificações amigáveis via React Toastify.
+- Navegação suave e estilizada com React Scroll.
+- Experiências animadas e interativas com Motion.
+- Carrossel de imagens eficiente com Swiper.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+### Front-End
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js 15.2.1** – Framework React para renderização híbrida (SSG, SSR e CSR).
+- **React 19.0.0** – Biblioteca para criação da interface.
+- **Styled Components 6.1.15** – Estilização modular e dinâmica baseada em CSS-in-JS.
+- **TypeScript 5** – Tipagem estática para segurança e produtividade.
+- **React Scroll** – Navegação suave entre seções.
+- **React Toastify** – Feedback visual para notificações.
+- **Motion** – Animações fluidas e modernas.
+- **Swiper** – Componentes para carrosséis e sliders responsivos.
+- **Lodash** – Utilitários funcionais.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Dev Tools e Qualidade
 
-## Deploy on Vercel
+- **ESLint 9** e **eslint-config-next** – Análise estática para manter padrão e qualidade do código.
+- **Cypress 14.1.0** e **@testing-library/cypress** – Testes end-to-end automatizados (em desenvolvimento).
+- **TypeScript** para garantir a tipagem.
+- **SVGR Webpack** – Importação e uso de SVGs como componentes React.
+- **Wait-on** – Espera de recursos para pipelines de build e deploy.
+- **Vercel CLI** – Deploy contínuo e preview automático via integração com Vercel.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Scripts Úteis
+
+| Script           | Descrição                                     |
+|------------------|-----------------------------------------------|
+| `dev`            | Inicia ambiente de desenvolvimento Next.js    |
+| `build`          | Cria build otimizado para produção            |
+| `lint`           | Executa análise estática do código            |
+| `lint:fix`       | Aplica correções automáticas no código        |
+| `type-check`     | Checa tipos TypeScript sem gerar arquivos     |
+| `cy:open`        | Abre interface Cypress para testes e2e        |
+| `cy:run`         | Executa testes Cypress no modo headless       |
+| `deploy:staging` | Builda e realiza deploy automático no staging |
+| `deploy:prod`    | Deploy para produção via pipeline CI/CD       |
+| `deploy:preview` | Gera preview automático para Pull Requests    |
+
+---
+
+## Integração com DatoCMS
+
+- O conteúdo é alimentado diretamente via DatoCMS, permitindo editar textos, imagens e reorganizar seções.
+- A cada alteração no CMS, um webhook dispara o deploy automático no Vercel, garantindo que o site esteja sempre atualizado.
+- Possibilita flexibilidade e autonomia para equipes não técnicas gerenciarem o site sem depender de deploy manual.
+
+---
+
+## Próximos passos
+
+- Implementação de testes e2e completos usando Cypress para garantir qualidade contínua.
+- Uso de Skeleton Loading para melhorar experiência durante carregamentos lentos.
+- Monitoramento e otimização contínua de SEO e performance.
+- Eventuais integrações com outras ferramentas de marketing digital.
+
+---
+
+## Links úteis
+
+- [Site em produção](https://eduardo-marketing-digital.vercel.app/)
+
+---
+
+## Preview
+
+![Design para desktop](./public/design/desktop-preview.jpg)
