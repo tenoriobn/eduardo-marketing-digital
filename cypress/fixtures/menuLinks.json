@@ -1,0 +1,9 @@
+{
+  "links": [
+    { "id": "1", "label": "Início", "url": "#inicio" },
+    { "id": "2", "label": "Serviços", "url": "#servicos" },
+    { "id": "3", "label": "Sobre", "url": "#sobre" },
+    { "id": "4", "label": "Depoimentos", "url": "#depoimentos" },
+    { "id": "5", "label": "Contato", "url": "#contato" }
+  ]
+}
