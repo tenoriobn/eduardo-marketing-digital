@@ -1,11 +1,10 @@
-import { NavLinksProps } from './navLinks.type';
 import styled from 'styled-components';
+import { Link } from 'react-scroll';
+import { NavLinksProps } from './navLinks.type';
 import CTALink from '../CTALink';
 import { BorderGradientContainer } from 'src/styles/ui/BorderGradient';
 import { boxShadow, linkHover } from 'src/styles';
 import { AnimatePresence, motion } from 'motion/react';
-import { Link, scrollSpy } from 'react-scroll';
-import { useEffect } from 'react';
 import useScrollSpyInit from './useScrollSpyInit';
 
 const Styled = {
